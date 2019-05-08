@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/complain_container"
+    android:background="@drawable/curved_snackbar"
+    android:clickable="true"
+    android:layout_marginBottom="@dimen/dimen_10dp"
+    >
+    <RelativeLayout
+        android:paddingLeft="@dimen/dimen_25dp"
+        android:paddingBottom="@dimen/dimen_15dp"
+        android:paddingTop="@dimen/dimen_15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--  <LinearLayout
+              android:id="@+id/linear_second"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <TextView
+                  android:id="@+id/complain_title"
+                  android:text="Other Complaints"
+                  android:layout_gravity="center"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:singleLine="true"
+                  android:textColor="#000000"
+                  android:textSize="@dimen/dimen_18sp" />
+              <Button
+                  android:gravity="center"
+                  android:id="@+id/complaints_status"
+                  android:layout_width="@dimen/dimen_50dp"
+                  android:layout_height="@dimen/dimen_20dp"
+                  android:layout_alignParentEnd="true"
+                  android:layout_alignParentRight="true"
+                  android:layout_gravity="right"
+                  android:layout_marginRight="@dimen/padding_10"
+                  android:background="@drawable/ticket_status"
+                  android:paddingLeft="@dimen/padding_10"
+                  android:paddingRight="@dimen/padding_10"
+                  android:text="Queued"
+                  android:textColor="@color/white"
+                  android:textSize="@dimen/padding_10"
+                  android:textStyle="bold" />
+              &lt;!&ndash;
+                          <Button
+                              android:layout_width="wrap_content"
+                              android:layout_height="@dimen/dimen_30dp"
+                              android:layout_alignParentEnd="true"
+                              android:layout_alignParentRight="true"
+                              android:layout_gravity="end"
+                              android:layout_marginLeft="@dimen/dimen_5dp"
+                              android:layout_marginRight="@dimen/padding_10"
+                              android:background="@drawable/ticket_status"
+                              android:backgroundTint="tag"
+                              android:paddingLeft="@dimen/padding_10"
+                              android:paddingRight="@dimen/padding_10"
+                              android:text="Queued"
+                              android:textColor="@color/white"
+                              android:textSize="@dimen/padding_10"
+                              android:textStyle="bold" />&ndash;&gt;
+          </LinearLayout>-->
+        <LinearLayout
+            android:id="@+id/linear_second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:layout_weight="5"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="left"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/dimen_15dp"
+                android:textStyle="bold"
+                android:text="Title :"></TextView>
+            <TextView
+                android:id="@+id/complain_title"
+                android:layout_width="@dimen/dimen_100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight=".8"
+                android:gravity="left"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/dimen_15dp"
+                android:textStyle="bold"
+                android:text="Other Complain"></TextView>
+            <Button
+                android:id="@+id/complaints_status"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_25dp"
+                android:layout_gravity="end"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:layout_weight=".4"
+                android:background="@drawable/ticket_status"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_three"
+                android:textStyle="bold"
+                android:text="Complain"></Button>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_below="@+id/linear_second"
+            android:id="@+id/first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="12/4/2019 T 14:55:45"
+                android:id="@+id/complaints_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="@dimen/dimen_15sp" />
+            <!--  <Button
+                  android:id="@+id/view_complains_List"
+                  android:layout_width="match_parent"
+                  android:layout_height="@dimen/dimen_30dp"
+                  android:layout_alignParentEnd="true"
+                  android:layout_alignParentRight="true"
+                  android:layout_gravity="end"
+                  android:layout_marginLeft="@dimen/dimen_5dp"
+                  android:layout_marginRight="@dimen/padding_10"
+                  android:background="@drawable/ticket_status"
+                  android:backgroundTint="tag"
+                  android:paddingLeft="@dimen/padding_10"
+                  android:paddingRight="@dimen/padding_10"
+                  android:text="Queued"
+                  android:textColor="@color/white"
+                  android:textSize="@dimen/padding_10"
+                  android:textStyle="bold" />-->
+        </LinearLayout>
+        <LinearLayout
+            android:layout_below="@id/first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Type  : Ticket"
+                android:id="@+id/complaints_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textSize="@dimen/dimen_15sp" />
+            <TextView
+                android:id="@+id/complaints_state"
+                android:text="State  : Open"
+                android:layout_marginLeft="@dimen/dimen_25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textSize="@dimen/dimen_15sp" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_override_one"
+            android:background="#c0c0c0"
+            android:visibility="gone"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

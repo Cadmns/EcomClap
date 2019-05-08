@@ -1,0 +1,64 @@
+<resources>
+    <dimen name="cardCornerRadius_16dp">8dp</dimen>
+    <!--views margin-->
+    <dimen name="margin_override_one">5dp</dimen>
+    <dimen name="margin_override_two">8dp</dimen>
+    <dimen name="margin_override_three">10dp</dimen>
+    <dimen name="margin_override_fifth">24dp</dimen>
+    <dimen name="margin_override_sixth">70dp</dimen>
+
+    <dimen name="row_padding_vertical">10dp</dimen>
+    <dimen name="margin_medium">8dp</dimen>
+    <dimen name="dots_height">30dp</dimen>
+    <dimen name="dots_margin_bottom">20dp</dimen>
+
+    <dimen name="text_size_small">10dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <!--CardView Margin-->
+    <dimen name="cardView_bottom_margin">15dp</dimen>
+
+    <dimen name="profile_about">13dp</dimen>
+
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="fab_profile">30dp</dimen>
+    <dimen name="dimen_8dp">8dp</dimen>
+
+    <!--views Padding-->
+    <dimen name="padding_override_one">5dp</dimen>
+    <dimen name="padding_override_two">10dp</dimen>
+    <dimen name="padding_large_view">30dp</dimen>
+    <dimen name="left_right_padding">24dp</dimen>
+
+    <!--in sp-->
+    <dimen name="font_size_two">12sp</dimen>
+    <dimen name="font_size_three">10sp</dimen>
+    <dimen name="font_size_fifth">13sp</dimen>
+    <dimen name="font_size_sixth">16sp</dimen>
+    <dimen name="header_title">30sp</dimen>
+    <dimen name="header_subtitle">19sp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <dimen name="detail_backdrop_height">250dp</dimen>
+    <dimen name="backdrop_title">30dp</dimen>
+    <dimen name="backdrop_subtitle">18dp</dimen>
+    <dimen name="card_margin">5dp</dimen>
+    <dimen name="card_album_radius">0dp</dimen>
+
+
+    <dimen name="margin_small">4dp</dimen>
+        <dimen name="text_size_medium">12dp</dimen>
+        <dimen name="text_size_xmedium">14dp</dimen>
+        <dimen name="text_size_large">16dp</dimen>
+        <!--Strings-->
+
+
+    <dimen name="view_width_small">1dp</dimen>
+
+
+    <dimen name="space">20dp</dimen>
+    <dimen name="bottom_sheet_height">400dp</dimen>
+    </resources>

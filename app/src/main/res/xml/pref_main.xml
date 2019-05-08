@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
+   <!--  <Preference
+         android:key="@string/key_Address"
+         android:title="@string/address_header" />
+-->
+
+    <!-- <Preference
+         android:title="@string/title_Orders"
+         android:key="@string/key_orders_number" />-->
+
+
+    <!--<Preference
+        android:title="@string/contact_header"
+        android:key="@string/key_contact" />-->
+        <Preference
+            android:title="Schedule product"
+            android:key="@string/key_schedule_my_product" />
+
+    <Preference
+        android:title="My Account"
+        android:key="@string/key_my_account" />
+
+    <Preference
+        android:title="My Orders"
+        android:key="@string/key_my_orders" />
+
+    <Preference
+        android:title="My Wallets"
+        android:key="@string/key_my_wallet" />
+
+
+    <!--<Preference
+        android:title="My Coupons"
+        android:key="@string/key_my_coupons" />-->
+
+    <Preference
+        android:title="My Scheduled Products"
+        android:key="@string/key_my_scheduled_product" />
+   <!-- <Preference
+        android:title="Reference Center"
+        android:key="@string/key_my_reference_center" />-->
+
+
+    <Preference
+        android:title="Complaint and Queries"
+        android:key="@string/key_my_complaints_query" />
+
+    <Preference
+        android:title="My Referral"
+        android:key="@string/key_my_referral" />
+    <Preference
+        android:key="@string/key_log_out"
+        android:title="@string/title_log_out" />
+    <Preference
+        android:selectable="true"
+        android:title="Login"
+        android:key="@string/key_log_in" />
+    <Preference
+        android:selectable="true"
+        android:title="Rate Us"
+        android:key="@string/key_rate_us" />
+
+
+
+
+
+
+    <!--
+
+
+
+        &lt;!&ndash; preference opens url in browser &ndash;&gt;
+        <Preference
+            android:summary="@string/summary_faq"
+            android:title="@string/title_faq">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/url_faq" />
+        </Preference>
+
+        <Preference android:title="@string/privacy_policy">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/url_privacy" />
+        </Preference>
+
+        <Preference android:title="@string/title_terms">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/url_terms" />
+        </Preference>
+    -->
+
+</PreferenceScreen>

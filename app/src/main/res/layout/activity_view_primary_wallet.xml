@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".activity.wallet_activity.ViewPrimaryWallet">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:contentInsetEnd="0dp"
+            android:contentInsetLeft="72dp"
+            android:contentInsetRight="0dp"
+            android:contentInsetStart="72dp"
+            android:minHeight="?attr/actionBarSize"
+            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            local:popupTheme="@style/MyCustomToolBarTheme"
+            local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            <RelativeLayout
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/white"
+                    android:text="EcommClap"
+                    android:textSize="@dimen/dimen_20sp"
+                    android:fontFamily="sans-serif-condensed"
+                    />
+                <TextView
+                    android:textAlignment="center"
+                    android:layout_below="@+id/one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@android:color/white"
+                    android:text="EcommClap wallet"
+                    android:textSize="@dimen/padding_10"
+                    android:fontFamily="sans-serif-condensed"
+                    />
+
+            </RelativeLayout>
+            <ImageView
+                android:layout_toRightOf="@+id/one"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ic_searchbar"
+                android:layout_width="@dimen/dimen_20dp"
+                android:layout_height="@dimen/dimen_20dp"
+                android:foregroundGravity="right"
+                android:visibility="gone"
+                android:layout_gravity="right"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:layout_alignParentRight="true"
+                />
+        </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+    >
+    <RelativeLayout
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:paddingLeft="@dimen/dimen_20dp"
+
+        android:id="@+id/top_text_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:textColor="#010D12"
+            android:id="@+id/Wallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dimen_18dp"
+            android:text="Ecomm Wallet"/>
+        <ImageView
+            android:id="@+id/mruppe_icon"
+            android:layout_width="@dimen/dimen_20dp"
+            android:layout_height="@dimen/dimen_20dp"
+            android:layout_below="@+id/Wallet"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_rupee_logo"
+            android:textColor="#00070E" />
+        <TextView
+            android:id="@+id/ammount"
+            android:layout_toRightOf="@+id/mruppe_icon"
+            android:textColor="#010D12"
+            android:layout_below="@+id/Wallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dimen_20sp"
+            android:layout_marginLeft="@dimen/dimen_2dp"
+            android:text=""/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:padding="@dimen/dimen_20dp"
+        android:paddingBottom="@dimen/dimen_20dp"
+        android:background="@drawable/ic_wallet_bg"
+        android:id="@+id/wallet_actions"
+        android:layout_below="@+id/top_text_container"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/add_money"
+            android:clickable="true"
+            android:background="@drawable/cardviewborderradius"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            >
+            <RelativeLayout
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/wallet_text"
+                    android:layout_toRightOf="@+id/image"
+                    android:gravity="center"
+                    android:text="Add money to Ecom Wallet"
+                    android:textColor="#4287CC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    app:layout_anchorGravity="bottom|right|top"
+                    android:layout_gravity="end"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:drawableRight="@drawable/ic_right_arrow"
+                    />
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="@dimen/dimen_1dp"
+            android:clickable="true"
+            android:visibility="gone"
+            android:background="@drawable/cardviewborderradius"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            >
+            <RelativeLayout
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_toRightOf="@+id/image"
+                    android:gravity="center"
+                    android:text="Request Statement"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    app:layout_anchorGravity="bottom|right|top"
+                    android:layout_gravity="end"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+
+                    android:drawableRight="@drawable/ic_right_arrow"
+                    />
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:background="#E8E8E9"
+            android:layout_below="@+id/wallet_actions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/history_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="@dimen/dimen_50dp"
+                android:clipToPadding="false"/>
+
+        </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</RelativeLayout>

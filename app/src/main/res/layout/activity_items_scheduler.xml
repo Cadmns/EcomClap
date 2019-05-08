@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.schedule_products.ItemsSchedulerActivity">
+    <android.support.design.widget.AppBarLayout
+        android:background="@color/colorPrimary"
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_gravity="center"
+                android:textColor="#FFF"
+                android:text="Schedule You Daily Needs"
+                android:textSize="@dimen/dimen_18sp"/>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <RelativeLayout
+        android:layout_below="@id/appbar"
+        android:id="@+id/parrent"
+        android:layout_width="match_parent"
+
+        android:layout_height="150dp">
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_clock"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_centerInParent="true"
+        android:id="@+id/select_schedule_type"
+        android:layout_below="@+id/parrent"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:padding="@dimen/padding_10"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:drawableLeft="@drawable/ic_forward"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="@dimen/dimen_12sp"
+            android:layout_width="wrap_content"
+            android:text="Select below How you want to schedule product"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/select_schedule_type"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dimen_24dp"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:buttonTint="@color/colorPrimaryDark"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/first_check"
+            android:text="Daily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+        <CheckBox
+            android:id="@+id/second_check"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:layout_below="@+id/select_schedule_type"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Daily excluding weekends"
+            android:layout_width="wrap_content"
+            android:buttonTint="@color/colorPrimaryDark"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+        <CheckBox
+            android:id="@+id/third_check"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:layout_below="@+id/select_schedule_type"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Weekly ( on a specific day of week)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:buttonTint="@color/colorPrimaryDark"
+            />
+        <CheckBox
+            android:id="@+id/four_check"
+            android:buttonTint="@color/colorPrimaryDark"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:layout_below="@+id/select_schedule_type"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="By-weekly (on a specific day of 2 week)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_marginRight="@dimen/dimen_50dp"
+        android:layout_marginLeft="@dimen/dimen_50dp"
+        android:background="@drawable/tag_banner"
+        android:textStyle="bold"
+        android:text="Schedule"
+        android:textColor="@color/white"
+          android:id="@+id/schedular_product"
+        android:layout_marginBottom="@dimen/padding_10"
+        android:layout_height="wrap_content">
+
+
+
+    </Button>
+
+
+
+
+</RelativeLayout>

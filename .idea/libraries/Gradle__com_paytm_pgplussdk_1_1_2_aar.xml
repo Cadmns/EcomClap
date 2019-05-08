@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.paytm:pgplussdk:1.1.2@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2bc39727c0963fbb3215ca4dadb6732a/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2bc39727c0963fbb3215ca4dadb6732a/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.paytm/pgplussdk/1.1.2/13f5e732a7f1d2aecf9727cdeb001c20cad49652/pgplussdk-1.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

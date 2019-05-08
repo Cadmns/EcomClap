@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="wrap_content">
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:contentInsetEnd="0dp"
+        android:contentInsetLeft="72dp"
+        android:contentInsetRight="0dp"
+        android:contentInsetStart="72dp"
+        android:minHeight="?attr/actionBarSize"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        local:popupTheme="@style/MyCustomToolBarTheme"
+        local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!--if any problem is arise than change (android:)  to (app:) -->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:singleLine="true"
+            android:layout_gravity="center"
+            android:textColor="#FFF"
+            android:textSize="@dimen/dimen_18sp" />
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:id="@+id/not_login_yet"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dimen_15sp"
+            android:background="@drawable/ic_loginfirst"
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/login_first_btn"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:background="@drawable/tag_banner"
+            android:layout_below="@+id/not_login_yet"
+            android:layout_width="wrap_content"
+            android:text="Login Here"
+            android:padding="@dimen/dimen_15dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_below="@+id/not_login_yet"
+            android:layout_width="wrap_content"
+            android:text="You have not login yet please login to procced"
+            android:padding="@dimen/padding_10"
+            android:textColor="@color/colorPrimary"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <RelativeLayout
+        android:background="#ffffff"
+        android:visibility="visible"
+        android:id="@+id/profile_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+        <include layout="@layout/_user_profile"
+            android:id="@+id/profile_layout"/>
+        <FrameLayout
+            android:background="#ffffff"
+            android:id="@+id/containerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/profile_layout" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.UpdatePaymentDetailsActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="5dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="#FFF"
+            android:fontFamily="sans-serif"
+            android:text="@string/app_name"
+            android:textSize="20sp"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/header_message"
+        android:layout_marginTop="@dimen/padding_large_view"
+        android:gravity="center"
+        android:paddingTop="@dimen/padding_large_view"
+        android:lineSpacingExtra="2dp"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/header_title"/>
+
+    <Space
+        android:id="@+id/spacer"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/header_message"
+        android:layout_height="@dimen/left_right_padding" />
+
+    <TextView
+        android:id="@+id/page_slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spacer"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="@dimen/padding_large_view"
+        android:paddingRight="@dimen/padding_large_view"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/header_subtitle"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginBottom="@dimen/left_right_padding" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:lottie_autoPlay="true"
+        android:layout_below="@+id/page_slogan"
+        app:lottie_loop="true"
+        app:lottie_fileName="delivery_van.json"/>
+
+
+</RelativeLayout>
+
+

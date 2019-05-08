@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">EcommClap</string>
+    <string name="login_title">Login</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="no_internet_text">Please Connect to internet</string>
+    <!--bottom Navigation drawer-->
+    <string name="title_Home">Home</string>
+    <string name="title_user_profile">Profile</string>
+    <string name="title_scheduled_products">Scheduled Products</string>
+
+    <string name="title_check_out">Checkout</string>
+    <string name="noOrders">There is no new Orders.</string>
+    <string name="title_saved_address">Saved Address</string>
+    <string name="title_registartion">Registration</string>
+    <string name="title_update">Update Details</string>
+
+    <string name="action_cart">Cart</string>
+    <string name="sub_booking_date">YOUR SELECTED DATE : </string>
+
+
+    <string name="title_addCart">Cart</string>
+    <string name="title_schedule_products">Schedule Products</string>
+    <string name="all_service_">All Service</string>
+
+    <string name="title_faq">FAQ</string>
+    <string name="summary_faq">View frequently asked questions</string>
+    <string name="url_faq">http://techlabdigital.com/</string>
+    <string name="privacy_policy">Privacy Policy</string>
+
+    <string name="key_schedule_my_product">key_schedule_my_product</string>
+    <string name="key_my_account">my_account</string>
+    <string name="key_my_orders">my_orders</string>
+    <string name="key_my_wallet">my_wallet</string>
+    <string name="key_my_scheduled_product">my_scheduled_product</string>
+    <string name="key_my_complaints_query">my_complaints_query</string>
+    <string name="key_my_referral">my_referral</string>
+
+    <string name="key_log_out">log_out</string>
+    <string name="key_log_in">log_in</string>
+    <string name="key_rate_us">rate_us</string>
+
+    <string name="url_privacy">http://techlabdigital.com/</string>
+    <string name="title_terms">Terms &amp; Conditions</string>
+    <string name="url_terms">http://techlabdigital.com/</string>
+    <string name="title_log_out">Log out</string>
+    <string name="title_contact_us">Contact Us</string>
+    <string name="title_about_us">About Us</string>
+
+    <string name="hint_phone_number">Enter your mobile number</string>
+
+    <string name="get_started">Get\'s Started</string>
+    <string name="code_sent">code sent</string>
+    <!--otp strings-->
+    <string name="otp_message">Please type the verification code sent to +91</string>
+    <string name="fall_to_detct">in case we fail to detect it automatically.</string>
+    <string name="resend_code">Resend code?</string>
+    <string name="wrong_phone_number">Check your phone number</string>
+    <string name="too_many_otp_request">There are so many OTP request.so please try after some time.</string>
+    <string name="provide_credentials">Please provide the credentials</string>
+    <!--<string name="sign_in_google">Continue with Google</string>-->
+    <string name="invalid_code">Invalid code.</string>
+
+    <string name="key_contact">contact</string>
+    <string name="contact_header">Contact Us</string>
+
+    <string name="key_about_us">about</string>
+    <string name="about_header">About Us</string>
+
+    <string name="pin_content_desc">PIN input field</string>
+
+    <string name="view_history_">View your shopping orders</string>
+    <string name="almost_there">Almost there!</string>
+    <string name="recommend_message">Our Team, works very hard till sit relax while we create your order </string>
+    <string name="add_order_status">Order Status</string>
+    <string name="connect_to_internet">Connect to Internet</string>
+    <string name="internet_message">Internet connection anavailable </string>
+
+    <string name="Complaint_query">Complain and Query</string>
+    <string name="offers">Offers</string>
+
+</resources>

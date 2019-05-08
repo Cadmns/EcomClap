@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:id="@+id/swipe"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    tools:context=".activity.NewCategoryActivity"
+    >
+
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/main_screen"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/label1"
+            android:layout_height="180dp">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/mshimmer_view_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                shimmer:duration="1000">
+                <!-- Adding 3 rows of placeholders -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!--
+                                            <include layout="@layout/placeholder_image_slider" />
+                    -->
+                    <!--  <android.support.v4.view.ViewPager
+                          android:id="@+id/vp_slider"
+                          android:layout_width="match_parent"
+                          android:layout_height="200dp"
+                          android:layout_marginTop="30dp"
+                          android:paddingLeft="34dp"
+                          android:paddingRight="12dp">
+                        &lt;!&ndash;  <include layout="@layout/placeholder_image_slider" />&ndash;&gt;
+                      </android.support.v4.view.ViewPager>-->
+                </RelativeLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp">
+                <ViewFlipper
+                    android:id="@+id/vp_slider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+                    <!--<ImageView
+                         android:id="@+id/image"
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                       />-->
+                </ViewFlipper>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sliderDots"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label1"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@color/color_white"
+            android:layout_below="@+id/sliderDots"
+            android:layout_above="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal">
+            <android.support.v7.widget.RecyclerView
+                android:background="@color/color_white"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:scrollbars="none"
+                android:scrollbarStyle="insideInset"
+                android:scrollbarFadeDuration="0"
+                android:id="@+id/recycler_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/internetConnection"
+        android:visibility="gone">
+
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/noInternet"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:lottie_fileName="no-internet-connection.json"
+            android:layout_marginTop="45dp"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/noInternet"
+            android:text="check your internet connection !"
+            android:textColor="#848484"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

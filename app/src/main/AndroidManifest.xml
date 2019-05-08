@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="techlab.digital.com.ecommclap">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+    <application
+        android:name=".app.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:targetApi="m">
+        <activity android:name=".activity.schedule_products.ScheduledCartActivity"></activity>
+        <activity android:name=".activity.schedule_products.SchedulableItemsActivity" />
+        <activity android:name=".activity.schedule_products.ItemsSchedulerActivity" />
+        <activity android:name=".activity.VerifyPhoneActivity" />
+        <activity android:name=".activity.auth.ResetPasswordActivity" />
+        <activity android:name=".activity.ShowScheduledProducts" />
+        <activity android:name=".activity.ScheduledParentsProductsActivity" />
+        <activity android:name=".activity.ReferallsActivity" />
+        <activity android:name=".activity.NewCategoryActivity" />
+        <activity android:name=".activity.wallet_activity.ShowUserOrdersActivity" />
+        <activity android:name=".activity.UpdatePaymentDetailsActivity" />
+        <activity android:name=".activity.wallet_activity.AddMoneyToWallet" />
+        <activity android:name=".activity.wallet_activity.ViewPrimaryWallet" />
+        <activity android:name=".activity.wallet_activity.EcomWalletActivity" />
+        <activity android:name=".activity.CheckoutProductActivity" />
+        <activity android:name=".activity.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.ComplaintActivity" />
+        <activity android:name=".activity.auth.LoginActivity" />
+        <activity android:name=".activity.auth.ForgotPasswordActivity" />
+        <activity android:name=".activity.UserProfileActivity" />
+        <activity android:name=".activity.AllServiceActivity" />
+        <activity android:name=".activity.ProductListings" />
+        <activity android:name=".activity.ServiceDescriptionActivity" />
+        <activity android:name=".activity.ProductDescriptionActivity" />
+        <activity android:name=".activity.CartActivity" />
+        <activity android:name=".activity.UserAddress" />
+        <activity android:name=".activity.ContactUsActivity" />
+        <activity android:name=".activity.AboutUsActivity" />
+        <activity android:name=".dialog.RegistrationFragmentDialog" />
+        <activity android:name=".activity.UserConfirmation" />
+        <activity android:name=".activity.UserAuthentication" />
+        <activity android:name=".activity.CheckOutServiceActivity" />
+        <activity android:name=".activity.UpdateUserDetails" />
+        <activity android:name=".activity.PaytmGatweyActivity" />
+        <activity android:name=".activity.AppInformationActivity" />
+        <activity android:name=".activity.MyAccountActivity" />
+        <activity android:name=".dialog.UpdateBillingAdd" /> <!-- adding my chages activity to final project -->
+        <activity android:name=".activity.ChatHistoryActivity" />
+        <activity android:name=".activity.ViewLockedComplainActivity" />
+        <activity android:name=".activity.ScheduleProductCalenderView" />
+
+        <service
+            android:name=".services.services.FetchCategoryServiceOne"
+            android:icon="@drawable/ic_mphone"
+            android:label="fetch_category">
+            <intent-filter>
+                <action android:name="com.mysite.appname.MyStaticString.PLAY_FINISHED" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FCFCFC"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_15dp"
+
+    android:layout_marginTop="@dimen/dimen_1dp">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:foregroundGravity="center"
+        android:id="@+id/image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_rupees"
+        />
+   <!-- <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/dimen_70dp"
+        android:layout_height="@dimen/dimen_70dp"
+        android:layout_marginLeft="@dimen/dimen_5dp"
+
+        android:elevation="21dp"
+        android:src="@drawable/ic_rupees"
+        tools:ignore="VectorDrawableCompat" />-->
+    <TextView
+        android:id="@+id/history_title"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_toRightOf="@+id/image"
+        android:text="Added to Wallet"
+        android:textColor="#4287CC"
+        android:textStyle="bold" />
+  <ImageView
+      android:id="@+id/ruppe_logo"
+      android:layout_marginTop="@dimen/dimen_10dp"
+      android:layout_alignParentTop="true"
+      android:layout_toRightOf="@+id/history_title"
+      android:layout_gravity="center"
+      android:layout_marginLeft="@dimen/dimen_5dp"
+      android:background="@drawable/ic_indian_rupee"
+      android:layout_width="@dimen/dimen_10dp"
+      android:layout_height="@dimen/dimen_12dp"
+      android:layout_below="@id/history_title"
+      />
+
+
+    <TextView
+        android:id="@+id/balance"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/ruppe_logo"
+        android:layout_gravity="right"
+        android:text="110.07"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/history_title"
+        />
+    <TextView
+        android:id="@+id/timing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/history_title"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_toRightOf="@+id/image"
+        android:text="08:36 PM"
+        android:textColor="#000000" />
+
+
+</RelativeLayout>

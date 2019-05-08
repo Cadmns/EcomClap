@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.schedule_products.SchedulableItemsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:background="@color/colorPrimary"
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_gravity="center"
+                android:textColor="#FFF"
+                android:text="Schedule You Daily Needs"
+                android:textSize="@dimen/dimen_18sp"/>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/schedule_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appbar" />
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/checkout_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:gravity="end"
+        android:layout_height="wrap_content">
+<!--
+        <android.support.v7.widget.AppCompatButton
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:layout_marginRight="@dimen/dimen_20dp"
+            android:background="@drawable/tag_banner"
+            android:layout_width="150dp"
+            android:text="Checkout"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content" />-->
+        <at.markushi.ui.CircleButton
+            android:id="@+id/vertual_cart"
+            android:layout_width="64dip"
+            android:layout_height="64dip"
+            android:layout_marginRight="@dimen/dimen_20dp"
+            android:src="@drawable/ic_shopping_cart_black_24dp"
+            app:cb_color="#009688"
+            app:cb_pressedRingWidth="8dip" />
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

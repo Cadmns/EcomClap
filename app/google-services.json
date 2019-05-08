@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "242617350176",
+    "firebase_url": "https://ecommclap.firebaseio.com",
+    "project_id": "ecommclap",
+    "storage_bucket": "ecommclap.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242617350176:android:5b698fa4a376b6d5",
+        "android_client_info": {
+          "package_name": "techlab.digital.com.ecommclap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "242617350176-qksk9uhgkihnt111n9j9t6pgt5u4hc45.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "techlab.digital.com.ecommclap",
+            "certificate_hash": "a950229850c3d8c8eb7b008206614eff1150610a"
+          }
+        },
+        {
+          "client_id": "242617350176-18a79v1oh08uj93ns7qdmn8n9ib7fceg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7OAauWjkzxcVZcaY1rz2bSSr16ggaF-E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "242617350176-18a79v1oh08uj93ns7qdmn8n9ib7fceg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

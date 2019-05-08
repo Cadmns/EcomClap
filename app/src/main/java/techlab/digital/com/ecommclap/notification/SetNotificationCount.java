@@ -1,0 +1,33 @@
+package techlab.digital.com.ecommclap.notification;
+
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
+
+
+import techlab.digital.com.ecommclap.R;
+
+/**
+ * Created by Dhruv on 4/13/2016.
+ */
+public class SetNotificationCount {
+    public static void setBadgeCount(Context context, LayerDrawable icon, int count) {
+
+        BadgeDrawable badge;
+
+        // Reuse drawable if possible
+        Drawable reuse = icon.findDrawableByLayerId(R.id.ic_badge);
+        if (reuse != null && reuse instanceof BadgeDrawable) {
+            badge = (BadgeDrawable) reuse;
+        } else {
+            badge = new BadgeDrawable(context);
+        }
+
+         //   badge.setTint(ContextCompat.getColor(context, R.color.gen_black), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+        badge.setCount(count);
+        icon.mutate();
+
+        icon.setDrawableByLayerId(R.id.ic_badge, badge);
+    }
+}

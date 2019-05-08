@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true"
+    android:id="@+id/relativelayout">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar">
+
+    </include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/toolbar"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/left_right_padding"
+        android:paddingRight="@dimen/left_right_padding"
+        android:weightSum="5">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/untitled"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight=".1"
+                android:drawableLeft="@drawable/ic_india"
+                android:drawablePadding="@dimen/padding_override_one"
+                android:drawableStart="@drawable/ic_india"
+                android:paddingLeft="@dimen/left_right_padding"
+                android:text="+91"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/font_size_sixth"
+                tools:ignore="NestedWeights" />
+            <!--  Phone Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/margin_override_two"
+                android:layout_weight="1.8"
+                android:theme="@style/TextLabel">
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/mobile_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="1234567890"
+                    android:hint="@string/hint_phone_number"
+                    android:inputType="textCapCharacters|numberSigned|numberDecimal|phone"
+                    android:maxLength="10"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/font_size_sixth" />
+            </android.support.design.widget.TextInputLayout>
+
+
+        </LinearLayout>
+
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/cardView_bottom_margin"
+            android:layout_marginTop="@dimen/left_right_padding"
+            android:background="@drawable/button_bg"
+            android:padding="@dimen/padding_override_two"
+            android:paddingLeft="@dimen/left_right_padding"
+            android:paddingRight="@dimen/left_right_padding"
+            android:text="@string/get_started"
+            android:textColor="@android:color/white"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical|bottom"
+            android:indeterminate="false"
+            android:theme="@style/CircularProgress"
+            android:visibility="gone">
+
+        </ProgressBar>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ComplaintActivity">
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:contentInsetEnd="0dp"
+        android:contentInsetLeft="72dp"
+        android:contentInsetRight="0dp"
+        android:contentInsetStart="72dp"
+        android:minHeight="?attr/actionBarSize"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        tools:ignore="MissingConstraints">
+        <!--if any problem is arise than change (android:)  to (app:) -->
+        <TextView
+            android:text="fd"
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:singleLine="true"
+            android:layout_gravity="center"
+            android:textColor="#FFF"
+            android:textSize="@dimen/dimen_18sp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_30dp"
+            android:layout_gravity="end"
+            android:layout_marginRight="@dimen/padding_10"
+            android:layout_marginLeft="@dimen/dimen_5dp"
+            android:id="@+id/view_complains_List"
+            android:paddingLeft="@dimen/padding_10"
+            android:paddingRight="@dimen/padding_10"
+            android:textSize="@dimen/padding_10"
+            android:background="@drawable/curved_snackbar"
+            android:layout_alignParentEnd="true"
+
+            android:layout_alignParentRight="true"
+            android:textColor="#010000"
+            android:text="View Complains"/>
+    </android.support.v7.widget.Toolbar>
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="#F1EFE1"
+        android:layout_below="@+id/toolbar">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Having trouble?Let us know"
+            android:textAlignment="center"
+            android:textColor="#2B2A2A"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeLayout">
+        <LinearLayout
+            android:id="@+id/linear_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/cant_find_item"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_45dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:background="@drawable/rounded_button"
+                android:text="Con't find my item"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:layout_marginLeft="@dimen/dimen_15dp"
+                android:textSize="@dimen/dimen_15dp" />
+            <TextView
+                android:id="@+id/price_to_high"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_45dp"
+                android:background="@drawable/rounded_button"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Price are to High"
+                android:textSize="@dimen/dimen_15dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLvel1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:layout_below="@+id/linear_top"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/too_less_info"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_45dp"
+                android:background="@drawable/rounded_button"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Too less item info"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:layout_marginLeft="@dimen/dimen_15dp"
+                android:textSize="@dimen/dimen_15dp" />
+            <TextView
+                android:id="@+id/others"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_45dp"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:background="@drawable/rounded_button"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:tag="Others complaint"
+                android:text="Others complaint"
+                android:textSize="@dimen/dimen_15dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/messageLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_135dp"
+            android:layout_below="@+id/linearLvel1"
+            android:background="@drawable/circular_layout"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_weight="5"
+            android:visibility="gone"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:layout_marginLeft="@dimen/dimen_15dp"
+                android:focusableInTouchMode="true"
+                />
+        </LinearLayout>
+        <Button
+            android:id="@+id/submitEmail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_45dp"
+            android:layout_below="@+id/messageLayout"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:background="@drawable/circular_layout"
+            android:text="Submit"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_override_one"
+            android:background="#c0c0c0"
+            android:visibility="gone"
+            android:paddingLeft="@dimen/left_right_padding"
+            android:paddingRight="@dimen/left_right_padding" />
+    </RelativeLayout>
+</RelativeLayout>

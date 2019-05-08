@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:paddingLeft="@dimen/left_right_padding"
+    android:id="@+id/parentView"
+    android:paddingRight="@dimen/left_right_padding">
+    <!--<include layout="@layout/toolbar" />-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/header_message"
+        android:layout_marginBottom="@dimen/left_right_padding"
+        android:layout_marginTop="@dimen/space"
+        android:gravity="center"
+        android:lineSpacingExtra="2dp"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/font_size_fifth"/>
+
+
+    <LinearLayout android:id="@+id/pin_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header_message"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <EditText android:id="@+id/pin_first_edittext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/disale_color"
+            android:backgroundTint="@color/disale_color"
+            android:digits="1234567890"
+            android:inputType="number"
+            android:contentDescription="@string/pin_content_desc"
+            style="@style/otp_edittext_style" />
+
+        <EditText android:id="@+id/pin_second_edittext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:digits="1234567890"
+            android:inputType="number"
+            android:textColor="@color/disale_color"
+            android:backgroundTint="@color/disale_color"
+            android:contentDescription="@string/pin_content_desc"
+            style="@style/otp_edittext_style" />
+
+        <EditText android:id="@+id/pin_third_edittext"
+            android:layout_width="wrap_content"
+            android:textColor="@color/disale_color"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/disale_color"
+            android:digits="1234567890"
+            android:inputType="number"
+            android:contentDescription="@string/pin_content_desc"
+            style="@style/otp_edittext_style" />
+
+        <EditText android:id="@+id/pin_forth_edittext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/disale_color"
+            android:backgroundTint="@color/disale_color"
+            android:digits="1234567890"
+            android:inputType="number"
+            android:contentDescription="@string/pin_content_desc"
+            style="@style/otp_edittext_style" />
+
+        <EditText android:id="@+id/pin_fifth_edittext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/disale_color"
+            android:digits="1234567890"
+            android:backgroundTint="@color/disale_color"
+            android:inputType="number"
+            android:contentDescription="@string/pin_content_desc"
+            style="@style/otp_edittext_style" />
+
+        <EditText android:id="@+id/pin_sixth_edittext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/disale_color"
+            android:backgroundTint="@color/disale_color"
+            android:digits="1234567890"
+            android:inputType="number"
+            android:contentDescription="@string/pin_content_desc"
+            style="@style/otp_edittext_style" />
+    </LinearLayout>
+
+    <EditText android:id="@+id/pin_hidden_edittext"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:background="@null"
+        android:cursorVisible="false"
+        android:password="true"
+        android:maxLength="6"
+        android:textColor="#00000000"
+        android:contentDescription="@string/pin_content_desc" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="end|right"
+        android:layout_height="wrap_content"
+        android:id="@+id/resend_code"
+        android:layout_marginTop="@dimen/margin_override_three"
+        android:text="@string/resend_code"
+        android:textColor="@color/colorAccent"
+        android:layout_marginBottom="@dimen/margin_override_one"
+        android:layout_below="@+id/pin_layout"/>
+
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:indeterminate="false"
+        android:theme="@style/CircularProgress"
+        android:visibility="gone">
+
+    </ProgressBar>
+
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_submit"
+        android:layout_below="@+id/resend_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cardview_light_background"
+        android:layout_marginBottom="@dimen/cardView_bottom_margin"
+        android:layout_marginTop="@dimen/left_right_padding"
+        android:background="@drawable/button_bg"
+        android:padding="@dimen/padding_override_two"
+        android:text="Proceed"
+        android:textStyle="bold" />
+
+</RelativeLayout>
+

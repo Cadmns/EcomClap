@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:context=".activity.wallet_activity.EcomWalletActivity">
+
+    <android.support.v7.widget.Toolbar
+
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:contentInsetEnd="0dp"
+        android:contentInsetLeft="72dp"
+        android:contentInsetRight="0dp"
+        android:contentInsetStart="72dp"
+        android:minHeight="?attr/actionBarSize"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        local:popupTheme="@style/MyCustomToolBarTheme"
+        local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <RelativeLayout
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"
+                android:text="EcommClap"
+                android:textSize="@dimen/dimen_20sp"
+                android:fontFamily="sans-serif-condensed"
+                />
+            <TextView
+                android:textAlignment="center"
+                android:layout_below="@+id/one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"
+                android:text="EcommClap wallet"
+                android:textSize="@dimen/padding_10"
+                android:fontFamily="sans-serif-condensed"
+                />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:padding="@dimen/dimen_10dp"
+        android:background="#C8E8F5"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:id="@+id/top_text_container"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_shoppingicon"
+            android:drawableRight="@drawable/ic_right_arrow"
+            android:drawablePadding="@dimen/dimen_15dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:text="@string/view_history_"/>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+
+        android:layout_below="@+id/top_text_container"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/primary_wallet"
+            android:clickable="true"
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_100dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            card_view:cardCornerRadius="@dimen/cardCornerRadius_16dp"
+            card_view:cardElevation="@dimen/dimen_2dp"
+            card_view:cardMaxElevation="@dimen/dimen_2dp"
+            >
+            <RelativeLayout
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/margin_20dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="@dimen/dimen_50dp"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_newwallet" />
+
+                <TextView
+                    android:id="@+id/wallet_text"
+                    android:layout_toRightOf="@+id/image"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:gravity="center"
+                    android:text="Primary Wallet"
+                    android:textColor="#00070E"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <ImageView
+                    android:id="@+id/ruppe_icon"
+                    android:layout_width="@dimen/dimen_20dp"
+                    android:layout_height="@dimen/dimen_15dp"
+                    android:layout_below="@+id/wallet_text"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_toRightOf="@+id/image"
+                    android:background="@drawable/ic_rupee_logo"
+                    android:textColor="#00070E" />
+                <TextView
+                    android:id="@+id/wallet_bal"
+                    android:layout_toRightOf="@+id/ruppe_icon"
+                    android:layout_below="@+id/wallet_text"
+                    android:layout_marginLeft="@dimen/dimen_6dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:text="....."
+                    android:textColor="#00070E"
+                    android:layout_width="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    app:layout_anchorGravity="bottom|right|top"
+                    android:layout_gravity="end"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:drawableRight="@drawable/ic_right_arrow"
+                    />
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            card_view:cardCornerRadius="@dimen/cardCornerRadius_16dp"
+            card_view:cardElevation="@dimen/dimen_2dp"
+            card_view:cardMaxElevation="@dimen/dimen_2dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+
+            >
+            <RelativeLayout
+                android:layout_margin="@dimen/margin_20dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/logo_view"
+                    android:layout_width="@dimen/dimen_50dp"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_wallet" />
+
+                <TextView
+                    android:id="@+id/wallet_text2"
+                    android:layout_toRightOf="@+id/logo_view"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:gravity="center"
+                    android:text="Points and Reward  "
+                    android:textColor="#00070E"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <ImageView
+                    android:id="@+id/ruppe_icon2"
+                    android:layout_width="@dimen/dimen_20dp"
+                    android:layout_height="@dimen/dimen_15dp"
+                    android:layout_below="@+id/wallet_text2"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_toRightOf="@+id/logo_view"
+                    android:background="@drawable/ic_rupee_logo"
+                    android:textColor="#00070E" />
+                <TextView
+                    android:id="@+id/reward_bal_tv"
+                    android:layout_toRightOf="@+id/ruppe_icon2"
+                    android:layout_below="@+id/wallet_text2"
+                    android:layout_marginLeft="@dimen/dimen_6dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:text="....."
+                    android:textColor="#00070E"
+                    android:textSize="@dimen/dimen_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    app:layout_anchorGravity="bottom|right|top"
+                    android:layout_gravity="end"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end" />
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</RelativeLayout>

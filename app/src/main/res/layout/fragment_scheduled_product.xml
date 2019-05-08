@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/containerView"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/layout_items"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_override_one"
+                android:layout_marginTop="@dimen/padding_override_one"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/font_size_fifth"
+                android:visibility="invisible" />
+            <!-- TODO: Update blank fragment layout -->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/message" />
+
+            <TextView
+                android:id="@+id/user_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/noOrders"
+                android:visibility="invisible"
+                android:layout_marginBottom="@dimen/left_right_padding"
+                android:layout_marginTop="40dp"
+                android:lineSpacingExtra="2dp"
+                android:layout_marginLeft="@dimen/margin_override_sixth"
+                android:layout_marginEnd="@dimen/margin_override_sixth"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/font_size_fifth"/>
+
+
+
+            <ImageView
+                android:id="@+id/error_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/error_image"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/margin_override_one"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/font_size_three"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <Button
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_marginRight="@dimen/dimen_50dp"
+            android:layout_marginLeft="@dimen/dimen_50dp"
+            android:background="@drawable/tag_banner"
+            android:textStyle="bold"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            android:id="@+id/cancel_schedular_product"
+            android:layout_marginBottom="@dimen/padding_10"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+
+
+        <include android:id="@+id/layout_cart_empty"
+            layout="@layout/empty_message_layout_action"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent"/>
+        <include android:id="@+id/layout_login_empty"
+            layout="@layout/user_not_login"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+
+</android.support.v4.widget.SwipeRefreshLayout>
