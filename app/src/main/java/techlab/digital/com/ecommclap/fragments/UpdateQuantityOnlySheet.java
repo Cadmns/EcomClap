@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 
 import techlab.digital.com.ecommclap.R;
+import techlab.digital.com.ecommclap.adapter.ProductListingsAdapter;
 import techlab.digital.com.ecommclap.model.fetchSubProducts.ProductListingsModeResponse;
 import techlab.digital.com.ecommclap.utility.SessionManager;
 
@@ -31,6 +32,8 @@ public class UpdateQuantityOnlySheet  extends BottomSheetDialogFragment {
         ElegantNumberButton update_quantity_only_elegent;
         ProductListingsModeResponse data_response;
         String number_quantity;
+        int item_position;
+        ProductListingsAdapter.ViewHolder _holder;
 
 
         @Override
@@ -44,10 +47,12 @@ public class UpdateQuantityOnlySheet  extends BottomSheetDialogFragment {
         }
 
         @SuppressLint("ValidFragment")
-        public UpdateQuantityOnlySheet(Context mtx, ProductListingsModeResponse response,String quantity){
+        public UpdateQuantityOnlySheet(Context mtx, ProductListingsModeResponse response, String quantity, int position, ProductListingsAdapter.ViewHolder holder){
             context = mtx;
             data_response = response;
             number_quantity = quantity;
+            _holder = holder;
+            item_position = position;
         }
 
 
@@ -68,7 +73,7 @@ public class UpdateQuantityOnlySheet  extends BottomSheetDialogFragment {
                 @Override
                 public void onClick(View v) {
                     /*do sometyhing like callbaqck*/
-                    onQuantityUpdateOnly.update_quantity_only(update_quantity_only_elegent.getNumber(),data_response);
+                    onQuantityUpdateOnly.update_quantity_only(update_quantity_only_elegent.getNumber(),data_response,item_position,_holder);
                     dialog.dismiss();
 
                 }
@@ -122,7 +127,7 @@ public class UpdateQuantityOnlySheet  extends BottomSheetDialogFragment {
 
 
         public interface onQuantityUpdateOnly {
-            public void update_quantity_only(String quantity,ProductListingsModeResponse data);
+            public void update_quantity_only(String quantity, ProductListingsModeResponse data, int position, ProductListingsAdapter.ViewHolder holder);
         }
 
 

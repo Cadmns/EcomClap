@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 
 import techlab.digital.com.ecommclap.R;
+import techlab.digital.com.ecommclap.adapter.ProductListingsAdapter;
 import techlab.digital.com.ecommclap.model.fetchSubProducts.ProductListingsModeResponse;
 
 @SuppressLint("ValidFragment")
@@ -23,11 +24,13 @@ onOptionSelected onOptionSelected;
 ProductListingsModeResponse data_object;
 int position;
 String number_quantity;
+ProductListingsAdapter.ViewHolder my_holder;
     @SuppressLint("ValidFragment")
-    public AddNewOrRepeatBottomSheet(Context mtx, ProductListingsModeResponse response_object,int mposition,String quantity){
+    public AddNewOrRepeatBottomSheet(Context mtx, ProductListingsModeResponse response_object, int mposition, String quantity, ProductListingsAdapter.ViewHolder holder){
         data_object = response_object;
         position = mposition;
         number_quantity = quantity;
+        my_holder = holder;
     }
 
 
@@ -58,7 +61,7 @@ String number_quantity;
             @Override
             public void onClick(View v) {
                 option_selected = "repeat";
-                onOptionSelected.selected_option_is(option_selected,data_object,position,number_quantity);
+                onOptionSelected.selected_option_is(option_selected,data_object,position,number_quantity,my_holder);
                 dialog.dismiss();
             }
         });
@@ -66,7 +69,7 @@ String number_quantity;
             @Override
             public void onClick(View v) {
                 option_selected = "add";
-                onOptionSelected.selected_option_is(option_selected,data_object,position,number_quantity);
+                onOptionSelected.selected_option_is(option_selected,data_object,position,number_quantity,my_holder);
                 dialog.dismiss();
             }
         });
@@ -118,7 +121,7 @@ String number_quantity;
 
 
     public interface onOptionSelected {
-        public void selected_option_is(String option,ProductListingsModeResponse response_data,int data_position,String quantity);
+        public void selected_option_is(String option, ProductListingsModeResponse response_data, int data_position, String quantity, ProductListingsAdapter.ViewHolder holder);
     }
 
 }

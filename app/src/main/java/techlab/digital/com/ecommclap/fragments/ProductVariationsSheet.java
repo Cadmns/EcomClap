@@ -36,6 +36,7 @@ import retrofit2.Response;
 import techlab.digital.com.ecommclap.R;
 import techlab.digital.com.ecommclap.activity.NewCategoryActivity;
 import techlab.digital.com.ecommclap.activity.ProductDescriptionActivity;
+import techlab.digital.com.ecommclap.adapter.ProductListingsAdapter;
 import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartReq;
 import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartResponse;
 import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartWithVariationReq;
@@ -66,6 +67,7 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
 
     onVariationChanged onVariationChanged;
     String number_quantity;
+    ProductListingsAdapter.ViewHolder viewHolder;
 
 
     @Override
@@ -81,12 +83,13 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
 
 
     @SuppressLint("ValidFragment")
-    public ProductVariationsSheet(Context mtx,ProductListingsModeResponse datum,int postion,String quantity){
+    public ProductVariationsSheet(Context mtx, ProductListingsModeResponse datum, int postion, String quantity, ProductListingsAdapter.ViewHolder mholder){
         this.response_data = datum;
         this.productVariationContainer = productVariationContainer;
         context = mtx;
         product_position = postion;
         number_quantity = quantity;
+        viewHolder = mholder;
 
 
 
@@ -120,7 +123,7 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
 
                 if (sessionManager.isLoggedIn()){
                     if (mCheckInternetWithMultipleClicks()) {
-                        onVariationChanged.change_variation_is(temp_variations,mQuantity.getNumber(),response_data,product_position);
+                        onVariationChanged.change_variation_is(temp_variations,mQuantity.getNumber(),response_data,product_position,viewHolder);
                     }
                 }else {
                     sessionManager.checkLogin();
@@ -309,7 +312,7 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
 
 
     public interface onVariationChanged {
-        public void change_variation_is(String variation,String Quantity,ProductListingsModeResponse data_object,int product_position);
+        public void change_variation_is(String variation, String Quantity, ProductListingsModeResponse data_object, int product_position, ProductListingsAdapter.ViewHolder holder);
     }
 
 

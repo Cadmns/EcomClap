@@ -60,21 +60,12 @@ public class ProductListings extends AppCompatActivity implements ProductListing
     @BindView(R.id.noResults)
     TextView noResults;
     String p_variation,p_quantity;
-
     SessionManager sessionManager;
-    // variable to track event time`
+    //variable to track event time`
     private long mLastClickTime = 0;
-
     AddToCartResponse addToCartResponse;
-
     List<ProductListingsModeResponse> product_data_List;
-
-
     ProductListingsModeResponse productListingsModeResponse2 ;
-
-
-
-
 
 
     @Override
@@ -187,12 +178,12 @@ public class ProductListings extends AppCompatActivity implements ProductListing
 
     /*interface call back to add to cart the product*/
     @Override
-    public void OnAddProduct(View view, int position,ProductListingsModeResponse object,String quantity) {
+    public void OnAddProduct(View view, int position, ProductListingsModeResponse object, String quantity, ProductListingsAdapter.ViewHolder mholder) {
         ProductListingsModeResponse  product_object_data = object;
         if (product_object_data.getType().equals("phive_booking")){
             //intent = new Intent(context, ServiceDescriptionActivity.class);
         }else {
-            ProductVariationsSheet frgaments = new ProductVariationsSheet(getApplicationContext(),product_object_data,position,quantity);
+            ProductVariationsSheet frgaments = new ProductVariationsSheet(getApplicationContext(),product_object_data,position,quantity,mholder);
             frgaments.show(getSupportFragmentManager(), "ahahahaha");
             frgaments.setCancelable(false);
         }
@@ -200,23 +191,23 @@ public class ProductListings extends AppCompatActivity implements ProductListing
 
     /*interface call back chose add new product or update last one*/
     @Override
-    public void OnAddOrRepeat(View view, int position,ProductListingsModeResponse m_data,String quantity) {
+    public void OnAddOrRepeat(View view, int position, ProductListingsModeResponse m_data, String quantity, ProductListingsAdapter.ViewHolder holder) {
         /*productListingsModeResponse.set*/
-        AddNewOrRepeatBottomSheet fragmentEliminaPost = new AddNewOrRepeatBottomSheet(getApplicationContext(),m_data,position,quantity);
+        AddNewOrRepeatBottomSheet fragmentEliminaPost = new AddNewOrRepeatBottomSheet(getApplicationContext(),m_data,position,quantity,holder);
         fragmentEliminaPost.show(getSupportFragmentManager(), "ahahahaha");
         fragmentEliminaPost.setCancelable(false);
     }
 
     /*Interface caLLBack to get User Choice wheather he wants to add new product or repeat last one*/
     @Override
-    public void selected_option_is(String option,ProductListingsModeResponse m_data_object,int data_position,String number_quantity) {
+    public void selected_option_is(String option, ProductListingsModeResponse m_data_object, int data_position, String number_quantity, ProductListingsAdapter.ViewHolder holder) {
 
         if(option.equals("add"))
         {
             ProductVariationContainer m_variation_container = is_having_variations(m_data_object);
             if(!m_variation_container.equals(null))
             {
-                ProductVariationsSheet fragmentEliminaPost = new ProductVariationsSheet(getApplicationContext(),m_data_object,data_position,number_quantity);
+                ProductVariationsSheet fragmentEliminaPost = new ProductVariationsSheet(getApplicationContext(),m_data_object,data_position,number_quantity,holder);
                 fragmentEliminaPost.show(getSupportFragmentManager(), "ahahahaha");
                 fragmentEliminaPost.setCancelable(false);
             }
@@ -225,7 +216,7 @@ public class ProductListings extends AppCompatActivity implements ProductListing
         }
         else if(option.equals("repeat")){
 
-            UpdateQuantityOnlySheet fragmentEliminaPost = new UpdateQuantityOnlySheet(getApplicationContext(),m_data_object,number_quantity);
+            UpdateQuantityOnlySheet fragmentEliminaPost = new UpdateQuantityOnlySheet(getApplicationContext(),m_data_object,number_quantity,data_position,holder);
             fragmentEliminaPost.show(getSupportFragmentManager(), "ahahahaha");
             fragmentEliminaPost.setCancelable(false);
         }
@@ -235,10 +226,10 @@ public class ProductListings extends AppCompatActivity implements ProductListing
 
     /*this method is used to update the quantity and variations of the product*/
     @Override
-    public void change_variation_is(String variation,String quantity,ProductListingsModeResponse add_cart_product_response,int product_position) {
+    public void change_variation_is(String variation, String quantity, ProductListingsModeResponse add_cart_product_response, int product_position, ProductListingsAdapter.ViewHolder holder) {
 
         int updateIndex = product_position;
-        mAdapter.update_elegent(updateIndex,quantity);
+        mAdapter.update_elegent(updateIndex,quantity,holder);
         //mAdapter.notifyItemChanged(updateIndex);
         p_variation = variation;
         p_quantity = quantity;
@@ -249,10 +240,11 @@ public class ProductListings extends AppCompatActivity implements ProductListing
 
     /*interface call back to update the quantity only */
     @Override
-    public void update_quantity_only(String quantity,ProductListingsModeResponse object_data) {
+    public void update_quantity_only(String quantity, ProductListingsModeResponse object_data, int position, ProductListingsAdapter.ViewHolder my_holder) {
 
         //productListingsModeResponse = new ProductListingsModeResponse();
        // productListingsModeResponse.setStockQuantity(quantity);
+        mAdapter.update_elegent(position,quantity,my_holder);
         updateQuantity(object_data,quantity);
         Toast.makeText(getApplicationContext(),quantity,Toast.LENGTH_SHORT).show();
     }

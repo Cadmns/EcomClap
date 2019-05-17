@@ -145,7 +145,7 @@ public class ProductListingsAdapter
                         holder.elegantNumberButton.setVisibility(View.VISIBLE);
                         holder.elegantNumberButton.setNumber("1");
                         mholder = holder;
-                        mCallback.OnAddProduct(view,position,datum,holder.elegantNumberButton.getNumber());
+                        mCallback.OnAddProduct(view,position,datum,holder.elegantNumberButton.getNumber(),holder);
                     }
 
 
@@ -158,7 +158,7 @@ public class ProductListingsAdapter
                 @Override
                 public void onValueChange(ElegantNumberButton view, int oldValue, int newValue) {
                         holder.elegantNumberButton.setNumber(String.valueOf(newValue));
-                        mCallback2.OnAddOrRepeat(view,position,datum,holder.elegantNumberButton.getNumber());
+                        mCallback2.OnAddOrRepeat(view,position,datum,holder.elegantNumberButton.getNumber(),holder);
                 }
             });
 
@@ -282,9 +282,9 @@ public class ProductListingsAdapter
 
 
 
-    public void update_elegent(int p,String value){
+    public void update_elegent(int p,String value, ViewHolder my_holder){
        int positon = mholder.getAdapterPosition();
-        mholder.elegantNumberButton.setNumber(value);
+        my_holder.elegantNumberButton.setNumber(value);
         Log.e("updated number is ",mholder.elegantNumberButton.getNumber());
         Log.e("Send pos and holder pos",positon+"__"+p);
 
@@ -317,13 +317,13 @@ public class ProductListingsAdapter
 
 
     public interface OnAddProductButtonListener {
-        void OnAddProduct(View view,int position,ProductListingsModeResponse data,String quantity);
+        void OnAddProduct(View view,int position,ProductListingsModeResponse data,String quantity,ViewHolder mholder);
 
 
     }
 
     public interface OnInterfaceListener2 {
-        void OnAddOrRepeat(View view,int position,ProductListingsModeResponse mdata,String quantity);
+        void OnAddOrRepeat(View view,int position,ProductListingsModeResponse mdata,String quantity,ViewHolder holder);
 
 
     }
