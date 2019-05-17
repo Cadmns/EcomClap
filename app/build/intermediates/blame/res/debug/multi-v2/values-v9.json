@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Dhruv\\Desktop\\v2\\ecommclap\\ecommclap\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v9\\values-v9.xml",
+            "outputFile": "C:\\Users\\Admin\\Desktop\\ecommclapv02\\ecommclapv2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v9\\values-v9.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Dhruv\\.gradle\\caches\\transforms-1\\files-1.1\\android-times-square-1.6.5.aar\\b82549ba7d58dc3ab3b0b291af94866e\\res\\values-v9\\values-v9.xml",
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\c083e2475702adbc4025522b5a71e49e\\res\\values-v9\\values-v9.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "4",

@@ -18,9 +18,9 @@ import techlab.digital.com.ecommclap.R;
 public class RegistrationFragmentDialog_ViewBinding implements Unbinder {
   private RegistrationFragmentDialog target;
 
-  private View view2131296333;
+  private View view2131296337;
 
-  private View view2131296310;
+  private View view2131296312;
 
   @UiThread
   public RegistrationFragmentDialog_ViewBinding(RegistrationFragmentDialog target) {
@@ -35,7 +35,7 @@ public class RegistrationFragmentDialog_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.btn_signup, "field 'signUp_btn' and method 'submituserDetails'");
     target.signUp_btn = Utils.castView(view, R.id.btn_signup, "field 'signUp_btn'", Button.class);
-    view2131296333 = view;
+    view2131296337 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -51,7 +51,7 @@ public class RegistrationFragmentDialog_ViewBinding implements Unbinder {
     target.post_code = Utils.findRequiredViewAsType(source, R.id.input_post_code, "field 'post_code'", EditText.class);
     view = Utils.findRequiredView(source, R.id.apply_referralCode, "field 'mReferralCodeView' and method 'onReferralCodeViewClick'");
     target.mReferralCodeView = Utils.castView(view, R.id.apply_referralCode, "field 'mReferralCodeView'", TextView.class);
-    view2131296310 = view;
+    view2131296312 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -89,9 +89,9 @@ public class RegistrationFragmentDialog_ViewBinding implements Unbinder {
     target.reset_referal = null;
     target.applied_referal_textview = null;
 
-    view2131296333.setOnClickListener(null);
-    view2131296333 = null;
-    view2131296310.setOnClickListener(null);
-    view2131296310 = null;
+    view2131296337.setOnClickListener(null);
+    view2131296337 = null;
+    view2131296312.setOnClickListener(null);
+    view2131296312 = null;
   }
 }

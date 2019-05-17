@@ -285,6 +285,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
 
 
     private void setAdapter(List<FetchCartResponse> mItemsList){
+
         mFinalTotal = new ArrayList<>();
         mFinalTotal.addAll(mItemsList);
 

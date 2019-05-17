@@ -18,7 +18,7 @@ import techlab.digital.com.ecommclap.R;
 public class ProductDescriptionActivity_ViewBinding implements Unbinder {
   private ProductDescriptionActivity target;
 
-  private View view2131296291;
+  private View view2131296293;
 
   @UiThread
   public ProductDescriptionActivity_ViewBinding(ProductDescriptionActivity target) {
@@ -39,7 +39,7 @@ public class ProductDescriptionActivity_ViewBinding implements Unbinder {
     target.mVariations = Utils.findRequiredViewAsType(source, R.id.variations, "field 'mVariations'", Spinner.class);
     view = Utils.findRequiredView(source, R.id.addTocart, "field 'mAddToCart' and method 'addToCart'");
     target.mAddToCart = Utils.castView(view, R.id.addTocart, "field 'mAddToCart'", Button.class);
-    view2131296291 = view;
+    view2131296293 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -65,7 +65,7 @@ public class ProductDescriptionActivity_ViewBinding implements Unbinder {
     target.mAddToCart = null;
     target.mQuantity = null;
 
-    view2131296291.setOnClickListener(null);
-    view2131296291 = null;
+    view2131296293.setOnClickListener(null);
+    view2131296293 = null;
   }
 }

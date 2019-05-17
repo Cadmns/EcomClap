@@ -4,6 +4,7 @@ package techlab.digital.com.ecommclap.fragments;
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.RelativeLayout;
 import butterknife.Unbinder;
@@ -24,6 +25,8 @@ public class NewMainMenuFragment_ViewBinding implements Unbinder {
     target.internetConnection = Utils.findRequiredViewAsType(source, R.id.internetConnection, "field 'internetConnection'", RelativeLayout.class);
     target.mShimmerViewContainer = Utils.findRequiredViewAsType(source, R.id.mshimmer_view_container, "field 'mShimmerViewContainer'", ShimmerFrameLayout.class);
     target.mSwipeRefreshLayout = Utils.findRequiredViewAsType(source, R.id.swipe, "field 'mSwipeRefreshLayout'", SwipeRefreshLayout.class);
+    target.schdeule_banner = Utils.findRequiredViewAsType(source, R.id.schdeule_banner, "field 'schdeule_banner'", CardView.class);
+    target.sports_banner = Utils.findRequiredViewAsType(source, R.id.sports_banner, "field 'sports_banner'", CardView.class);
   }
 
   @Override
@@ -37,5 +40,7 @@ public class NewMainMenuFragment_ViewBinding implements Unbinder {
     target.internetConnection = null;
     target.mShimmerViewContainer = null;
     target.mSwipeRefreshLayout = null;
+    target.schdeule_banner = null;
+    target.sports_banner = null;
   }
 }

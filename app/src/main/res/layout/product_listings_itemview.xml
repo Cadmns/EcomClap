@@ -15,6 +15,7 @@
   -->
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
     android:id="@+id/cardview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -67,8 +68,49 @@
                 android:visibility="gone"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_wishlist"/>
+            <Button
+                android:id="@+id/quantity_btn"
+                android:background="@drawable/add_btn_radius"
+                android:text="Add  +"
+                android:layout_width="@dimen/dimen_50dp"
+                android:textSize="@dimen/padding_10"
+                android:textStyle="bold"
+                android:textColor="#4CAF50"
+                android:layout_height="@dimen/dimen_30dp"
+                android:layout_weight="0.1"
+                android:visibility="visible"
+                android:layout_gravity="center_vertical" />
+
+            <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                android:layout_width="@dimen/dimen_70dp"
+                android:id="@+id/elegenty_quantity_btn"
+                android:visibility="gone"
+                app:initialNumber="1"
+                card_view:backGroundColor="#4CAF50"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/margin_override_fifth"
+                android:layout_height="@dimen/dimen_30dp">
+
+            </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+
+            <Button
+                android:id="@+id/book_service"
+                android:background="@drawable/add_btn_radius"
+                android:text="Book Now"
+                android:layout_width="@dimen/dimen_60dp"
+                android:textStyle="bold"
+                android:textColor="#4CAF50"
+                android:layout_height="@dimen/dimen_30dp"
+                android:textSize="@dimen/padding_10"
+                android:layout_weight="0.1"
+                android:visibility="gone"
+                android:layout_gravity="center_vertical" />
+
         </LinearLayout>
+
     </LinearLayout>
+
+
 
 
 </android.support.v7.widget.CardView>

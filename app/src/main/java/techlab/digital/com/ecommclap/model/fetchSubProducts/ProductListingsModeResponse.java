@@ -195,6 +195,17 @@ public class ProductListingsModeResponse implements Parcelable {
     @Expose
     private Links links;
 
+
+    private String mRefrenceKey;
+
+    public String getmRefrenceKey() {
+        return mRefrenceKey;
+    }
+
+    public void setmRefrenceKey(String mRefrenceKey) {
+        this.mRefrenceKey = mRefrenceKey;
+    }
+
     public Integer getId() {
         return id;
     }

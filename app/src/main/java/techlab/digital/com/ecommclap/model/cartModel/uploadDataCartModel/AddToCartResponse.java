@@ -5,6 +5,18 @@ import com.google.gson.annotations.SerializedName;
 
 public class AddToCartResponse {
 
+    @SerializedName("reference_key")
+    @Expose
+    private String reference_key;
+
+    public String getReference_key() {
+        return reference_key;
+    }
+
+    public void setReference_key(String reference_key) {
+        this.reference_key = reference_key;
+    }
+
     @SerializedName("key")
     @Expose
     private String key;

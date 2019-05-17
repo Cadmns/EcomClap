@@ -13,103 +13,181 @@
     >
 
     <android.support.design.widget.CoordinatorLayout
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-    <RelativeLayout
-        android:id="@+id/main_screen"
-        android:visibility="visible"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-
-
-
-        <LinearLayout
+        <android.support.v4.widget.NestedScrollView
+            android:layout_below="@+id/label1"
             android:layout_width="match_parent"
-            android:id="@+id/label1"
-            android:layout_height="180dp">
-            <com.facebook.shimmer.ShimmerFrameLayout
-                android:id="@+id/mshimmer_view_container"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                shimmer:duration="1000">
-                <!-- Adding 3 rows of placeholders -->
-                <RelativeLayout
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/main_screen"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/label1"
+                    android:layout_height="180dp">
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/mshimmer_view_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        shimmer:duration="1000">
+                        <!-- Adding 3 rows of placeholders -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <!--
+                                                    <include layout="@layout/placeholder_image_slider" />
+                            -->
+                            <!--  <android.support.v4.view.ViewPager
+                                  android:id="@+id/vp_slider"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="200dp"
+                                  android:layout_marginTop="30dp"
+                                  android:paddingLeft="34dp"
+                                  android:paddingRight="12dp">
+                                &lt;!&ndash;  <include layout="@layout/placeholder_image_slider" />&ndash;&gt;
+                              </android.support.v4.view.ViewPager>-->
+                        </RelativeLayout>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp">
+                        <ViewFlipper
+                            android:id="@+id/vp_slider"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            >
+                            <!--<ImageView
+                                 android:id="@+id/image"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="match_parent"
+                               />-->
+                        </ViewFlipper>
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_below="@+id/label1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:id="@+id/sliderDots"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
+                    android:gravity="center_horizontal|center_vertical"
                     android:orientation="horizontal">
-                    <!--
-                                            <include layout="@layout/placeholder_image_slider" />
-                    -->
-                    <!--  <android.support.v4.view.ViewPager
-                          android:id="@+id/vp_slider"
-                          android:layout_width="match_parent"
-                          android:layout_height="200dp"
-                          android:layout_marginTop="30dp"
-                          android:paddingLeft="34dp"
-                          android:paddingRight="12dp">
-                        &lt;!&ndash;  <include layout="@layout/placeholder_image_slider" />&ndash;&gt;
-                      </android.support.v4.view.ViewPager>-->
-                </RelativeLayout>
-            </com.facebook.shimmer.ShimmerFrameLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="180dp">
-                <ViewFlipper
-                    android:id="@+id/vp_slider"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@color/white"
+                    android:layout_below="@+id/sliderDots"
+                    android:id="@+id/cat"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
-                    <!--<ImageView
-                         android:id="@+id/image"
-                         android:layout_width="match_parent"
-                         android:layout_height="match_parent"
-                       />-->
-                </ViewFlipper>
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal">
+                    <android.support.v7.widget.RecyclerView
+                        android:background="@color/color_white"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:scrollbars="none"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbarFadeDuration="0"
+                        android:id="@+id/recycler_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </android.support.v7.widget.RecyclerView>
+
+
+                 <!--   <LinearLayout
+                        android:id="@+id/hii"
+                        android:padding="@dimen/padding_10"
+                        android:layout_below="@+id/recycler_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:background="@drawable/veg"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_100dp" />
+
+
+                    </LinearLayout>
+        -->
+
+
+                        </LinearLayout>
+
+                        <android.support.v7.widget.CardView
+                            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            card_view:cardElevation="2dp"
+                            card_view:cardCornerRadius="5dp"
+                            android:layout_below="@+id/cat"
+                            android:layout_above="@+id/navigation"
+                            android:id="@+id/schdeule_banner"
+                            android:layout_margin="@dimen/padding_10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+
+                                <ImageView
+                                    android:background="@drawable/veg"
+                                    android:layout_width="match_parent"
+                                    android:scaleType="fitXY"
+                                    android:adjustViewBounds="true"
+                                    android:layout_height="@dimen/dimen_180dp" />
+
+
+                        </android.support.v7.widget.CardView>
+
+
+                    <android.support.v7.widget.CardView
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        card_view:cardElevation="2dp"
+                        card_view:cardCornerRadius="5dp"
+                        android:layout_below="@+id/image_container"
+                        android:layout_above="@+id/navigation"
+                        android:id="@+id/sports_banner"
+                        android:layout_margin="@dimen/padding_10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:background="@drawable/cricket2"
+                                android:layout_width="match_parent"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:layout_height="@dimen/dimen_180dp"/>
+
+                     </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+
+
             </RelativeLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/sliderDots"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/label1"
-            android:gravity="center_horizontal|center_vertical"
-            android:orientation="horizontal">
-        </LinearLayout>
-
-        <LinearLayout
-            android:background="@color/color_white"
-            android:layout_below="@+id/sliderDots"
-            android:layout_above="@+id/navigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal|center_vertical"
-            android:orientation="horizontal">
-            <android.support.v7.widget.RecyclerView
-                android:background="@color/color_white"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:scrollbars="none"
-                android:scrollbarStyle="insideInset"
-                android:scrollbarFadeDuration="0"
-                android:id="@+id/recycler_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </android.support.v7.widget.RecyclerView>
-        </LinearLayout>
-
-
-    </RelativeLayout>
+        </android.support.v4.widget.NestedScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"

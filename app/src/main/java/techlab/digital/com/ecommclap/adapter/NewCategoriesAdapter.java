@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.PictureDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -38,6 +39,7 @@ public class NewCategoriesAdapter extends RecyclerView.Adapter<NewCategoriesAdap
   Context mtx;
   public OnInterfaceListener mCallback;
   private GenericRequestBuilder<Uri, InputStream, SVG, PictureDrawable> requestBuilder;
+  private long mLastClickTime = 0;
 
   public NewCategoriesAdapter(List<CategoryRealmDb> list_category, Context context) {
     m_List_category = list_category;
@@ -62,7 +64,10 @@ public class NewCategoriesAdapter extends RecyclerView.Adapter<NewCategoriesAdap
         holder.m_card_view.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-
+            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+              return ;
+            }
+            mLastClickTime = SystemClock.elapsedRealtime();
                   mCallback.onItemsClick(view,position);
 
 

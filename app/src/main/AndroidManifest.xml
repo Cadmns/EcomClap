@@ -19,7 +19,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name=".activity.schedule_products.ScheduledCartActivity"></activity>
+        <activity android:name=".activity.schedule_products.FetchSchedulableSubCategory"></activity>
+        <activity android:name=".activity.schedule_products.ScheduledCartActivity" />
         <activity android:name=".activity.schedule_products.SchedulableItemsActivity" />
         <activity android:name=".activity.schedule_products.ItemsSchedulerActivity" />
         <activity android:name=".activity.VerifyPhoneActivity" />

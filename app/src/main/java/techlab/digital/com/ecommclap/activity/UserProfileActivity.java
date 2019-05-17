@@ -29,6 +29,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import techlab.digital.com.ecommclap.R;
 import techlab.digital.com.ecommclap.activity.auth.LoginActivity;
+import techlab.digital.com.ecommclap.activity.schedule_products.FetchSchedulableSubCategory;
 import techlab.digital.com.ecommclap.activity.schedule_products.SchedulableItemsActivity;
 import techlab.digital.com.ecommclap.activity.wallet_activity.EcomWalletActivity;
 import techlab.digital.com.ecommclap.activity.wallet_activity.ShowUserOrdersActivity;
@@ -309,10 +310,8 @@ public class UserProfileActivity extends AppCompatActivity {
             schedule_myproduct.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 public boolean onPreferenceClick(Preference preference) {
                     //  sendFeedback(getActivity());
-
-                    Intent intent = new Intent(getActivity(), SchedulableItemsActivity.class);
+                    Intent intent = new Intent(getActivity(), FetchSchedulableSubCategory.class);
                     startActivity(intent);
-
                     return true;
                 }
             });

@@ -57,6 +57,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
     }
 
 
+
+
+
+
     public void removeItem(LinearLayout layout_cart_empty,LinearLayout layoutCartPayments) {
 
       /*  try {
@@ -109,6 +113,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         }catch (NullPointerException e){
             e.printStackTrace();
         }
+
+
 
 
         holder.mDeleteProduct.setOnClickListener(new View.OnClickListener() {

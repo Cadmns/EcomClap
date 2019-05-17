@@ -55,20 +55,20 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int calendar_bg_selector = 0x7f08007a;
+        public static final int calendar_bg_selector = 0x7f08007b;
     }
     public static final class id {
         private id() {}
 
-        public static final int calendar_grid = 0x7f090053;
-        public static final int day_view_adapter_class = 0x7f09008c;
-        public static final int title = 0x7f0901da;
+        public static final int calendar_grid = 0x7f090057;
+        public static final int day_view_adapter_class = 0x7f090093;
+        public static final int title = 0x7f0901ea;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int month = 0x7f0b0068;
-        public static final int week = 0x7f0b009f;
+        public static final int month = 0x7f0b006a;
+        public static final int week = 0x7f0b00a5;
     }
     public static final class string {
         private string() {}

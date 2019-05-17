@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/curved_bottomsheet"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_margin"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="@dimen/dimen_55dp"
+
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:id="@+id/layout_payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_10dp"
+        android:paddingTop="@dimen/dimen_14dp"
+
+        android:background="@color/color_white"
+        android:weightSum="2"
+        android:visibility="visible"
+        >
+        <LinearLayout
+            android:id="@+id/view_payment_total"
+            android:layout_width="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                android:layout_width="150dp"
+                android:id="@+id/elegenty_quantity_btn"
+                android:visibility="visible"
+                app:initialNumber="1"
+                android:background="@drawable/spiner_radius"
+                android:layout_height="@dimen/dimen_40dp">
+            </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+
+
+            <TextView
+                android:id="@+id/whole_payment_summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:text=" Select Prduct Quantity"
+                android:textSize="12dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="#000000"
+
+              />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/dimen_15sp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Spinner
+            android:layout_weight="1"
+            android:background="@drawable/spiner_radius"
+            android:layout_width="150dp"
+            android:id="@+id/product_variations"
+            android:textColor="#FAF7F7"
+            android:layout_height="@dimen/dimen_40dp"></Spinner>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:text=" Select Product Variations"
+            android:textSize="12dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="#000000"
+
+            />
+    </LinearLayout>
+
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/done_btn_variation"
+        android:textColor="@color/white"
+        android:background="@drawable/spiner_radius"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="@dimen/padding_10"
+        android:text="done"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimen_15sp"
+        android:layout_height="@dimen/dimen_40dp" />
+
+
+
+
+
+
+
+
+
+    <!--<LinearLayout
+        android:id="@+id/parent_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:padding="@dimen/padding_10"
+        android:weightSum="3">
+        <LinearLayout
+
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="top"
+            android:orientation="horizontal">
+
+           &lt;!&ndash; <TextView
+                android:textColor="#000000"
+                android:background="#EEF1FF"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_10"
+                android:paddingRight="@dimen/padding_10"
+                android:text="Select Variations"
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:textSize="@dimen/dimen_15sp"
+                android:layout_height="@dimen/dimen_40dp" />&ndash;&gt;
+
+            <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                android:layout_width="@dimen/dimen_100dp"
+                android:gravity="center"
+                android:id="@+id/elegenty_quantity_btn"
+                android:visibility="visible"
+                app:initialNumber="1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/margin_override_fifth"
+                android:layout_height="@dimen/dimen_40dp">
+            </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+
+
+
+            <Spinner
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:id="@+id/product_variations"
+                android:layout_height="@dimen/dimen_40dp"></Spinner>
+
+
+        </LinearLayout>
+        <Button
+            android:layout_marginTop="@dimen/padding_10"
+            android:id="@+id/done_btn_variation"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/padding_10"
+            android:text="done"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimen_15sp"
+            android:layout_height="@dimen/dimen_40dp" />
+        &lt;!&ndash;<NumberPicker
+            android:id="@+id/numberPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />&ndash;&gt;
+
+
+
+    </LinearLayout>-->
+
+        <!--<NumberPicker
+            android:id="@+id/numberPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+
+
+
+</LinearLayout>

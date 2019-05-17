@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -41,6 +42,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import techlab.digital.com.ecommclap.R;
 import techlab.digital.com.ecommclap.activity.AllServiceActivity;
+import techlab.digital.com.ecommclap.activity.ScheduledParentsProductsActivity;
+import techlab.digital.com.ecommclap.activity.schedule_products.FetchSchedulableSubCategory;
 import techlab.digital.com.ecommclap.adapter.new_adapter.NewCategoriesAdapter;
 import techlab.digital.com.ecommclap.app.Prefs;
 import techlab.digital.com.ecommclap.app.SingletonImagesList;
@@ -78,6 +81,10 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
     BroadcastReceiver updateUIReciver;
     @BindView(R.id.swipe)
     SwipeRefreshLayout mSwipeRefreshLayout;
+    @BindView(R.id.schdeule_banner)
+    CardView schdeule_banner;
+    @BindView(R.id.sports_banner)
+    CardView sports_banner;
 
     public NewMainMenuFragment() {
         // Required empty public constructor
@@ -95,18 +102,51 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
         view = inflater.inflate(R.layout.fragment_new_category, container, false);
         ButterKnife.bind(this, view);
 
+
+
         initViews();
+
+
+        schdeule_banner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+
+
+                Intent intent = new Intent(getActivity(), FetchSchedulableSubCategory.class);
+                startActivity(intent);
+            }
+        });
+
+
+        sports_banner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CategoryRealmDb categoryRealmDb = list.get(7);
+                Bundle bundle = new Bundle();
+                Intent intent = new Intent(getContext(), AllServiceActivity.class);
+                bundle.putInt("object", categoryRealmDb.getId());
+                bundle.putInt("view_pager", 7);
+                intent.putExtras(bundle);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+
+
         return view;
     }
 
     private void initViews() {
-
         viewFlipper = (ViewFlipper) view.findViewById(R.id.vp_slider);
         mSwipeRefreshLayout.setOnRefreshListener(this);
-
         mShimmerViewContainer.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         mRealm = Realm.getDefaultInstance();
         mRecyclerView = view.findViewById(R.id.recycler_category);
+        mRecyclerView.setNestedScrollingEnabled(false);
         Prefs.with(getContext()).setPreLoad(true);
         fetchLocalCategoriescache();
         broadCasetRreceiver();

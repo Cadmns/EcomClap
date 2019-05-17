@@ -178,6 +178,7 @@ public class LoadMyOffersBottomSheet extends BottomSheetDialogFragment implement
 
     @Override
     public void onAppliedCoupon(View view, int position) {
+
         mdailog.dismiss();
         CouponDetailsResponse objLineItem =mFinalList2.get(position);
 

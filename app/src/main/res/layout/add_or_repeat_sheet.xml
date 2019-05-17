@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/curved_bottomsheet"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_margin"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="@dimen/dimen_55dp"
+
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:weightSum="3">
+        <LinearLayout
+            android:padding="@dimen/padding_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="top"
+            android:orientation="vertical">
+
+             <TextView
+                 android:textColor="#000000"
+                 android:background="#EEF1FF"
+                 android:gravity="center"
+                 android:paddingLeft="@dimen/padding_10"
+                 android:paddingRight="@dimen/padding_10"
+                 android:text="Repeat Last Used customization or Add New"
+                 android:layout_width="wrap_content"
+                 android:textSize="@dimen/cart_14sp"
+                 android:layout_height="@dimen/dimen_40dp" />
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:paddingLeft="@dimen/padding_10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/Add_new_btn"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="@dimen/padding_10"
+                android:text="Add New"
+                android:layout_width="110sp"
+                android:textStyle="bold"
+                android:textSize="@dimen/dimen_15sp"
+                android:layout_height="@dimen/dimen_40dp" />
+            <Button
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:id="@+id/Repeat_last"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="@dimen/padding_10"
+                android:text="Repeat Last"
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:textSize="@dimen/dimen_15sp"
+                android:layout_height="@dimen/dimen_40dp" />
+
+        </LinearLayout>
+
+
+        <!--<NumberPicker
+            android:id="@+id/numberPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -42,5 +42,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <!--you can put your existing views of your current xml here, so yes your entire xml is now inside this FrameLayout -->
+    </FrameLayout>
 </RelativeLayout>

@@ -6,10 +6,12 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,7 +26,7 @@ import techlab.digital.com.ecommclap.model.categories.subCategories.mainCategori
 import techlab.digital.com.ecommclap.model.realmDbModel.CategoryRealmDb;
 
 
-public class AllServiceActivity extends AppCompatActivity {
+public class AllServiceActivity extends AppCompatActivity implements  ImageListFragment.onSubCategry_notFound {
     public static int notificationCountCart = 0;
     static ViewPager viewPager;
     static TabLayout tabLayout;
@@ -102,6 +104,7 @@ public class AllServiceActivity extends AppCompatActivity {
         if (mCategoriesDbList != null && mCategoriesDbList.size()>0) {
             Adapter adapter = new Adapter(getSupportFragmentManager());
             for (CategoryRealmDb categories : mCategoriesDbList) {
+
                 ImageListFragment fragment = new ImageListFragment();
                 Bundle bundle = new Bundle();
 
@@ -110,6 +113,8 @@ public class AllServiceActivity extends AppCompatActivity {
 
                 fragment.setArguments(bundle);
                 adapter.addFragment(fragment, categories.getSlug());
+
+
             }
             viewPager.setOffscreenPageLimit(3);
             viewPager.setAdapter(adapter);
@@ -118,10 +123,40 @@ public class AllServiceActivity extends AppCompatActivity {
             viewPager.setCurrentItem(viewPagerPosition);
         }
     }
+
+    @Override
+    public void on_product_found(String id, String name) {
+        Log.e("TAG",id+name+"______hurrrah");
+        Adapter adapter = new Adapter(getSupportFragmentManager());
+
+       /* ProductListingFragment fragment = new ProductListingFragment();
+        Bundle bundle = new Bundle();
+
+        bundle.putInt("type", 2);
+        bundle.putString("eta",name);
+        adapter.addFragment(fragment, "");
+        */
+        /*ProductListingFragment fragment = new ProductListingFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.content,fragment,"");
+        transaction.addToBackStack(null);
+        transaction.commit();
+*/
+
+    }
+
+
+
+
+
+
+
+
+
     static class Adapter extends FragmentStatePagerAdapter {
         private final List<Fragment> mFragments = new ArrayList<>();
         private final List<String> mFragmentTitles = new ArrayList<>();
-
         public Adapter(FragmentManager fm) {
             super(fm);
         }

@@ -18,11 +18,11 @@ import techlab.digital.com.ecommclap.R;
 public class LoginActivity_ViewBinding implements Unbinder {
   private LoginActivity target;
 
-  private View view2131296329;
+  private View view2131296333;
 
-  private View view2131296517;
+  private View view2131296526;
 
-  private View view2131296439;
+  private View view2131296448;
 
   @UiThread
   public LoginActivity_ViewBinding(LoginActivity target) {
@@ -36,7 +36,7 @@ public class LoginActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.btn_login, "field 'mLogin' and method 'checkLoginCred'");
     target.mLogin = Utils.castView(view, R.id.btn_login, "field 'mLogin'", Button.class);
-    view2131296329 = view;
+    view2131296333 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -45,7 +45,7 @@ public class LoginActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.link_signup, "field 'mSignUp' and method 'newSignUp'");
     target.mSignUp = Utils.castView(view, R.id.link_signup, "field 'mSignUp'", TextView.class);
-    view2131296517 = view;
+    view2131296526 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -57,7 +57,7 @@ public class LoginActivity_ViewBinding implements Unbinder {
     target.mToolBar = Utils.findRequiredViewAsType(source, R.id.toolbar, "field 'mToolBar'", Toolbar.class);
     view = Utils.findRequiredView(source, R.id.forgotPassword, "field 'mForgotPassword' and method 'forgotPassword'");
     target.mForgotPassword = Utils.castView(view, R.id.forgotPassword, "field 'mForgotPassword'", TextView.class);
-    view2131296439 = view;
+    view2131296448 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -80,11 +80,11 @@ public class LoginActivity_ViewBinding implements Unbinder {
     target.mToolBar = null;
     target.mForgotPassword = null;
 
-    view2131296329.setOnClickListener(null);
-    view2131296329 = null;
-    view2131296517.setOnClickListener(null);
-    view2131296517 = null;
-    view2131296439.setOnClickListener(null);
-    view2131296439 = null;
+    view2131296333.setOnClickListener(null);
+    view2131296333 = null;
+    view2131296526.setOnClickListener(null);
+    view2131296526 = null;
+    view2131296448.setOnClickListener(null);
+    view2131296448 = null;
   }
 }

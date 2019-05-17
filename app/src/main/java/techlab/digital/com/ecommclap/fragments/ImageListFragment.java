@@ -16,6 +16,8 @@
 
 package techlab.digital.com.ecommclap.fragments;
 
+import android.app.Activity;
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -25,6 +27,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -35,6 +38,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -72,7 +76,7 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
     private static AllServiceActivity mActivity;
     RecyclerView recyclerView;
     @BindView(R.id.eta_container)
-    RelativeLayout mEtaContainer;
+    LinearLayout mEtaContainer;
     private SwipeRefreshLayout swipeRefreshLayout;
     View view;
     @BindView(R.id.eta_arrival)
@@ -80,6 +84,24 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
 
     @BindView(R.id.noResults)
     TextView mNoResults;
+    onSubCategry_notFound onSubCategry_notFound;
+
+
+
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            onSubCategry_notFound = (ImageListFragment.onSubCategry_notFound) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement onSomeEventListener");
+        }
+    }
+
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -152,7 +174,8 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
                 if(response.isSuccessful()){
                     if (response.body().isEmpty()){
                         mNoResults.setVisibility(View.VISIBLE);
-                    }
+
+              }
                     else
                     createAdapter(response.body());
                 }else{
@@ -210,4 +233,12 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
                                  }
         );
     }
+
+
+
+    public interface onSubCategry_notFound {
+        public void on_product_found(String variation,String Quantity);
+    }
+
+
 }

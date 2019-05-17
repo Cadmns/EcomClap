@@ -1108,6 +1108,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable active_dot
+drawable add_btn_radius
 drawable avd_hide_password
 drawable avd_show_password
 drawable back_arrow
@@ -1136,6 +1137,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable cricket2
 drawable curved_bottomsheet
 drawable curved_snackbar
 drawable design_bottom_navigation_item_background
@@ -1219,14 +1221,17 @@ drawable rounded_rectangle_green
 drawable rounded_rectangle_orange
 drawable rounded_view
 drawable send_button
+drawable spiner_radius
 drawable tag_banner
 drawable ticket_status
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable untitled
+drawable veg
 drawable view_button
 drawable view_details_btn
 id ALT
+id Add_new_btn
 id CTRL
 id FUNCTION
 id Initiatedate
@@ -1236,6 +1241,7 @@ id Product_Name
 id RecyleViewComplain
 id RecyleViewCoupon
 id RecyleViewCoupon1
+id Repeat_last
 id SHIFT
 id SYM
 id Wallet
@@ -1293,6 +1299,8 @@ id beauty_spa
 id beginning
 id billing_address
 id blocking
+id book_now
+id book_service
 id booking_date
 id booking_dateView
 id bottom
@@ -1316,8 +1324,10 @@ id cancel_schedular_product
 id cant_find_item
 id cardView
 id cardView8
+id cardView_Date_selecter
 id card_view
 id cardview
+id cat
 id category_image
 id category_text
 id center
@@ -1347,6 +1357,7 @@ id complaints_status
 id complaints_type
 id container
 id containerView
+id content
 id contentPanel
 id coordinator
 id coupon_apllied_success
@@ -1381,9 +1392,11 @@ id direct
 id disableHome
 id discount
 id discount_container
+id done_btn_variation
 id editTextCode
 id edit_billing_add
 id edit_query
+id elegenty_quantity_btn
 id email
 id end
 id end_padder
@@ -1495,6 +1508,7 @@ id login_first_btn
 id logo_view
 id lottie_layer_name
 id m_card_view
+id m_done_btn
 id main_screen
 id masked
 id mcheckBox
@@ -1551,6 +1565,7 @@ id parallax
 id parent
 id parentPanel
 id parentView
+id parent_layout2
 id parent_matrix
 id parrent
 id parrent_view
@@ -1575,6 +1590,7 @@ id primary_wallet
 id product_name
 id product_subTitle
 id product_title
+id product_variations
 id profile_container
 id profile_email
 id profile_layout
@@ -1586,12 +1602,14 @@ id progress_horizontal
 id promo_code_applied
 id quantity
 id quantity1
+id quantity_btn
 id radial
 id radio
 id radio_grp_env
 id recyclerView
 id recycler_cart
 id recycler_category
+id recycler_view_container
 id recyclerview
 id referal_applied_succesfully
 id referralCode
@@ -1617,6 +1635,7 @@ id rv_apps
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
+id schdeule_banner
 id schedular_product
 id schedule_item_layout
 id schedule_recyclerView
@@ -1663,6 +1682,7 @@ id snap
 id spacer
 id spinner
 id split_action_bar
+id sports_banner
 id sports_goods
 id spread
 id spread_inside
@@ -1722,6 +1742,7 @@ id txtAppName
 id uniform
 id up
 id update_address
+id update_quantity_only_elegent
 id useLogo
 id user_message
 id valid_till
@@ -1806,6 +1827,7 @@ layout activity_checkout_product
 layout activity_complaint
 layout activity_contact_us
 layout activity_ecom_wallet
+layout activity_fetch_schedulable_sub_category
 layout activity_forgot_password
 layout activity_items_scheduler
 layout activity_login
@@ -1831,6 +1853,7 @@ layout activity_verify_phone
 layout activity_view_locked_complain
 layout activity_view_primary_wallet
 layout activity_welcome
+layout add_or_repeat_sheet
 layout add_referral_fragment
 layout checkout_bottom_sheet
 layout complain_details_sheet
@@ -1907,19 +1930,23 @@ layout preference_widget_checkbox
 layout preference_widget_seekbar
 layout preference_widget_switch
 layout preference_widget_switch_compat
+layout product_listing_fragment
 layout product_listings_itemview
+layout product_variations_sheet
 layout schedulable_product_list
 layout schedule_histories
 layout schedule_products_list
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout service_book_sheet
 layout service_booked_dialog
 layout show_success_transaction
 layout single_app_layout
 layout slide
 layout support_simple_spinner_dropdown_item
 layout toolbar
+layout update_quantity_only
 layout user_confirmqation_test
 layout user_not_login
 layout user_saved_address
@@ -2040,6 +2067,7 @@ string project_id
 string provide_credentials
 string recommend_message
 string resend_code
+string rs
 string search_menu_title
 string status_bar_notification_info_overflow
 string sub_booking_date

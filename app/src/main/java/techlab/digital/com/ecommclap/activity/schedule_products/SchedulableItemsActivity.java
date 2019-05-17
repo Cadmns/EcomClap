@@ -26,6 +26,7 @@ import retrofit2.Response;
 import techlab.digital.com.ecommclap.R;
 import techlab.digital.com.ecommclap.adapter.SchedulableItemsAdapter;
 import techlab.digital.com.ecommclap.model.VirtualCartSingleton;
+import techlab.digital.com.ecommclap.model.fetchSubProducts.ProductListingsModeResponse;
 import techlab.digital.com.ecommclap.model.fetchSubProducts.ProductListingsModeResponsetTwo;
 import techlab.digital.com.ecommclap.network.ApiClient;
 import techlab.digital.com.ecommclap.network.ApiInterface;
@@ -42,6 +43,11 @@ public class SchedulableItemsActivity extends AppCompatActivity implements Sched
     final List<ProductListingsModeResponsetTwo> mFinalList_for_cart = new ArrayList<ProductListingsModeResponsetTwo>();
     private long mLastClickTime = 0;
     SchedulableItemsAdapter mAdapter;
+    int product_id;
+    String category_name;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +56,43 @@ public class SchedulableItemsActivity extends AppCompatActivity implements Sched
         checkoutlayout=findViewById(R.id.checkout_layout);
         virtualCart = findViewById(R.id.vertual_cart);
         setToolBar();
+        Intent intent = getIntent();
+
+
+
+        if (null != intent.getExtras()) {
+            product_id =getIntent().getExtras().getInt("id");
+            category_name =getIntent().getExtras().getString("category_name");
+
+
+            if (CheckInternet.isNetwork(getApplicationContext())) {
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
+
+                Log.e("is   name",category_name);
+                fetchproducts(category_name);
+            }else {
+                //do something, net is not connected
+                Toast.makeText(getApplicationContext(), "Connect to internet", Toast.LENGTH_SHORT).show();
+            }
+
+
+        }else {
+            Toast.makeText(getApplicationContext(),"Unexpected issue",Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
+
+
+
+
+
 
 
         mRecyclerView = findViewById(R.id.schedule_recyclerView);
-        fetch_schedulable_Items();
+       // fetch_schedulable_Items();
         virtualCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,25 +106,61 @@ public class SchedulableItemsActivity extends AppCompatActivity implements Sched
     }
 
 
-    private Boolean mCheckInternetWithMultipleClicks(){
 
-        if (CheckInternet.isNetwork(getApplicationContext())) {
-            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
-                return false;
+
+
+
+
+    ProgressDialog progressDialog;
+    private void fetchproducts(String str){
+
+
+        progressDialog = new ProgressDialog(SchedulableItemsActivity.this);
+
+        // Setting up message in Progress dialog.
+        progressDialog.setMessage("Loading..");
+        progressDialog.setCancelable(false);
+
+        progressDialog.show();
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<List<ProductListingsModeResponsetTwo>> call = apiService.get_product_for_schedule(str);
+
+        call.enqueue(new Callback<List<ProductListingsModeResponsetTwo>>() {
+            @Override
+            public void onResponse(Call<List<ProductListingsModeResponsetTwo>> call, Response<List<ProductListingsModeResponsetTwo>> response) {
+                if (progressDialog.isShowing())
+                    progressDialog.dismiss();
+                if(response.isSuccessful()){
+
+                    setAdapter(response.body());
+                }else{
+                    Log.e("Error","");
+
+                }
             }
-            mLastClickTime = SystemClock.elapsedRealtime();
-            return true;
-            //  }
-        }else {
-            //do something, net is not connected
 
-            Toast.makeText(getApplicationContext(), "Connect to internet", Toast.LENGTH_SHORT).show();
+            @Override
+            public void onFailure(Call<List<ProductListingsModeResponsetTwo>> call, Throwable t) {
+                Log.e("onFailure",t.getMessage());
+                if (progressDialog.isShowing())
+                    progressDialog.dismiss();
 
-        }
-
-        return false;
+            }
+        });
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     private void setToolBar() {
@@ -102,6 +177,20 @@ public class SchedulableItemsActivity extends AppCompatActivity implements Sched
         });
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public void fetch_schedulable_Items(){
@@ -198,5 +287,23 @@ public class SchedulableItemsActivity extends AppCompatActivity implements Sched
         }
     }
 
+    private Boolean mCheckInternetWithMultipleClicks(){
 
+        if (CheckInternet.isNetwork(getApplicationContext())) {
+            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+                return false;
+            }
+            mLastClickTime = SystemClock.elapsedRealtime();
+            return true;
+            //  }
+        }else {
+            //do something, net is not connected
+
+            Toast.makeText(getApplicationContext(), "Connect to internet", Toast.LENGTH_SHORT).show();
+
+        }
+
+        return false;
+
+    }
 }

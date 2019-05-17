@@ -209,4 +209,17 @@ public interface ApiInterface {
     Call<ResponseBody> userRewardPointDeduct(@Header("Authorization")String token, @Query ("id") int customer_id,@Query ("total_amount") String total_amount);
 
 
+  /*  http://techlabdigital.co.in/ecom-urbanclap/wp-json/wc/v1/products?filter%5Bproduct_cat%5D=Vegetarian
+
+    http://techlabdigital.co.in/ecom-urbanclap/wp-json/wc/v2/categories_schedule?parent=0&per_page=50 (edi
+
+*/
+
+    @GET("/ecom-urbanclap/wp-json/wc/v2/categories_schedule")
+    Call<List<FetchSubCategory>> getSchedulable_subCategory(@Query("parent") int id);
+
+    @GET("/ecom-urbanclap/wp-json/wc/v1/products")
+    Call<List<ProductListingsModeResponsetTwo>> get_product_for_schedule(@Query("filter[product_cat]") String categoryName);
+
+
 }

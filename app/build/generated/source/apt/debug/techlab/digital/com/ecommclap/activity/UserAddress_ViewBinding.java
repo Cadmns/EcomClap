@@ -16,7 +16,7 @@ import techlab.digital.com.ecommclap.R;
 public class UserAddress_ViewBinding implements Unbinder {
   private UserAddress target;
 
-  private View view2131296500;
+  private View view2131296509;
 
   @UiThread
   public UserAddress_ViewBinding(UserAddress target) {
@@ -32,7 +32,7 @@ public class UserAddress_ViewBinding implements Unbinder {
     target.userAddress = Utils.findRequiredViewAsType(source, R.id.address, "field 'userAddress'", TextView.class);
     view = Utils.findRequiredView(source, R.id.layout_action1, "field 'mEditLayout' and method 'mEditLayout'");
     target.mEditLayout = Utils.castView(view, R.id.layout_action1, "field 'mEditLayout'", LinearLayout.class);
-    view2131296500 = view;
+    view2131296509 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -52,7 +52,7 @@ public class UserAddress_ViewBinding implements Unbinder {
     target.userAddress = null;
     target.mEditLayout = null;
 
-    view2131296500.setOnClickListener(null);
-    view2131296500 = null;
+    view2131296509.setOnClickListener(null);
+    view2131296509 = null;
   }
 }

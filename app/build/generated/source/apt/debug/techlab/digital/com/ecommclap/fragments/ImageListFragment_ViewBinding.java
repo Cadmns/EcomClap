@@ -4,7 +4,7 @@ package techlab.digital.com.ecommclap.fragments;
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
@@ -19,7 +19,7 @@ public class ImageListFragment_ViewBinding implements Unbinder {
   public ImageListFragment_ViewBinding(ImageListFragment target, View source) {
     this.target = target;
 
-    target.mEtaContainer = Utils.findRequiredViewAsType(source, R.id.eta_container, "field 'mEtaContainer'", RelativeLayout.class);
+    target.mEtaContainer = Utils.findRequiredViewAsType(source, R.id.eta_container, "field 'mEtaContainer'", LinearLayout.class);
     target.mCategoryEta = Utils.findRequiredViewAsType(source, R.id.eta_arrival, "field 'mCategoryEta'", TextView.class);
     target.mNoResults = Utils.findRequiredViewAsType(source, R.id.noResults, "field 'mNoResults'", TextView.class);
   }

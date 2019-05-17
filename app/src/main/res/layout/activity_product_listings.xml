@@ -37,6 +37,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/recycler_view_container"
         android:layout_width="match_parent"
         android:layout_below="@+id/toolbar"
         android:layout_height="match_parent">
@@ -66,5 +67,72 @@
 
 
     </RelativeLayout>
+
+ <!--   <RelativeLayout
+        android:padding="@dimen/padding_10"
+        android:background="#F0F0F0"
+        android:paddingBottom="@dimen/dimen_20dp"
+        android:visibility="visible"
+        android:id="@+id/select_new_or_repeat_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:id="@+id/text_cnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="#21273B"
+                android:textSize="@dimen/dimen_15sp"
+                android:text="Repeat Last Customization or Add New One"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+         <LinearLayout
+             android:layout_marginTop="@dimen/padding_10"
+                android:layout_below="@+id/text_cnt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/add_new_product"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_override_three"
+                    android:fontFamily="sans-serif"
+                    android:text="Add New"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    />
+
+
+
+
+
+               <Button
+                   android:id="@+id/repeat_last"
+                   android:background="@color/colorPrimary"
+                   android:textColor="@color/white"
+                   android:layout_width="200dp"
+                   android:layout_height="wrap_content"
+                   android:text="Repeat "
+                   android:layout_marginLeft="@dimen/dimen_20dp"
+
+                   />
+            </LinearLayout>
+
+    </RelativeLayout>-->
 
 </RelativeLayout>

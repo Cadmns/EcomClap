@@ -17,9 +17,9 @@ import techlab.digital.com.ecommclap.R;
 public class ServiceDescriptionActivity_ViewBinding implements Unbinder {
   private ServiceDescriptionActivity target;
 
-  private View view2131296345;
+  private View view2131296349;
 
-  private View view2131296333;
+  private View view2131296337;
 
   @UiThread
   public ServiceDescriptionActivity_ViewBinding(ServiceDescriptionActivity target) {
@@ -39,7 +39,7 @@ public class ServiceDescriptionActivity_ViewBinding implements Unbinder {
     target.mBookingDate = Utils.findRequiredViewAsType(source, R.id.booking_dateView, "field 'mBookingDate'", TextView.class);
     view = Utils.findRequiredView(source, R.id.cardView8, "field 'mBookingDateView' and method 'setServiceDate'");
     target.mBookingDateView = Utils.castView(view, R.id.cardView8, "field 'mBookingDateView'", CardView.class);
-    view2131296345 = view;
+    view2131296349 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -49,7 +49,7 @@ public class ServiceDescriptionActivity_ViewBinding implements Unbinder {
     target.mBookingDateTextView = Utils.findRequiredViewAsType(source, R.id.datePicker, "field 'mBookingDateTextView'", TextView.class);
     view = Utils.findRequiredView(source, R.id.btn_signup, "field 'mBookService' and method 'mBookService'");
     target.mBookService = Utils.castView(view, R.id.btn_signup, "field 'mBookService'", Button.class);
-    view2131296333 = view;
+    view2131296337 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -74,9 +74,9 @@ public class ServiceDescriptionActivity_ViewBinding implements Unbinder {
     target.mBookingDateTextView = null;
     target.mBookService = null;
 
-    view2131296345.setOnClickListener(null);
-    view2131296345 = null;
-    view2131296333.setOnClickListener(null);
-    view2131296333 = null;
+    view2131296349.setOnClickListener(null);
+    view2131296349 = null;
+    view2131296337.setOnClickListener(null);
+    view2131296337 = null;
   }
 }

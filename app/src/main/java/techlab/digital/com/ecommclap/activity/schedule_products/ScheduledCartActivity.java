@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -29,7 +30,9 @@ public class ScheduledCartActivity extends AppCompatActivity implements Schedule
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_scheduled_cart);
+        setToolBar();
         mRecyclerView = findViewById(R.id.recycler_cart);
         placeOrder = findViewById(R.id.btn_placeorder);
         noCartItem = findViewById(R.id.noCartItem);
@@ -45,6 +48,30 @@ public class ScheduledCartActivity extends AppCompatActivity implements Schedule
         setAdapter(my_final_cart_item);
     }
 
+
+
+
+
+
+
+
+    private void setToolBar() {
+        Toolbar tb = findViewById(R.id.toolbar);
+        this.setSupportActionBar(tb);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        this. getSupportActionBar().setDisplayShowTitleEnabled(false);
+        tb.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+    }
+
+
+
     ScheduleCartAdapter mAdapter;
     public void setAdapter(List<ProductListingsModeResponsetTwo> mFinalList){
         mRecyclerView.setHasFixedSize(true);
@@ -56,6 +83,7 @@ public class ScheduledCartActivity extends AppCompatActivity implements Schedule
     }
     @Override
     public void onRemoveItemClick(int position,int ids,int size_of_list) {
+
 
         if(size_of_list!=0)
         {
