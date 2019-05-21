@@ -17,7 +17,6 @@
 package techlab.digital.com.ecommclap.fragments;
 
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -27,12 +26,14 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -61,30 +62,34 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import techlab.digital.com.ecommclap.R;
 import techlab.digital.com.ecommclap.activity.AllServiceActivity;
+import techlab.digital.com.ecommclap.activity.ProductListings;
+import techlab.digital.com.ecommclap.adapter.ProductListingsAdapter;
 import techlab.digital.com.ecommclap.adapter.SubCategoriesAdapter;
 import techlab.digital.com.ecommclap.model.categories.subCategories.FetchSubCategory;
 import techlab.digital.com.ecommclap.model.categories.subCategories.Image;
+import techlab.digital.com.ecommclap.model.fetchSubProducts.ProductListingsModeResponse;
 import techlab.digital.com.ecommclap.network.ApiClient;
 import techlab.digital.com.ecommclap.network.ApiInterface;
 import techlab.digital.com.ecommclap.utility.CheckInternet;
 
 
-public class ImageListFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener  {
+public class ImageListFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener ,ProductListingsAdapter.OnInterfaceListener2,ProductListingsAdapter.OnAddProductButtonListener,ProductVariationsSheet.onVariationChanged {
   //  ArrayList<ProductVariationContainer> productItemArrayList;
     public static final String STRING_IMAGE_URI = "ImageUri";
     public static final String STRING_IMAGE_POSITION = "ImagePosition";
     private static AllServiceActivity mActivity;
     RecyclerView recyclerView;
+    RecyclerView recyclerView2;
     @BindView(R.id.eta_container)
     LinearLayout mEtaContainer;
     private SwipeRefreshLayout swipeRefreshLayout;
     View view;
     @BindView(R.id.eta_arrival)
     TextView mCategoryEta;
-
     @BindView(R.id.noResults)
     TextView mNoResults;
-    onSubCategry_notFound onSubCategry_notFound;
+    String cat_slug;
+    onSubCatNotFoundCallBack catNotFoundCallBack;
 
 
 
@@ -93,13 +98,11 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            onSubCategry_notFound = (ImageListFragment.onSubCategry_notFound) activity;
+            catNotFoundCallBack = (onSubCatNotFoundCallBack) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement onSomeEventListener");
         }
     }
-
-
 
 
     @Override
@@ -160,12 +163,10 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
         return false;
 
     }
-
     private void fetchCategoriesItems(final int str){
         swipeRefreshLayout.setRefreshing(true);
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<List<FetchSubCategory>> call = apiService.getSubcategories(str);
-
         call.enqueue(new Callback<List<FetchSubCategory>>() {
             @Override
             public void onResponse(Call<List<FetchSubCategory>> call, Response<List<FetchSubCategory>> response) {
@@ -173,16 +174,14 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
                     swipeRefreshLayout.setRefreshing(false);
                 if(response.isSuccessful()){
                     if (response.body().isEmpty()){
-                        mNoResults.setVisibility(View.VISIBLE);
-
+                       // mNoResults.setVisibility(View.VISIBLE);
+                        fetchproducts(ImageListFragment.this.getArguments().getString("cat_slug"));
               }
                     else
                     createAdapter(response.body());
                 }else{
                     Log.e("Error","");
                         mNoResults.setVisibility(View.VISIBLE);
-
-
                 }
             }
 
@@ -195,17 +194,15 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
             }
         });
 
-
     }
 
 
+
+
     private void createAdapter(List<FetchSubCategory> body){
-
-
         recyclerView= view.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager recylerViewLayoutManager = new LinearLayoutManager(getContext());
-
         recyclerView.setLayoutManager(recylerViewLayoutManager);
 
         // recyclerView.setHasFixedSize(true);
@@ -216,8 +213,6 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
         mCategoryEta.setText(ImageListFragment.this.getArguments().getString("eta"));
 
     }
-
-
     @Override
     public void onRefresh() {
 
@@ -234,11 +229,124 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
         );
     }
 
+    @Override
+    public void change_variation_is(String variation, String Quantity, ProductListingsModeResponse data_object, int product_position, ProductListingsAdapter.ViewHolder holder) {
 
 
-    public interface onSubCategry_notFound {
-        public void on_product_found(String variation,String Quantity);
+
     }
+
+
+
+
+    public interface onSubCatNotFoundCallBack {
+        public void on_product_found(ProductListingsAdapter adapter);
+    }
+
+
+
+
+
+    @Override
+    public void OnAddProduct(View view, int position, ProductListingsModeResponse data, String quantity, ProductListingsAdapter.ViewHolder mholder) {
+        ProductListingsModeResponse  product_object_data = data;
+        ProductVariationsSheet frgaments = new ProductVariationsSheet(getContext(),product_object_data,position,quantity,mholder);
+        frgaments.show(getFragmentManager(), "ahahahaha");
+        frgaments.setCancelable(false);
+    }
+
+    /*interface call back chose add new product or update last one*/
+    @Override
+    public void OnAddOrRepeat(View view, int position, ProductListingsModeResponse m_data, String quantity, ProductListingsAdapter.ViewHolder holder) {
+        AddNewOrRepeatBottomSheet fragmentEliminaPost = new AddNewOrRepeatBottomSheet(getContext(),m_data,position,quantity,holder);
+        fragmentEliminaPost.show(getFragmentManager(), "ahahahaha");
+        fragmentEliminaPost.setCancelable(false);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ProgressDialog progressDialog;
+    // Setting up Progress dialog for loading the content.
+    private void fetchproducts(String str){
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Loading..");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<List<ProductListingsModeResponse>> call = apiService.getProducts(str);
+        call.enqueue(new Callback<List<ProductListingsModeResponse>>() {
+            @Override
+            public void onResponse(Call<List<ProductListingsModeResponse>> call, Response<List<ProductListingsModeResponse>> response) {
+                if (progressDialog.isShowing())
+                    progressDialog.dismiss();
+                if(response.isSuccessful()){
+                    setAdapterViews(response.body());
+                }else{
+                    Log.e("Error","");
+                }
+            }
+            @Override
+            public void onFailure(Call<List<ProductListingsModeResponse>> call, Throwable t) {
+                Log.e("onFailure",t.getMessage());
+                if (progressDialog.isShowing())
+                    progressDialog.dismiss();
+
+            }
+        });
+    }
+
+    ProductListingsAdapter mAdapter2;
+    private void setAdapterViews(List<ProductListingsModeResponse> datumList){
+        recyclerView2= view.findViewById(R.id.recyclerview2);
+        recyclerView2.setVisibility(View.VISIBLE);
+        mAdapter2 = new ProductListingsAdapter(getContext(), datumList);
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        recyclerView2.setLayoutManager(layoutManager);
+        recyclerView2.setAdapter(mAdapter2);
+        catNotFoundCallBack.on_product_found(mAdapter2);
+        mAdapter2.mCallback = (ProductListingsAdapter.OnAddProductButtonListener)this;
+        mAdapter2.mCallback2 = (ProductListingsAdapter.OnInterfaceListener2)this;
+       /* mAdapter.mCallback = (ProductListingsAdapter.OnAddProductButtonListener)this;
+        mAdapter.mCallback2 = (ProductListingsAdapter.OnInterfaceListener2)this;
+        mAdapter.mCallback3 = (ProductListingsAdapter.OnServiceBooked)this;*/
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

@@ -19,7 +19,6 @@ public class ProductListingFragment_ViewBinding implements Unbinder {
   public ProductListingFragment_ViewBinding(ProductListingFragment target, View source) {
     this.target = target;
 
-    target.mToolBarName = Utils.findRequiredViewAsType(source, R.id.toolbarTitle, "field 'mToolBarName'", TextView.class);
     target.recyclerView = Utils.findRequiredViewAsType(source, R.id.recyclerview, "field 'recyclerView'", RecyclerView.class);
     target.noResults = Utils.findRequiredViewAsType(source, R.id.noResults, "field 'noResults'", TextView.class);
   }
@@ -31,7 +30,6 @@ public class ProductListingFragment_ViewBinding implements Unbinder {
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 
-    target.mToolBarName = null;
     target.recyclerView = null;
     target.noResults = null;
   }

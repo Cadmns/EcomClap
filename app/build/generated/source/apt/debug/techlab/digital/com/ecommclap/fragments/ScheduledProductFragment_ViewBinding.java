@@ -18,7 +18,7 @@ import techlab.digital.com.ecommclap.R;
 public class ScheduledProductFragment_ViewBinding implements Unbinder {
   private ScheduledProductFragment target;
 
-  private View view2131296346;
+  private View view2131296344;
 
   @UiThread
   public ScheduledProductFragment_ViewBinding(final ScheduledProductFragment target, View source) {
@@ -30,7 +30,7 @@ public class ScheduledProductFragment_ViewBinding implements Unbinder {
     target.mRecyclerView = Utils.findRequiredViewAsType(source, R.id.recyclerView, "field 'mRecyclerView'", RecyclerView.class);
     view = Utils.findRequiredView(source, R.id.cancel_schedular_product, "field 'mCancel_schedular_product' and method 'cancel'");
     target.mCancel_schedular_product = Utils.castView(view, R.id.cancel_schedular_product, "field 'mCancel_schedular_product'", Button.class);
-    view2131296346 = view;
+    view2131296344 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -51,7 +51,7 @@ public class ScheduledProductFragment_ViewBinding implements Unbinder {
     target.mRecyclerView = null;
     target.mCancel_schedular_product = null;
 
-    view2131296346.setOnClickListener(null);
-    view2131296346 = null;
+    view2131296344.setOnClickListener(null);
+    view2131296344 = null;
   }
 }

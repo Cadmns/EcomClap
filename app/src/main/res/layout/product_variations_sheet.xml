@@ -48,15 +48,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
-                android:text=" Select Prduct Quantity"
+                android:text=" Select Product Quantity"
                 android:textSize="12dp"
                 android:layout_marginBottom="5dp"
                 android:textColor="#000000"
-
               />
         </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/variations_container"
         android:layout_marginLeft="@dimen/dimen_15sp"
         android:orientation="vertical"
         android:layout_width="wrap_content"

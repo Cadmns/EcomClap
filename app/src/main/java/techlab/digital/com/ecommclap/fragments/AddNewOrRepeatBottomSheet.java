@@ -25,6 +25,8 @@ ProductListingsModeResponse data_object;
 int position;
 String number_quantity;
 ProductListingsAdapter.ViewHolder my_holder;
+
+
     @SuppressLint("ValidFragment")
     public AddNewOrRepeatBottomSheet(Context mtx, ProductListingsModeResponse response_object, int mposition, String quantity, ProductListingsAdapter.ViewHolder holder){
         data_object = response_object;
@@ -32,8 +34,6 @@ ProductListingsAdapter.ViewHolder my_holder;
         number_quantity = quantity;
         my_holder = holder;
     }
-
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -43,10 +43,6 @@ ProductListingsAdapter.ViewHolder my_holder;
             throw new ClassCastException(activity.toString() + " must implement onSomeEventListener");
         }
     }
-
-
-
-
 
     @SuppressLint("RestrictedApi")
     public void setupDialog(final Dialog dialog, int style) {
@@ -73,7 +69,6 @@ ProductListingsAdapter.ViewHolder my_holder;
                 dialog.dismiss();
             }
         });
-
 
         CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) ((View) view.getParent()).getLayoutParams();
         CoordinatorLayout.Behavior behavior = params.getBehavior();
@@ -116,10 +111,6 @@ ProductListingsAdapter.ViewHolder my_holder;
             });
         }
     }
-
-
-
-
     public interface onOptionSelected {
         public void selected_option_is(String option, ProductListingsModeResponse response_data, int data_position, String quantity, ProductListingsAdapter.ViewHolder holder);
     }

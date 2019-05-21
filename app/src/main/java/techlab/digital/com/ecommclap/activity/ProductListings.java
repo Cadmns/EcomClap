@@ -67,7 +67,6 @@ public class ProductListings extends AppCompatActivity implements ProductListing
     List<ProductListingsModeResponse> product_data_List;
     ProductListingsModeResponse productListingsModeResponse2 ;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,15 +76,11 @@ public class ProductListings extends AppCompatActivity implements ProductListing
         }
         ButterKnife.bind(this);
         sessionManager = new SessionManager(getApplicationContext());
-
         Intent intent = getIntent();
-
         if (null != intent.getExtras()) {
             product_id =getIntent().getExtras().getInt("id");
             category_name =getIntent().getExtras().getString("category_name");
-
             settoolbar();
-
             if (CheckInternet.isNetwork(getApplicationContext())) {
                     if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
                         return;
@@ -96,19 +91,15 @@ public class ProductListings extends AppCompatActivity implements ProductListing
                 //do something, net is not connected
                 Toast.makeText(getApplicationContext(), "Connect to internet", Toast.LENGTH_SHORT).show();
             }
-
-
         }else {
             Toast.makeText(getApplicationContext(),"Unexpected issue",Toast.LENGTH_SHORT).show();
             finish();
         }
-
-
     }
 
     private void settoolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            mToolBarName = toolbar.findViewById(R.id.toolbarTitle);
+        mToolBarName = toolbar.findViewById(R.id.toolbarTitle);
         mToolBarName.setText(category_name);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -124,33 +115,25 @@ public class ProductListings extends AppCompatActivity implements ProductListing
 
     ProgressDialog progressDialog;
 
+    //Setting up Progress dialog for loading the content.
     private void fetchproducts(String str){
-
-
         progressDialog = new ProgressDialog(ProductListings.this);
-
-        // Setting up message in Progress dialog.
         progressDialog.setMessage("Loading..");
         progressDialog.setCancelable(false);
-
-            progressDialog.show();
+        progressDialog.show();
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<List<ProductListingsModeResponse>> call = apiService.getProducts(str);
-
         call.enqueue(new Callback<List<ProductListingsModeResponse>>() {
             @Override
             public void onResponse(Call<List<ProductListingsModeResponse>> call, Response<List<ProductListingsModeResponse>> response) {
                 if (progressDialog.isShowing())
                     progressDialog.dismiss();
                 if(response.isSuccessful()){
-
                     setAdapterViews(response.body());
                 }else{
                     Log.e("Error","");
-
                 }
             }
-
             @Override
             public void onFailure(Call<List<ProductListingsModeResponse>> call, Throwable t) {
                 Log.e("onFailure",t.getMessage());
@@ -159,15 +142,12 @@ public class ProductListings extends AppCompatActivity implements ProductListing
 
             }
         });
-
     }
 
-
     ProductListingsAdapter mAdapter;
-
     private void setAdapterViews(List<ProductListingsModeResponse> datumList){
         product_data_List = datumList;
-        mAdapter = new ProductListingsAdapter(getApplicationContext(), datumList,ProductListings.this);
+        mAdapter = new ProductListingsAdapter(getApplicationContext(), datumList);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(mAdapter);
@@ -176,23 +156,19 @@ public class ProductListings extends AppCompatActivity implements ProductListing
         mAdapter.mCallback3 = (ProductListingsAdapter.OnServiceBooked)this;
     }
 
-    /*interface call back to add to cart the product*/
+
+    /***************Interface CallBack to Add to cart the Product on add button click*******************/
     @Override
     public void OnAddProduct(View view, int position, ProductListingsModeResponse object, String quantity, ProductListingsAdapter.ViewHolder mholder) {
-        ProductListingsModeResponse  product_object_data = object;
-        if (product_object_data.getType().equals("phive_booking")){
-            //intent = new Intent(context, ServiceDescriptionActivity.class);
-        }else {
+            ProductListingsModeResponse  product_object_data = object;
             ProductVariationsSheet frgaments = new ProductVariationsSheet(getApplicationContext(),product_object_data,position,quantity,mholder);
             frgaments.show(getSupportFragmentManager(), "ahahahaha");
             frgaments.setCancelable(false);
-        }
     }
 
     /*interface call back chose add new product or update last one*/
     @Override
     public void OnAddOrRepeat(View view, int position, ProductListingsModeResponse m_data, String quantity, ProductListingsAdapter.ViewHolder holder) {
-        /*productListingsModeResponse.set*/
         AddNewOrRepeatBottomSheet fragmentEliminaPost = new AddNewOrRepeatBottomSheet(getApplicationContext(),m_data,position,quantity,holder);
         fragmentEliminaPost.show(getSupportFragmentManager(), "ahahahaha");
         fragmentEliminaPost.setCancelable(false);
@@ -200,50 +176,49 @@ public class ProductListings extends AppCompatActivity implements ProductListing
 
     /*Interface caLLBack to get User Choice wheather he wants to add new product or repeat last one*/
     @Override
-    public void selected_option_is(String option, ProductListingsModeResponse m_data_object, int data_position, String number_quantity, ProductListingsAdapter.ViewHolder holder) {
-
+    public void selected_option_is(String   option, ProductListingsModeResponse m_data_object, int data_position, String number_quantity, ProductListingsAdapter.ViewHolder holder) {
         if(option.equals("add"))
         {
-            ProductVariationContainer m_variation_container = is_having_variations(m_data_object);
-            if(!m_variation_container.equals(null))
-            {
-                ProductVariationsSheet fragmentEliminaPost = new ProductVariationsSheet(getApplicationContext(),m_data_object,data_position,number_quantity,holder);
-                fragmentEliminaPost.show(getSupportFragmentManager(), "ahahahaha");
-                fragmentEliminaPost.setCancelable(false);
+            try {
+                ProductVariationContainer m_variation_container = is_having_variations(m_data_object);
+                if(!m_variation_container.equals(null))
+                {
+                    ProductVariationsSheet fragmentEliminaPost = new ProductVariationsSheet(getApplicationContext(),m_data_object,data_position,number_quantity,holder);
+                    fragmentEliminaPost.show(getSupportFragmentManager(), "ahahahaha");
+                    fragmentEliminaPost.setCancelable(false);
+                }
+                else
+                    Log.e("TAG","no variation is provided");
             }
-            else
-                Log.e("TAG","no variation is provided");
+            catch (NullPointerException e)
+            {
+                e.printStackTrace();
+            }
+
         }
         else if(option.equals("repeat")){
-
             UpdateQuantityOnlySheet fragmentEliminaPost = new UpdateQuantityOnlySheet(getApplicationContext(),m_data_object,number_quantity,data_position,holder);
             fragmentEliminaPost.show(getSupportFragmentManager(), "ahahahaha");
             fragmentEliminaPost.setCancelable(false);
         }
-
 
     }
 
     /*this method is used to update the quantity and variations of the product*/
     @Override
     public void change_variation_is(String variation, String quantity, ProductListingsModeResponse add_cart_product_response, int product_position, ProductListingsAdapter.ViewHolder holder) {
-
         int updateIndex = product_position;
         mAdapter.update_elegent(updateIndex,quantity,holder);
-        //mAdapter.notifyItemChanged(updateIndex);
         p_variation = variation;
         p_quantity = quantity;
 
-        addtoCartProduct(add_cart_product_response);
-
+        Log.e("here is the issue",p_variation+"_______"+p_quantity);
+        addtoCartProduct(add_cart_product_response,variation,quantity);
     }
 
     /*interface call back to update the quantity only */
     @Override
     public void update_quantity_only(String quantity, ProductListingsModeResponse object_data, int position, ProductListingsAdapter.ViewHolder my_holder) {
-
-        //productListingsModeResponse = new ProductListingsModeResponse();
-       // productListingsModeResponse.setStockQuantity(quantity);
         mAdapter.update_elegent(position,quantity,my_holder);
         updateQuantity(object_data,quantity);
         Toast.makeText(getApplicationContext(),quantity,Toast.LENGTH_SHORT).show();
@@ -256,9 +231,6 @@ public class ProductListings extends AppCompatActivity implements ProductListing
         productListingsModeResponse2 = data;
         BookServiceBottomSheet fragmentEliminaPost = new BookServiceBottomSheet(getApplicationContext());
         fragmentEliminaPost.show(getSupportFragmentManager(), "ahahahaha");
-
-
-
     }
 
     @Override
@@ -277,10 +249,8 @@ public class ProductListings extends AppCompatActivity implements ProductListing
 
     /*network calling to update the quantiity*/
     private void updateQuantity(ProductListingsModeResponse response,String quantity){
-
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ResponseBody> call = apiService.updateQuantity("Bearer " + sessionManager.getKeySession(),response.getmRefrenceKey(),quantity);
-
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -289,13 +259,11 @@ public class ProductListings extends AppCompatActivity implements ProductListing
                 }else{
                     Log.e("Error","");
                     if (response.code() == 403){
-
-
+                        /*do call back  for forbidden erorr*/
                     }
                     finish();
                 }
             }
-
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Log.e("onFailure",t.getMessage());
@@ -307,33 +275,25 @@ public class ProductListings extends AppCompatActivity implements ProductListing
     }
 
     /*network calling to add to cart to server and app ass well*/
-    private void addtoCartProduct(final ProductListingsModeResponse product_data_holder){
+    private void addtoCartProduct(final ProductListingsModeResponse product_data_holder,String selected_variation,String selected_quantity){
         Call<AddToCartResponse> call = null;
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         if (product_data_holder.getType().equals("variable")) {
-            AddToCartWithVariationReq addToCartWithReq = new AddToCartWithVariationReq(String.valueOf(product_data_holder.getId()),p_variation,String.valueOf(p_quantity));
+            AddToCartWithVariationReq addToCartWithReq = new AddToCartWithVariationReq(String.valueOf(product_data_holder.getId()),selected_variation,selected_quantity);
             call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartWithReq);
         }
         else{
-
-            AddToCartReq addToCartReq = new AddToCartReq(String.valueOf(product_data_holder.getId()),String.valueOf(p_quantity));
+            AddToCartReq addToCartReq = new AddToCartReq(String.valueOf(product_data_holder.getId()),selected_quantity);
             call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartReq);
         }
-
-
         call.enqueue(new Callback<AddToCartResponse>() {
             @Override
             public void onResponse(Call<AddToCartResponse> call, Response<AddToCartResponse> response) {
-
                 if(response.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Added to cart success", Toast.LENGTH_SHORT).show();
                     Log.e("response boody cp ", String.valueOf(response.body().getKey()));
                     addToCartResponse = new AddToCartResponse();
-                  //  addToCartResponse.setReference_key(response.body().getKey());
-
                     product_data_holder.setmRefrenceKey(response.body().getKey());
-                    //showCustomDialog();
-
                 }else{
                     Log.e("Error","");
                 }
@@ -348,7 +308,7 @@ public class ProductListings extends AppCompatActivity implements ProductListing
     }
 
 
-    /*this is the method to test product is having varition or not*/
+    /*this bunch of code is the method to test product is having varition or not*/
     public ProductVariationContainer is_having_variations(ProductListingsModeResponse data_object){
         ProductVariationContainer productVariationContainer = new ProductVariationContainer();
         if (!data_object.getVariations().isEmpty()) {
@@ -356,14 +316,11 @@ public class ProductListings extends AppCompatActivity implements ProductListing
             for (int k = 0; k <= data_object.getVariations().size(); k++) {
                 CustomVariations variations = new CustomVariations();
                 try {
-
                     variations.setId(data_object.getVariations().get(k).getId());
                     variations.setIn_stock(data_object.getVariations().get(k).getInStock());
                     variations.setWeight(data_object.getVariations().get(k).getWeight());
                     variations.setPrice(data_object.getVariations().get(k).getPrice());
-
                     for (int l = 0; l <= data_object.getAttributes().size(); l++) {
-
                         variations.setName(data_object.getVariations().get(k).getAttributes().get(l).getName());
                         variations.setOption(data_object.getVariations().get(k).getAttributes().get(l).getOption()+"  "+getResources().getString(R.string.rs)+data_object.getVariations().get(k).getPrice());
                         spinnerMap.put(data_object.getVariations().get(k).getPrice(), variations);
@@ -384,8 +341,7 @@ public class ProductListings extends AppCompatActivity implements ProductListing
         }
     }
 
-
-
+    /*show success dialog for add to cart succesfully*/
     private void showCustomDialog() {
         //before inflating the custom alert dialog layout, we will get the current activity viewgroup
         ViewGroup viewGroup =findViewById(android.R.id.content);
@@ -414,8 +370,4 @@ public class ProductListings extends AppCompatActivity implements ProductListing
         alertDialog.setCancelable(false);
         alertDialog.show();
     }
-
-
-
-
 }

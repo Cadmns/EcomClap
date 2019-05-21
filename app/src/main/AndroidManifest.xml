@@ -48,8 +48,6 @@
         <activity android:name=".activity.UserProfileActivity" />
         <activity android:name=".activity.AllServiceActivity" />
         <activity android:name=".activity.ProductListings" />
-        <activity android:name=".activity.ServiceDescriptionActivity" />
-        <activity android:name=".activity.ProductDescriptionActivity" />
         <activity android:name=".activity.CartActivity" />
         <activity android:name=".activity.UserAddress" />
         <activity android:name=".activity.ContactUsActivity" />

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -97,6 +98,7 @@ public class SubCategoriesAdapter extends RecyclerView.Adapter<SubCategoriesAdap
                     Bundle bundle = new Bundle();
                     bundle.putInt("id", subCategory.getId());
                     bundle.putString("category_name",subCategory.getName());
+
                     intent.putExtras(bundle);
 
                     mContext.startActivity(intent);

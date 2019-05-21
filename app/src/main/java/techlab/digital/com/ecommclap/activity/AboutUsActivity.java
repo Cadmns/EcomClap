@@ -53,8 +53,6 @@ public class AboutUsActivity extends AppCompatActivity {
 
     }
 
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,9 +87,6 @@ public class AboutUsActivity extends AppCompatActivity {
         webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setDisplayZoomControls(true);
     }
-
-
-
     private void initWebView() {
         webView.setWebChromeClient(new MyWebChromeClient(this));
         webView.setWebViewClient(new WebViewClient() {
@@ -170,7 +165,6 @@ public class AboutUsActivity extends AppCompatActivity {
         return true;
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -184,7 +178,6 @@ public class AboutUsActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
     private class MyWebChromeClient extends WebChromeClient {
         Context context;

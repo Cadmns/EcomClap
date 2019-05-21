@@ -4,15 +4,12 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.CardView;
 import android.text.Html;
 import android.util.Log;
@@ -26,11 +23,8 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
-import java.util.TimeZone;
 
 import techlab.digital.com.ecommclap.R;
-import techlab.digital.com.ecommclap.activity.ProductListings;
-import techlab.digital.com.ecommclap.activity.ServiceDescriptionActivity;
 
 @SuppressLint("ValidFragment")
 public class BookServiceBottomSheet  extends BottomSheetDialogFragment implements DatePickerDialog.OnDateSetListener{
@@ -45,9 +39,6 @@ public class BookServiceBottomSheet  extends BottomSheetDialogFragment implement
     }
 
 
-
-
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -57,16 +48,6 @@ public class BookServiceBottomSheet  extends BottomSheetDialogFragment implement
             throw new ClassCastException(activity.toString() + " must implement onSomeEventListener");
         }
     }
-
-
-
-
-
-
-
-
-
-
 
     @SuppressLint("RestrictedApi")
     public void setupDialog(final Dialog dialog, int style) {
@@ -80,30 +61,23 @@ public class BookServiceBottomSheet  extends BottomSheetDialogFragment implement
         select_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 createCustomDialog();
             }
         });
-
         book_now.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!mBookingDate.getText().toString().matches(""))
                 {
                     /*call interface callback*/
-
                     onDateSelected.selected_date_is(String.valueOf(mBookingDate.getText()));
                     dialog.dismiss();
                 }
                 else {
                     Toast.makeText(getContext(), "Please Select the date first", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
-
-
-
 
 
         CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) ((View) view.getParent()).getLayoutParams();
@@ -137,10 +111,8 @@ public class BookServiceBottomSheet  extends BottomSheetDialogFragment implement
                             break;
                         }
                     }
-
 //                    Toast.makeText(getContext(), "Bottom Sheet State Changed to: " + state, Toast.LENGTH_SHORT).show();
                 }
-
                 @Override
                 public void onSlide(@NonNull View bottomSheet, float slideOffset) {
                 }

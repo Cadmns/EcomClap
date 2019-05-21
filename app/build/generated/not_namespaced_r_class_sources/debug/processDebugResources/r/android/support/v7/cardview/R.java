@@ -36,9 +36,9 @@ public final class R {
     public static final class dimen {
         private dimen() {}
 
-        public static final int cardview_compat_inset_shadow = 0x7f07005a;
-        public static final int cardview_default_elevation = 0x7f07005b;
-        public static final int cardview_default_radius = 0x7f07005c;
+        public static final int cardview_compat_inset_shadow = 0x7f070058;
+        public static final int cardview_default_elevation = 0x7f070059;
+        public static final int cardview_default_radius = 0x7f07005a;
     }
     public static final class style {
         private style() {}

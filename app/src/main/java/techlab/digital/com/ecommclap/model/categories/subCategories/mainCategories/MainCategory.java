@@ -2,7 +2,7 @@ package techlab.digital.com.ecommclap.model.categories.subCategories.mainCategor
 
 public class MainCategory {
     String categoryName;
-        int categoryid;
+    int categoryid;
     public int getCategoryid() {
         return this.categoryid;
     }

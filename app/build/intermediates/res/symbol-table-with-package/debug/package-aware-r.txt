@@ -805,8 +805,6 @@ dimen abc_text_size_title_material_toolbar
 dimen activity_horizontal_margin
 dimen activity_margin
 dimen activity_vertical_margin
-dimen backdrop_subtitle
-dimen backdrop_title
 dimen bottom_sheet_height
 dimen calendar_day_headers_paddingbottom
 dimen calendar_month_title_bottommargin
@@ -865,7 +863,6 @@ dimen design_tab_max_width
 dimen design_tab_scrollable_min_width
 dimen design_tab_text_size
 dimen design_tab_text_size_2line
-dimen detail_backdrop_height
 dimen dimen_0dp
 dimen dimen_100dp
 dimen dimen_10dp
@@ -1153,6 +1150,7 @@ drawable googleg_standard_color_18
 drawable ic_about_extra_1
 drawable ic_account_circle_black_24dp
 drawable ic_breakfast
+drawable ic_burger
 drawable ic_carmt
 drawable ic_cart
 drawable ic_clear_black_18dp
@@ -1267,7 +1265,6 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id addTocart
 id add_bal
 id add_btn
 id add_money
@@ -1291,7 +1288,6 @@ id async
 id auto
 id available_balance
 id avatar
-id backdrop
 id balance
 id balance_container
 id barrier
@@ -1345,7 +1341,6 @@ id close_button
 id cod
 id code_applied_layout
 id collapseActionView
-id collapsing_toolbar
 id colony
 id complain_container
 id complain_raised
@@ -1374,7 +1369,6 @@ id cw_180
 id cw_270
 id cw_90
 id dark
-id datePicker
 id date_check_box
 id dates_container
 id day_view_adapter_class
@@ -1588,8 +1582,6 @@ id price_to_high
 id primaryView
 id primary_wallet
 id product_name
-id product_subTitle
-id product_title
 id product_variations
 id profile_container
 id profile_email
@@ -1611,6 +1603,7 @@ id recycler_cart
 id recycler_category
 id recycler_view_container
 id recyclerview
+id recyclerview2
 id referal_applied_succesfully
 id referralCode
 id rel_layout_left
@@ -1663,7 +1656,6 @@ id select_dates_check_box
 id select_dialog_listview
 id select_schedule_type
 id send_reply_btn
-id serviceCost
 id share
 id shimmer_view_container3
 id shipping_address
@@ -1746,7 +1738,7 @@ id update_quantity_only_elegent
 id useLogo
 id user_message
 id valid_till
-id variations
+id variations_container
 id vertual_cart
 id viewBottom
 id view_complain_details
@@ -1817,7 +1809,6 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_about_us
 layout activity_add_money_to_wallet
-layout activity_all_product
 layout activity_all_service
 layout activity_app_information
 layout activity_cart
@@ -1833,7 +1824,6 @@ layout activity_items_scheduler
 layout activity_login
 layout activity_main
 layout activity_my_account
-layout activity_product_details
 layout activity_product_listings
 layout activity_referalls
 layout activity_reset_password
@@ -1859,8 +1849,6 @@ layout checkout_bottom_sheet
 layout complain_details_sheet
 layout complain_succes_dialog
 layout complaints_list
-layout content_products_details
-layout content_service_details
 layout custom_dialog_discount
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

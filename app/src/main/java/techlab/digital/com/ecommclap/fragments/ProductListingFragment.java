@@ -48,8 +48,7 @@ public class ProductListingFragment extends Fragment{
 
     int product_id;
     String category_name;
-    @BindView(R.id.toolbarTitle)
-    TextView mToolBarName;
+
     @BindView(R.id.recyclerview)
     RecyclerView recyclerView;
     @BindView(R.id.noResults)
@@ -104,7 +103,7 @@ public class ProductListingFragment extends Fragment{
         ButterKnife.bind(this,view);
         sessionManager = new SessionManager(getContext());
 
-        fetchproducts(category_name);
+        fetchproducts("testing");
 
         return view;
 
@@ -133,7 +132,7 @@ public class ProductListingFragment extends Fragment{
                     progressDialog.dismiss();
                 if(response.isSuccessful()){
 
-                   // setAdapterViews(response.body());
+                   //setAdapterViews(response.body());
                 }else{
                     Log.e("Error","");
 
@@ -150,24 +149,23 @@ public class ProductListingFragment extends Fragment{
         });
 
     }
+    ProductListingsAdapter mAdapter;
 
-   /* ProductListingsAdapter mAdapter;
-
-    private void setAdapterViews(List<ProductListingsModeResponse> datumList){
+  /*  private void setAdapterViews(List<ProductListingsModeResponse> datumList){
         product_data_List = datumList;
-        mAdapter = new ProductListingsAdapter(getContext(), datumList,ProductListingFragment.this);
+        mAdapter = new ProductListingsAdapter(getContext(), datumList);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(mAdapter);
-        mAdapter.mCallback = (ProductListingsAdapter.OnAddProductButtonListener)this;
+       *//* mAdapter.mCallback = (ProductListingsAdapter.OnAddProductButtonListener)this;
         mAdapter.mCallback2 = (ProductListingsAdapter.OnInterfaceListener2)this;
-        mAdapter.mCallback3 = (ProductListingsAdapter.OnServiceBooked)this;
+        mAdapter.mCallback3 = (ProductListingsAdapter.OnServiceBooked)this;*//*
     }
+*/
 
 
 
-
-
+/*
 
 
 interface call back to add to cart the product

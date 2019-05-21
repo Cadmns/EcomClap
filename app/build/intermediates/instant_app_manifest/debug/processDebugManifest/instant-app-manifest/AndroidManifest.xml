@@ -65,8 +65,6 @@
         <activity android:name="techlab.digital.com.ecommclap.activity.UserProfileActivity" />
         <activity android:name="techlab.digital.com.ecommclap.activity.AllServiceActivity" />
         <activity android:name="techlab.digital.com.ecommclap.activity.ProductListings" />
-        <activity android:name="techlab.digital.com.ecommclap.activity.ServiceDescriptionActivity" />
-        <activity android:name="techlab.digital.com.ecommclap.activity.ProductDescriptionActivity" />
         <activity android:name="techlab.digital.com.ecommclap.activity.CartActivity" />
         <activity android:name="techlab.digital.com.ecommclap.activity.UserAddress" />
         <activity android:name="techlab.digital.com.ecommclap.activity.ContactUsActivity" />

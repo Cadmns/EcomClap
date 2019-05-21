@@ -3,48 +3,33 @@ package techlab.digital.com.ecommclap.fragments;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.NumberPicker;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import techlab.digital.com.ecommclap.R;
-import techlab.digital.com.ecommclap.activity.NewCategoryActivity;
-import techlab.digital.com.ecommclap.activity.ProductDescriptionActivity;
 import techlab.digital.com.ecommclap.adapter.ProductListingsAdapter;
-import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartReq;
-import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartResponse;
-import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartWithVariationReq;
 import techlab.digital.com.ecommclap.model.fetchSubProducts.CustomVariations;
 import techlab.digital.com.ecommclap.model.fetchSubProducts.ProductListingsModeResponse;
 import techlab.digital.com.ecommclap.model.fetchSubProducts.ProductVariationContainer;
-import techlab.digital.com.ecommclap.network.ApiClient;
-import techlab.digital.com.ecommclap.network.ApiInterface;
 import techlab.digital.com.ecommclap.utility.CheckInternet;
 import techlab.digital.com.ecommclap.utility.SessionManager;
 
@@ -68,19 +53,18 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
     onVariationChanged onVariationChanged;
     String number_quantity;
     ProductListingsAdapter.ViewHolder viewHolder;
+    LinearLayout variations_container;
 
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
         try {
-            onVariationChanged = (onVariationChanged) activity;
+            onVariationChanged = (onVariationChanged) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement onSomeEventListener");
+            throw new ClassCastException(context.toString() + " must implement onVariationChangedListener");
         }
     }
-
-
 
     @SuppressLint("ValidFragment")
     public ProductVariationsSheet(Context mtx, ProductListingsModeResponse datum, int postion, String quantity, ProductListingsAdapter.ViewHolder mholder){
@@ -90,19 +74,12 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
         product_position = postion;
         number_quantity = quantity;
         viewHolder = mholder;
-
-
-
     }
-
 
     @SuppressLint("ValidFragment")
     public ProductVariationsSheet(Context mtx){
         context = mtx;
     }
-
-
-
 
     @SuppressLint("RestrictedApi")
     public void setupDialog(final Dialog dialog, int style) {
@@ -113,6 +90,7 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
         dialog.setCanceledOnTouchOutside(false);
         done_btn = view.findViewById(R.id.done_btn_variation);
         mQuantity = view.findViewById(R.id.elegenty_quantity_btn);
+        variations_container  = view.findViewById(R.id.variations_container);
         mQuantity.setNumber(number_quantity);
         sessionManager = new SessionManager(getContext());
         mVariations = view.findViewById(R.id.product_variations);
@@ -120,7 +98,6 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-
                 if (sessionManager.isLoggedIn()){
                     if (mCheckInternetWithMultipleClicks()) {
                         onVariationChanged.change_variation_is(temp_variations,mQuantity.getNumber(),response_data,product_position,viewHolder);
@@ -160,13 +137,13 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
 
                 productVariationContainer.setVariations(variations);
                 productVariationContainer.setQuantity_attributes(spinnerMap);
-
             }
 
             paths= productVariationContainer.getQuantity_attributes();
             checkvariations();
         }
         else{
+            variations_container.setVisibility(View.GONE);
             mVariations.setVisibility(View.GONE);
             Log.e("TAG","______cpno variation is provided");
         }
@@ -216,19 +193,14 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
 
     }
 
-
-
     //*Checking variations for product*/
-
     private void checkvariations(){
         if (!response_data.getAttributes().isEmpty())
-
             initializeUIForVariations();
         else
             mVariations.setVisibility(View.GONE);
 
     }
-
 
     private static HashMap<String,CustomVariations> paths;
     private void initializeUIForVariations() {
@@ -247,7 +219,6 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mVariations.setAdapter(adapter);
-
         //mVariations.setOnItemSelectedListener(context);
         int selectedVariationId=0;
         mVariations.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -265,14 +236,10 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
                         //mBookingPrice.setText("Price : "+entry.getKey() + " Rs ");
 
                         temp_price = entry.getKey();
-
                         temp_variations = String.valueOf(entry.getValue().getId());
                         temp_Quantity_Size = entry.getValue().getOption();
                     }
                 }
-
-
-
             }
 
             @Override
@@ -284,7 +251,6 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
     }
 
     private Boolean mCheckInternetWithMultipleClicks(){
-
         if (CheckInternet.isNetwork(getContext())) {
             /* if (sessionManager.isLoggedIn()) {*/
             if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
@@ -295,7 +261,6 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
             //  }
         }else {
             //do something, net is not connected
-
             Toast.makeText(getContext(), "Connect to internet", Toast.LENGTH_SHORT).show();
 
         }
@@ -303,17 +268,9 @@ public class ProductVariationsSheet extends BottomSheetDialogFragment{
         return false;
 
     }
-
-
-    /*add to cart coding start from here*/
-
-
-
-
-
+    /*Here is the interface to take action on variation selected*/
     public interface onVariationChanged {
         public void change_variation_is(String variation, String Quantity, ProductListingsModeResponse data_object, int product_position, ProductListingsAdapter.ViewHolder holder);
     }
-
 
 }

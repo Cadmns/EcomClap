@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-80:12
-INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-80:12
-INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-80:12
-INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-80:12
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-78:12
+INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-78:12
+INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-78:12
+INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-78:12
 MERGED from [com.github.florent37:expansionpanel:1.1.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\00f2d2f6b55e1badcca6e6fc307abca0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.karumi:dexter:4.2.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\327462bb2e250fd86b565ad3f46bdfe1\AndroidManifest.xml:17:1-32:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\57afaa6309ed66c59773fac734387ace\AndroidManifest.xml:17:1-22:12
@@ -58,22 +58,22 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Admin\.gradle\
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\00a6aa3dddcbaea309a8057401b2ab88\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\fd2b36cea96e90b93d1a8f876449d29b\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\3c6410c525e002eafda14dc9fd194615\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-80:12
-INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-80:12
-INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-80:12
+INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-78:12
+INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-78:12
+INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-78:12
 	package
 		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:4:5-44
 		INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-80:12
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-78:12
 		INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-80:12
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:1-78:12
 		INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:2:11-69
@@ -110,7 +110,7 @@ ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidM
 	android:name
 		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:9:22-67
 application
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:11:5-78:19
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:11:5-76:19
 MERGED from [com.karumi:dexter:4.2.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\327462bb2e250fd86b565ad3f46bdfe1\AndroidManifest.xml:26:5-30:19
 MERGED from [com.karumi:dexter:4.2.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\327462bb2e250fd86b565ad3f46bdfe1\AndroidManifest.xml:26:5-30:19
 MERGED from [com.airbnb.android:lottie:2.5.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\1a368b16f62a1c959be76aeb3c065035\AndroidManifest.xml:12:5-20
@@ -293,92 +293,84 @@ activity#techlab.digital.com.ecommclap.activity.ProductListings
 ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:50:9-62
 	android:name
 		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:50:19-59
-activity#techlab.digital.com.ecommclap.activity.ServiceDescriptionActivity
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:51:9-73
-	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:51:19-70
-activity#techlab.digital.com.ecommclap.activity.ProductDescriptionActivity
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:52:9-73
-	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:52:19-70
 activity#techlab.digital.com.ecommclap.activity.CartActivity
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:53:9-59
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:51:9-59
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:53:19-56
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:51:19-56
 activity#techlab.digital.com.ecommclap.activity.UserAddress
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:54:9-58
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:52:9-58
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:54:19-55
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:52:19-55
 activity#techlab.digital.com.ecommclap.activity.ContactUsActivity
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:55:9-64
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:53:9-64
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:55:19-61
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:53:19-61
 activity#techlab.digital.com.ecommclap.activity.AboutUsActivity
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:56:9-62
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:54:9-62
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:56:19-59
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:54:19-59
 activity#techlab.digital.com.ecommclap.dialog.RegistrationFragmentDialog
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:57:9-71
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:55:9-71
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:57:19-68
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:55:19-68
 activity#techlab.digital.com.ecommclap.activity.UserConfirmation
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:58:9-63
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:56:9-63
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:58:19-60
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:56:19-60
 activity#techlab.digital.com.ecommclap.activity.UserAuthentication
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:59:9-65
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:57:9-65
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:59:19-62
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:57:19-62
 activity#techlab.digital.com.ecommclap.activity.CheckOutServiceActivity
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:60:9-70
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:58:9-70
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:60:19-67
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:58:19-67
 activity#techlab.digital.com.ecommclap.activity.UpdateUserDetails
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:61:9-64
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:59:9-64
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:61:19-61
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:59:19-61
 activity#techlab.digital.com.ecommclap.activity.PaytmGatweyActivity
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:62:9-66
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:60:9-66
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:62:19-63
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:60:19-63
 activity#techlab.digital.com.ecommclap.activity.AppInformationActivity
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:63:9-69
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:61:9-69
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:63:19-66
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:61:19-66
 activity#techlab.digital.com.ecommclap.activity.MyAccountActivity
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:64:9-64
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:62:9-64
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:64:19-61
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:62:19-61
 activity#techlab.digital.com.ecommclap.dialog.UpdateBillingAdd
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:65:9-61
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:63:9-61
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:65:19-58
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:63:19-58
 activity#techlab.digital.com.ecommclap.activity.ChatHistoryActivity
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:66:9-66
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:64:9-66
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:66:19-63
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:64:19-63
 activity#techlab.digital.com.ecommclap.activity.ViewLockedComplainActivity
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:67:9-73
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:65:9-73
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:67:19-70
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:65:19-70
 activity#techlab.digital.com.ecommclap.activity.ScheduleProductCalenderView
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:68:9-74
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:66:9-74
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:68:19-71
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:66:19-71
 service#techlab.digital.com.ecommclap.services.services.FetchCategoryServiceOne
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:70:9-77:19
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:68:9-75:19
 	android:label
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:73:13-43
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:71:13-43
 	android:icon
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:72:13-47
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:70:13-47
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:71:13-70
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:69:13-70
 intent-filter#action:name:com.mysite.appname.MyStaticString.PLAY_FINISHED
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:74:13-76:29
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:72:13-74:29
 action#com.mysite.appname.MyStaticString.PLAY_FINISHED
-ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:75:17-90
+ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:73:17-90
 	android:name
-		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:75:25-87
+		ADDED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml:73:25-87
 uses-sdk
 INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Admin\Desktop\ecommclapv02\ecommclapv2\app\src\main\AndroidManifest.xml

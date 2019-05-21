@@ -46,11 +46,11 @@ public final class R {
     public static final class dimen {
         private dimen() {}
 
-        public static final int calendar_day_headers_paddingbottom = 0x7f070051;
-        public static final int calendar_month_title_bottommargin = 0x7f070052;
-        public static final int calendar_month_topmargin = 0x7f070053;
-        public static final int calendar_text_medium = 0x7f070054;
-        public static final int calendar_text_small = 0x7f070055;
+        public static final int calendar_day_headers_paddingbottom = 0x7f07004f;
+        public static final int calendar_month_title_bottommargin = 0x7f070050;
+        public static final int calendar_month_topmargin = 0x7f070051;
+        public static final int calendar_text_medium = 0x7f070052;
+        public static final int calendar_text_small = 0x7f070053;
     }
     public static final class drawable {
         private drawable() {}
@@ -60,15 +60,15 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int calendar_grid = 0x7f090057;
-        public static final int day_view_adapter_class = 0x7f090093;
-        public static final int title = 0x7f0901ea;
+        public static final int calendar_grid = 0x7f090055;
+        public static final int day_view_adapter_class = 0x7f09008f;
+        public static final int title = 0x7f0901e4;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int month = 0x7f0b006a;
-        public static final int week = 0x7f0b00a5;
+        public static final int month = 0x7f0b0066;
+        public static final int week = 0x7f0b00a1;
     }
     public static final class string {
         private string() {}
