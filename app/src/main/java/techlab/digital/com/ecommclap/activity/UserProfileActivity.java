@@ -152,20 +152,17 @@ public class UserProfileActivity extends AppCompatActivity {
             final SessionManager sessionManager = new SessionManager(getActivity());
 
             Preference my_account = findPreference(getString(R.string.key_my_account));
+            Preference currentCity = findPreference(getString(R.string.key_current_city));
             Preference schedule_myproduct = findPreference(getString(R.string.key_schedule_my_product));
             Preference my_orders = findPreference(getString(R.string.key_my_orders));
-
             Preference my_wallet  = findPreference(getString(R.string.key_my_wallet));
-          //  Preference my_coupons  = findPreference(getString(R.string.key_my_coupons));
-
             Preference my_scheduled_product  = findPreference(getString(R.string.key_my_scheduled_product));
-           // Preference refrence_center  = findPreference(getString(R.string.key_my_reference_center));
             Preference Complaints_query  = findPreference(getString(R.string.key_my_complaints_query));
             Preference log_out =  findPreference(getString(R.string.key_log_out));
             Preference rate_us = findPreference(getString(R.string.key_rate_us));
             Preference my_referral =  findPreference(getString(R.string.key_my_referral));
             Preference log_in =  findPreference(getString(R.string.key_log_in));
-
+            currentCity.setSummary("Your selected city is "+sessionManager.getUserCity());
             if(sessionManager.isLoggedIn())
             {
                 screen.removePreference(log_in);
@@ -173,9 +170,8 @@ public class UserProfileActivity extends AppCompatActivity {
                 screen.removePreference(my_account);
                 screen.removePreference(my_orders);
                 screen.removePreference(my_wallet);
-               // screen.removePreference(my_coupons);
+                screen.removePreference(currentCity);
                 screen.removePreference(my_scheduled_product);
-               // screen.removePreference(refrence_center);
                 screen.removePreference(Complaints_query);
                 screen.removePreference(log_out);
                 screen.removePreference(my_referral);
@@ -186,6 +182,25 @@ public class UserProfileActivity extends AppCompatActivity {
                     if(CheckInternet.isNetwork(getActivity())) {
                         Intent intent = new Intent(getActivity(), EcomWalletActivity.class);
                         intent.putExtra("flow", "profile");
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(getActivity(), "Please connect to internet", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                    return true;
+                }
+            });
+
+
+
+            currentCity.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    if(CheckInternet.isNetwork(getActivity())) {
+                        Intent intent = new Intent(getActivity(),SelectCityActivity.class);
+                        Bundle bundles = new Bundle();
+                        bundles.putString("edttext", "FromMainMenu");
+                        intent.putExtras(bundles);
                         startActivity(intent);
                     }else {
                         Toast.makeText(getActivity(), "Please connect to internet", Toast.LENGTH_SHORT).show();

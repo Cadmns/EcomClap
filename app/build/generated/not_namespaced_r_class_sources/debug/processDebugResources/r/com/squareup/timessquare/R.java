@@ -75,7 +75,7 @@ public final class R {
 
         public static final int day_name_format = 0x7f0e003c;
         public static final int invalid_date = 0x7f0e0049;
-        public static final int month_name_format = 0x7f0e0058;
+        public static final int month_name_format = 0x7f0e0059;
     }
     public static final class style {
         private style() {}

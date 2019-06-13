@@ -61,25 +61,30 @@ public class SelectCityActivity extends AppCompatActivity implements View.OnClic
     private static long back_pressed;
 
     public void onBackPressed() {
+        if (path_flow.equals("FromMainMenu")){
 
-        if (back_pressed + TIME_DELAY > System.currentTimeMillis()) {
-            Intent a = new Intent(Intent.ACTION_MAIN);
-            a.addCategory(Intent.CATEGORY_HOME);
-            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(a);
+            super.onBackPressed();
+        }else {
 
-        } else {
+            if (back_pressed + TIME_DELAY > System.currentTimeMillis()) {
+                Intent a = new Intent(Intent.ACTION_MAIN);
+                a.addCategory(Intent.CATEGORY_HOME);
+                a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(a);
 
-            Toast.makeText(getBaseContext(), "Press once again to exit!",
-                    Toast.LENGTH_SHORT).show();
+            } else {
+
+                Toast.makeText(getBaseContext(), "Press once again to exit!",
+                        Toast.LENGTH_SHORT).show();
 
 
+            }
+
+            back_pressed = System.currentTimeMillis();
+            //finish();
+            // super.onBackPressed();
         }
-
-        back_pressed = System.currentTimeMillis();
-        //finish();
-        // super.onBackPressed();
-    }
+        }
 
 
     private void init(){

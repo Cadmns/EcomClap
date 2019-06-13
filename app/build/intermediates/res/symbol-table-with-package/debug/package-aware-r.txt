@@ -2044,6 +2044,7 @@ string invalid_code
 string invalid_date
 string key_about_us
 string key_contact
+string key_current_city
 string key_log_in
 string key_log_out
 string key_my_account

@@ -2556,7 +2556,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td>direct, barriers, chains</td></tr>
+     * <tr><td>direct</td><td>1</td><td></td></tr>
      * <tr><td>groups</td><td>20</td><td></td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>7</td><td></td></tr>
@@ -5743,65 +5743,66 @@ public final class R {
     public static final int invalid_date=0x7f0e0049;
     public static final int key_about_us=0x7f0e004a;
     public static final int key_contact=0x7f0e004b;
-    public static final int key_log_in=0x7f0e004c;
-    public static final int key_log_out=0x7f0e004d;
-    public static final int key_my_account=0x7f0e004e;
-    public static final int key_my_complaints_query=0x7f0e004f;
-    public static final int key_my_orders=0x7f0e0050;
-    public static final int key_my_referral=0x7f0e0051;
-    public static final int key_my_scheduled_product=0x7f0e0052;
-    public static final int key_my_wallet=0x7f0e0053;
-    public static final int key_rate_us=0x7f0e0054;
-    public static final int key_schedule_my_product=0x7f0e0055;
-    public static final int letGo=0x7f0e0056;
-    public static final int login_title=0x7f0e0057;
-    public static final int month_name_format=0x7f0e0058;
-    public static final int noOrders=0x7f0e0059;
-    public static final int no_internet_text=0x7f0e005a;
-    public static final int offers=0x7f0e005b;
-    public static final int otp_message=0x7f0e005c;
-    public static final int password_toggle_content_description=0x7f0e005d;
-    public static final int path_password_eye=0x7f0e005e;
-    public static final int path_password_eye_mask_strike_through=0x7f0e005f;
-    public static final int path_password_eye_mask_visible=0x7f0e0060;
-    public static final int path_password_strike_through=0x7f0e0061;
-    public static final int paytm_intent_amount=0x7f0e0062;
-    public static final int paytm_intent_amount_to_be_paid=0x7f0e0063;
-    public static final int paytm_intent_payment_options=0x7f0e0064;
-    public static final int pin_content_desc=0x7f0e0065;
-    public static final int privacy_policy=0x7f0e0066;
-    public static final int project_id=0x7f0e0067;
-    public static final int provide_credentials=0x7f0e0068;
-    public static final int recommend_message=0x7f0e0069;
-    public static final int recommend_message_for_cities=0x7f0e006a;
-    public static final int resend_code=0x7f0e006b;
-    public static final int rs=0x7f0e006c;
-    public static final int search_menu_title=0x7f0e006d;
-    public static final int status_bar_notification_info_overflow=0x7f0e006e;
-    public static final int sub_booking_date=0x7f0e006f;
-    public static final int summary_faq=0x7f0e0070;
-    public static final int title_Home=0x7f0e0071;
-    public static final int title_about_us=0x7f0e0072;
-    public static final int title_addCart=0x7f0e0073;
-    public static final int title_check_out=0x7f0e0074;
-    public static final int title_contact_us=0x7f0e0075;
-    public static final int title_faq=0x7f0e0076;
-    public static final int title_log_out=0x7f0e0077;
-    public static final int title_registartion=0x7f0e0078;
-    public static final int title_saved_address=0x7f0e0079;
-    public static final int title_schedule_products=0x7f0e007a;
-    public static final int title_scheduled_products=0x7f0e007b;
-    public static final int title_terms=0x7f0e007c;
-    public static final int title_update=0x7f0e007d;
-    public static final int title_user_profile=0x7f0e007e;
-    public static final int too_many_otp_request=0x7f0e007f;
-    public static final int url_faq=0x7f0e0080;
-    public static final int url_privacy=0x7f0e0081;
-    public static final int url_terms=0x7f0e0082;
-    public static final int v7_preference_off=0x7f0e0083;
-    public static final int v7_preference_on=0x7f0e0084;
-    public static final int view_history_=0x7f0e0085;
-    public static final int wrong_phone_number=0x7f0e0086;
+    public static final int key_current_city=0x7f0e004c;
+    public static final int key_log_in=0x7f0e004d;
+    public static final int key_log_out=0x7f0e004e;
+    public static final int key_my_account=0x7f0e004f;
+    public static final int key_my_complaints_query=0x7f0e0050;
+    public static final int key_my_orders=0x7f0e0051;
+    public static final int key_my_referral=0x7f0e0052;
+    public static final int key_my_scheduled_product=0x7f0e0053;
+    public static final int key_my_wallet=0x7f0e0054;
+    public static final int key_rate_us=0x7f0e0055;
+    public static final int key_schedule_my_product=0x7f0e0056;
+    public static final int letGo=0x7f0e0057;
+    public static final int login_title=0x7f0e0058;
+    public static final int month_name_format=0x7f0e0059;
+    public static final int noOrders=0x7f0e005a;
+    public static final int no_internet_text=0x7f0e005b;
+    public static final int offers=0x7f0e005c;
+    public static final int otp_message=0x7f0e005d;
+    public static final int password_toggle_content_description=0x7f0e005e;
+    public static final int path_password_eye=0x7f0e005f;
+    public static final int path_password_eye_mask_strike_through=0x7f0e0060;
+    public static final int path_password_eye_mask_visible=0x7f0e0061;
+    public static final int path_password_strike_through=0x7f0e0062;
+    public static final int paytm_intent_amount=0x7f0e0063;
+    public static final int paytm_intent_amount_to_be_paid=0x7f0e0064;
+    public static final int paytm_intent_payment_options=0x7f0e0065;
+    public static final int pin_content_desc=0x7f0e0066;
+    public static final int privacy_policy=0x7f0e0067;
+    public static final int project_id=0x7f0e0068;
+    public static final int provide_credentials=0x7f0e0069;
+    public static final int recommend_message=0x7f0e006a;
+    public static final int recommend_message_for_cities=0x7f0e006b;
+    public static final int resend_code=0x7f0e006c;
+    public static final int rs=0x7f0e006d;
+    public static final int search_menu_title=0x7f0e006e;
+    public static final int status_bar_notification_info_overflow=0x7f0e006f;
+    public static final int sub_booking_date=0x7f0e0070;
+    public static final int summary_faq=0x7f0e0071;
+    public static final int title_Home=0x7f0e0072;
+    public static final int title_about_us=0x7f0e0073;
+    public static final int title_addCart=0x7f0e0074;
+    public static final int title_check_out=0x7f0e0075;
+    public static final int title_contact_us=0x7f0e0076;
+    public static final int title_faq=0x7f0e0077;
+    public static final int title_log_out=0x7f0e0078;
+    public static final int title_registartion=0x7f0e0079;
+    public static final int title_saved_address=0x7f0e007a;
+    public static final int title_schedule_products=0x7f0e007b;
+    public static final int title_scheduled_products=0x7f0e007c;
+    public static final int title_terms=0x7f0e007d;
+    public static final int title_update=0x7f0e007e;
+    public static final int title_user_profile=0x7f0e007f;
+    public static final int too_many_otp_request=0x7f0e0080;
+    public static final int url_faq=0x7f0e0081;
+    public static final int url_privacy=0x7f0e0082;
+    public static final int url_terms=0x7f0e0083;
+    public static final int v7_preference_off=0x7f0e0084;
+    public static final int v7_preference_on=0x7f0e0085;
+    public static final int view_history_=0x7f0e0086;
+    public static final int wrong_phone_number=0x7f0e0087;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0f0000;
@@ -11696,7 +11697,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td>direct, barriers, chains</td></tr>
+     * <tr><td>direct</td><td>1</td><td></td></tr>
      * <tr><td>groups</td><td>20</td><td></td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>7</td><td></td></tr>

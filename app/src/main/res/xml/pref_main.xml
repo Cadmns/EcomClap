@@ -3,20 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
-
-   <!--  <Preference
-         android:key="@string/key_Address"
-         android:title="@string/address_header" />
--->
-
-    <!-- <Preference
-         android:title="@string/title_Orders"
-         android:key="@string/key_orders_number" />-->
-
-
-    <!--<Preference
-        android:title="@string/contact_header"
-        android:key="@string/key_contact" />-->
         <Preference
             android:title="Schedule product"
             android:key="@string/key_schedule_my_product" />
@@ -24,6 +10,12 @@
     <Preference
         android:title="My Account"
         android:key="@string/key_my_account" />
+
+ <Preference
+     android:title="Current City"
+
+     android:key="@string/key_current_city" />
+
 
     <Preference
         android:title="My Orders"
