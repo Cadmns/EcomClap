@@ -343,7 +343,7 @@ public class ProductListings extends AppCompatActivity implements ProductListing
 
     /*show success dialog for add to cart succesfully*/
     private void showCustomDialog() {
-        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
+        //before inflating the custom alert dialog highlight_remove, we will get the current activity viewgroup
         ViewGroup viewGroup =findViewById(android.R.id.content);
 
         //then we will inflate the custom alert dialog xml that we created

@@ -52,7 +52,7 @@ public class ChatHistoryAdapter  extends RecyclerView.Adapter {
             return VIEW_TYPE_MESSAGE_RECEIVED;
         }
     }
-    // Inflates the appropriate layout according to the ViewType.
+    // Inflates the appropriate highlight_remove according to the ViewType.
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;

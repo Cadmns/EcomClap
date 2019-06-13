@@ -14,10 +14,12 @@ public class Const {
     public static int CATEGORIES_SPORTS_GOODS_ID = 22;
     public static int CATEGORIES_TUTORS_LESSONS_ID = 23;
     public static int CATEGORIES_EXPLORE_MORE_ID = 42;
+    public static final String CITY_NAME = "city_name";
 
 
+    public static String TAG_MAIN_MENU_PAGE = "FromMainMenu";
 
-
+    public static final String SHARED_PREF_NAME = "EcommClap";
 
 
     public static String TAG_API_MESSAGE_SUCCESS = "success";

@@ -60,22 +60,22 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int calendar_grid = 0x7f090055;
-        public static final int day_view_adapter_class = 0x7f09008f;
-        public static final int title = 0x7f0901e4;
+        public static final int calendar_grid = 0x7f090056;
+        public static final int day_view_adapter_class = 0x7f090091;
+        public static final int title = 0x7f0901ed;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int month = 0x7f0b0066;
-        public static final int week = 0x7f0b00a1;
+        public static final int month = 0x7f0b0068;
+        public static final int week = 0x7f0b00a3;
     }
     public static final class string {
         private string() {}
 
         public static final int day_name_format = 0x7f0e003c;
         public static final int invalid_date = 0x7f0e0049;
-        public static final int month_name_format = 0x7f0e0057;
+        public static final int month_name_format = 0x7f0e0058;
     }
     public static final class style {
         private style() {}

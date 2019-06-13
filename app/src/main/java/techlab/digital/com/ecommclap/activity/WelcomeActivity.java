@@ -143,8 +143,18 @@ public class WelcomeActivity extends AppCompatActivity  {
         //   prefManager.setFirstTimeLaunch(false);
             startActivity(new Intent(WelcomeActivity.this, UserAuthentication.class));
         }else {
-           startActivity(new Intent(WelcomeActivity.this, NewCategoryActivity.class));
-          //  startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+          if (sessionManager.getUserCity().equals(" ")){
+                Intent intent = new Intent(getApplicationContext(), SelectCityActivity.class);
+                Bundle bundles = new Bundle();
+                bundles.putString("edttext", "FromStarting");
+                intent.putExtras(bundles);
+                startActivity(intent);
+            }else {
+                startActivity(new Intent(WelcomeActivity.this, NewCategoryActivity.class));
+
+            }
+
+
         }
         finish();
     }

@@ -164,7 +164,7 @@ EditText add_money_editText;
 
     private void showCustomDialog(String added_money, final int order_id_) {
 
-        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
+        //before inflating the custom alert dialog highlight_remove, we will get the current activity viewgroup
         ViewGroup viewGroup =findViewById(android.R.id.content);
 
         //then we will inflate the custom alert dialog xml that we created

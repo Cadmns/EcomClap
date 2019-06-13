@@ -42,7 +42,7 @@ public class SlideFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the highlight_remove for this fragment
         FrameLayout root = (FrameLayout) inflater.inflate(R.layout.fragment_slide, container, false);
        // tvPos = (TextView) root.findViewById(R.id.text);
         recyclerView=(RecyclerView)root.findViewById(R.id.ItemView);

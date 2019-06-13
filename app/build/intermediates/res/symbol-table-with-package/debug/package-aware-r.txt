@@ -1147,6 +1147,8 @@ drawable diagonallayout_circle
 drawable eta_radius_layout
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable highlight
+drawable highlight_remove
 drawable ic_about_extra_1
 drawable ic_account_circle_black_24dp
 drawable ic_breakfast
@@ -1159,6 +1161,7 @@ drawable ic_close_black_24dp
 drawable ic_couple
 drawable ic_cpnewbg
 drawable ic_dialog
+drawable ic_east_delhi
 drawable ic_edit_black_24dp
 drawable ic_email_id_svg
 drawable ic_expansion_header_indicator_grey_24dp
@@ -1167,6 +1170,7 @@ drawable ic_food
 drawable ic_forward
 drawable ic_fruit_veg
 drawable ic_gift
+drawable ic_gzb
 drawable ic_home
 drawable ic_home_black_24dp
 drawable ic_hospital
@@ -1177,12 +1181,15 @@ drawable ic_key
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_loginfirst
+drawable ic_lotus_temple
 drawable ic_manss
 drawable ic_medal
 drawable ic_menu_notifications
 drawable ic_more
 drawable ic_mphone
+drawable ic_mumbai_gate
 drawable ic_newwallet
+drawable ic_noida
 drawable ic_plant
 drawable ic_right_arrow
 drawable ic_rupee_logo
@@ -1232,6 +1239,7 @@ id ALT
 id Add_new_btn
 id CTRL
 id FUNCTION
+id Gzb
 id Initiatedate
 id ItemView
 id META
@@ -1326,6 +1334,7 @@ id cardview
 id cat
 id category_image
 id category_text
+id caution
 id center
 id centerCrop
 id center_horizontal
@@ -1374,6 +1383,7 @@ id dates_container
 id day_view_adapter_class
 id decor_content_parent
 id default_activity_button
+id delhi
 id deliveryCharges
 id description
 id design_bottom_sheet
@@ -1427,6 +1437,7 @@ id gone
 id grandTotal
 id grandTotal_tv
 id groups
+id gurugram
 id headerIndicator3
 id header_message
 id history_recycler_view
@@ -1452,6 +1463,7 @@ id image_message_profile
 id images
 id imgAppIcon
 id info
+id inner_layout
 id input_address2
 id input_confirm_password
 id input_email
@@ -1486,12 +1498,14 @@ id layout_login_empty
 id layout_payment
 id lblMsgFrom
 id left
+id letsGo
 id light
 id line1
 id line3
 id linear
 id linearLlayout
 id linearLvel1
+id linear_bottom
 id linear_second
 id linear_top
 id link_signup
@@ -1538,6 +1552,7 @@ id noInternet
 id noResults
 id no_chats
 id no_complain
+id noida
 id none
 id normal
 id not_login_yet
@@ -1672,6 +1687,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id spacer
+id spacer2
 id spinner
 id split_action_bar
 id sports_banner
@@ -1747,6 +1763,7 @@ id view_more
 id view_offset_helper
 id view_pager
 id view_payment_total
+id view_registration
 id viewpager
 id viewtop
 id visible
@@ -1831,6 +1848,7 @@ layout activity_schedule_product_calenderview
 layout activity_scheduled_cart
 layout activity_scheduled_products
 layout activity_schedylable_items
+layout activity_select_city
 layout activity_show_scheduled_products
 layout activity_show_user_orders
 layout activity_update_billing_add
@@ -1849,6 +1867,7 @@ layout checkout_bottom_sheet
 layout complain_details_sheet
 layout complain_succes_dialog
 layout complaints_list
+layout content_select_city
 layout custom_dialog_discount
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -2035,6 +2054,7 @@ string key_my_scheduled_product
 string key_my_wallet
 string key_rate_us
 string key_schedule_my_product
+string letGo
 string login_title
 string month_name_format
 string noOrders
@@ -2054,6 +2074,7 @@ string privacy_policy
 string project_id
 string provide_credentials
 string recommend_message
+string recommend_message_for_cities
 string resend_code
 string rs
 string search_menu_title

@@ -25,7 +25,7 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/font_size_fifth"
                 android:visibility="invisible" />
-            <!-- TODO: Update blank fragment layout -->
+            <!-- TODO: Update blank fragment highlight_remove -->
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"

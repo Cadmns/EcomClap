@@ -72,6 +72,7 @@ import techlab.digital.com.ecommclap.network.ApiClient;
 import techlab.digital.com.ecommclap.network.ApiInterface;
 import techlab.digital.com.ecommclap.utility.AppPreferenceManager;
 import techlab.digital.com.ecommclap.utility.CheckInternet;
+import techlab.digital.com.ecommclap.utility.Const;
 import techlab.digital.com.ecommclap.utility.SessionManager;
 
 public class UserConfirmation extends AppCompatActivity implements View.OnClickListener,TextWatcher, View.OnFocusChangeListener, View.OnKeyListener {
@@ -475,9 +476,17 @@ public class UserConfirmation extends AppCompatActivity implements View.OnClickL
             sessionManager.setUserNumber(user_phone_number);
             sessionManager.setNumberVerifiedSatusFlag(true);
             if (mCheckInternetWithMultipleClicks()){
-           /* Intent intent = new Intent(getApplicationContext(),NewCategoryActivity.class);
-            startActivity(intent);*/
-                Intent intent = new Intent(getApplicationContext(),NewCategoryActivity.class);
+
+              /*  Intent intent = new Intent(getApplicationContext(),NewCategoryActivity.class);
+                startActivity(intent);*/
+
+
+
+
+                Intent intent = new Intent(getApplicationContext(), SelectCityActivity.class);
+                Bundle bundles = new Bundle();
+                bundles.putString("edttext", "FromStarting");
+                intent.putExtras(bundles);
                 startActivity(intent);
             }
 

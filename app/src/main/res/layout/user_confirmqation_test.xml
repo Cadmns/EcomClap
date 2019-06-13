@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/left_right_padding"
     android:id="@+id/parentView"
     android:paddingRight="@dimen/left_right_padding">
-    <!--<include layout="@layout/toolbar" />-->
+    <!--<include highlight_remove="@highlight_remove/toolbar" />-->
 
     <TextView
         android:layout_width="match_parent"

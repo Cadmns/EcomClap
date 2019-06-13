@@ -17,7 +17,7 @@ import techlab.digital.com.ecommclap.R;
 public class CartFragment_ViewBinding implements Unbinder {
   private CartFragment target;
 
-  private View view2131296729;
+  private View view2131296738;
 
   @UiThread
   public CartFragment_ViewBinding(final CartFragment target, View source) {
@@ -30,7 +30,7 @@ public class CartFragment_ViewBinding implements Unbinder {
     target.mToalViewPayment = Utils.findRequiredViewAsType(source, R.id.whole_payment_summary, "field 'mToalViewPayment'", TextView.class);
     view = Utils.findRequiredView(source, R.id.text_action_bottom2, "field 'mProceed' and method 'proceddToCheckOut'");
     target.mProceed = Utils.castView(view, R.id.text_action_bottom2, "field 'mProceed'", TextView.class);
-    view2131296729 = view;
+    view2131296738 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -52,7 +52,7 @@ public class CartFragment_ViewBinding implements Unbinder {
     target.mToalViewPayment = null;
     target.mProceed = null;
 
-    view2131296729.setOnClickListener(null);
-    view2131296729 = null;
+    view2131296738.setOnClickListener(null);
+    view2131296738 = null;
   }
 }

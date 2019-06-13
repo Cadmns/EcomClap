@@ -79,7 +79,7 @@ public class ScheduledProductFragment extends Fragment implements ScheduledChild
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the highlight_remove for this fragment
 
 
          parent_id = getArguments().getString("parent_id");

@@ -53,7 +53,7 @@ public class MyOffersFragments extends Fragment implements SwipeRefreshLayout.On
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the highlight_remove for this fragment
         view= inflater.inflate(R.layout.fragment_my_offers, container, false);
         ButterKnife.bind(this,view);
         initViews();

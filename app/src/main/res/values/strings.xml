@@ -3,6 +3,7 @@
     <string name="login_title">Login</string>
     <string name="rs">\u20B9</string>
 
+    <string name="letGo">LET\'s GO</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="no_internet_text">Please Connect to internet</string>
     <!--bottom Navigation drawer-->
@@ -15,7 +16,7 @@
     <string name="title_saved_address">Saved Address</string>
     <string name="title_registartion">Registration</string>
     <string name="title_update">Update Details</string>
-
+    <string name="recommend_message_for_cities">Select one of the below city for the better experience.</string>
     <string name="action_cart">Cart</string>
     <string name="sub_booking_date">YOUR SELECTED DATE : </string>
 

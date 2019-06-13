@@ -1,7 +1,7 @@
-#Tue May 21 12:47:38 IST 2019
-base.0=C\:\\Users\\Admin\\Desktop\\ecommclapv02\\ecommclapv2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out
+#Thu Jun 13 13:55:50 IST 2019
+base.0=C\:\\Users\\Dhruv\\Desktop\\ecommclapFinal\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\Admin\\Desktop\\ecommclapv02\\ecommclapv2\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
+base.1=C\:\\Users\\Dhruv\\Desktop\\ecommclapFinal\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out

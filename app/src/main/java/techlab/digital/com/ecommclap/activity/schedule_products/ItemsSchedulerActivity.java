@@ -390,7 +390,7 @@ public class ItemsSchedulerActivity extends AppCompatActivity {
     }
 
     private void showCustomDialog(final Integer id) {
-        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
+        //before inflating the custom alert dialog highlight_remove, we will get the current activity viewgroup
         ViewGroup viewGroup = findViewById(android.R.id.content);
         //then we will inflate the custom alert dialog xml that we created
         View dialogView = LayoutInflater.from(ItemsSchedulerActivity.this).inflate(R.layout.service_booked_dialog, viewGroup, false);

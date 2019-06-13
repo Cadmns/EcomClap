@@ -82,7 +82,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the highlight_remove for this fragment
         view = inflater.inflate(R.layout.fragment_cart, container, false);
         layout_view_details = view.findViewById(R.id.view_payment_total);
         ButterKnife.bind(this,view);

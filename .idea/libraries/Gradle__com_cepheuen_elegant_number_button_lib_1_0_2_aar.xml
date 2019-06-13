@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.cepheuen.elegant-number-button:lib:1.0.2@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0365b4ebb10066f09a3211797fe0527f/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0365b4ebb10066f09a3211797fe0527f/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fc002b5d6f67422962c32551e79ae725/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fc002b5d6f67422962c32551e79ae725/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

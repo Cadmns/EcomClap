@@ -41,6 +41,7 @@ public class SessionManager {
     public static final String KEY_SESSION = "session";
     public static final String KEY_IS_NUMBER_VERIFIED = "number_verified";
     public static final String KEY_USER_NUMBER= "number";
+    public static final String KEY_SELECT_CITY= "city";
     public void setFirstTimeLaunch(boolean isFirstTime) {
         editor.putBoolean(IS_FIRST_TIME_LAUNCH, isFirstTime);
         editor.commit();
@@ -78,6 +79,12 @@ public class SessionManager {
 
     public void setNumberVerifiedSatusFlag(Boolean numberVerifiedSatusFlag){
         editor.putBoolean(KEY_IS_NUMBER_VERIFIED,true);
+        editor.commit();
+    }
+
+
+    public void setUserCity(String userCity){
+        editor.putString(KEY_SELECT_CITY,userCity);
         editor.commit();
     }
 
@@ -134,6 +141,13 @@ public class SessionManager {
 
 
         return pref.getString(KEY_EMAIL, null);
+    }
+
+
+    public String getUserCity(){
+
+
+        return pref.getString(KEY_SELECT_CITY, " ");
     }
 
     public int getUserId(){

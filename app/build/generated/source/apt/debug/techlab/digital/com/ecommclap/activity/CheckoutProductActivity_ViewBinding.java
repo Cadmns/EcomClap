@@ -19,17 +19,17 @@ import techlab.digital.com.ecommclap.R;
 public class CheckoutProductActivity_ViewBinding implements Unbinder {
   private CheckoutProductActivity target;
 
-  private View view2131296310;
+  private View view2131296311;
 
-  private View view2131296505;
+  private View view2131296510;
 
-  private View view2131296330;
+  private View view2131296331;
 
-  private View view2131296533;
+  private View view2131296540;
 
-  private View view2131296335;
+  private View view2131296336;
 
-  private View view2131296638;
+  private View view2131296646;
 
   @UiThread
   public CheckoutProductActivity_ViewBinding(CheckoutProductActivity target) {
@@ -43,7 +43,7 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.apply_promocode, "field 'apply_promocode' and method 'applyPromoCode'");
     target.apply_promocode = Utils.castView(view, R.id.apply_promocode, "field 'apply_promocode'", TextView.class);
-    view2131296310 = view;
+    view2131296311 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -53,7 +53,7 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
     target.mScriollView = Utils.findRequiredViewAsType(source, R.id.scrollView, "field 'mScriollView'", NestedScrollView.class);
     view = Utils.findRequiredView(source, R.id.layout_action1, "field 'mEditLayout' and method 'mEditLayout'");
     target.mEditLayout = Utils.castView(view, R.id.layout_action1, "field 'mEditLayout'", LinearLayout.class);
-    view2131296505 = view;
+    view2131296510 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -64,7 +64,7 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
     target.userBillingName = Utils.findRequiredViewAsType(source, R.id.name, "field 'userBillingName'", TextView.class);
     view = Utils.findRequiredView(source, R.id.btnAddExpense, "field 'ExpensesDetailsBtn' and method 'mBtnExpenseClicked'");
     target.ExpensesDetailsBtn = Utils.castView(view, R.id.btnAddExpense, "field 'ExpensesDetailsBtn'", Button.class);
-    view2131296330 = view;
+    view2131296331 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -75,7 +75,7 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
     target.order_money_layout = Utils.findRequiredViewAsType(source, R.id.balance_container, "field 'order_money_layout'", LinearLayout.class);
     view = Utils.findRequiredView(source, R.id.mcheckBox, "field 'reward_checkbox' and method 'mRewardCheckBoxClicked'");
     target.reward_checkbox = Utils.castView(view, R.id.mcheckBox, "field 'reward_checkbox'", CheckBox.class);
-    view2131296533 = view;
+    view2131296540 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -84,7 +84,7 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.btn_signup, "field 'checkout_btn' and method 'mBookProduct'");
     target.checkout_btn = Utils.castView(view, R.id.btn_signup, "field 'checkout_btn'", Button.class);
-    view2131296335 = view;
+    view2131296336 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -95,7 +95,7 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
     target.coupon_succesfully_applied = Utils.findRequiredViewAsType(source, R.id.coupon_apllied_success, "field 'coupon_succesfully_applied'", TextView.class);
     view = Utils.findRequiredView(source, R.id.remove_applied_coupon, "field 'remove_promo_code' and method 'removeAppliedPromoCode'");
     target.remove_promo_code = Utils.castView(view, R.id.remove_applied_coupon, "field 'remove_promo_code'", TextView.class);
-    view2131296638 = view;
+    view2131296646 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -131,17 +131,17 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
     target.second_date = null;
     target.mdates_container = null;
 
-    view2131296310.setOnClickListener(null);
-    view2131296310 = null;
-    view2131296505.setOnClickListener(null);
-    view2131296505 = null;
-    view2131296330.setOnClickListener(null);
-    view2131296330 = null;
-    view2131296533.setOnClickListener(null);
-    view2131296533 = null;
-    view2131296335.setOnClickListener(null);
-    view2131296335 = null;
-    view2131296638.setOnClickListener(null);
-    view2131296638 = null;
+    view2131296311.setOnClickListener(null);
+    view2131296311 = null;
+    view2131296510.setOnClickListener(null);
+    view2131296510 = null;
+    view2131296331.setOnClickListener(null);
+    view2131296331 = null;
+    view2131296540.setOnClickListener(null);
+    view2131296540 = null;
+    view2131296336.setOnClickListener(null);
+    view2131296336 = null;
+    view2131296646.setOnClickListener(null);
+    view2131296646 = null;
   }
 }

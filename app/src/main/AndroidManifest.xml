@@ -42,6 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.SelectCityActivity"/>
         <activity android:name=".activity.ComplaintActivity" />
         <activity android:name=".activity.auth.LoginActivity" />
         <activity android:name=".activity.auth.ForgotPasswordActivity" />

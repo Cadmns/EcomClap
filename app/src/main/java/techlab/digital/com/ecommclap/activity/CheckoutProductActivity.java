@@ -657,7 +657,7 @@ public class CheckoutProductActivity extends AppCompatActivity {
 
 
     private void showCouponValueCustomDialog(final OrderResponse response, final String payment_mode) {
-        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
+        //before inflating the custom alert dialog highlight_remove, we will get the current activity viewgroup
         ViewGroup viewGroup = findViewById(android.R.id.content);
         //then we will inflate the custom alert dialog xml that we created
         View dialogView = LayoutInflater.from(CheckoutProductActivity.this).inflate(R.layout.custom_dialog_discount, viewGroup, false);

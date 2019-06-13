@@ -58,6 +58,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="techlab.digital.com.ecommclap.activity.SelectCityActivity" />
         <activity android:name="techlab.digital.com.ecommclap.activity.ComplaintActivity" />
         <activity android:name="techlab.digital.com.ecommclap.activity.auth.LoginActivity" />
         <activity android:name="techlab.digital.com.ecommclap.activity.auth.ForgotPasswordActivity" />

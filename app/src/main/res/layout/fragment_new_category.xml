@@ -50,7 +50,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <!--
-                                                    <include layout="@layout/placeholder_image_slider" />
+                                                    <include highlight_remove="@highlight_remove/placeholder_image_slider" />
                             -->
                             <!--  <android.support.v4.view.ViewPager
                                   android:id="@+id/vp_slider"
@@ -59,7 +59,7 @@
                                   android:layout_marginTop="30dp"
                                   android:paddingLeft="34dp"
                                   android:paddingRight="12dp">
-                                &lt;!&ndash;  <include layout="@layout/placeholder_image_slider" />&ndash;&gt;
+                                &lt;!&ndash;  <include highlight_remove="@highlight_remove/placeholder_image_slider" />&ndash;&gt;
                               </android.support.v4.view.ViewPager>-->
                         </RelativeLayout>
                     </com.facebook.shimmer.ShimmerFrameLayout>

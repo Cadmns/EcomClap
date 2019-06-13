@@ -39,7 +39,7 @@ public class MMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mmain);
+        setContentView(R.highlight_remove.activity_mmain);
 
         recycler = (RecyclerView) findViewById(R.id.lrecycler);
 
@@ -83,10 +83,10 @@ public class MMainActivity extends AppCompatActivity {
 
     private void setupRecycler() {
         // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
+        // in content do not change the highlight_remove size of the RecyclerView
 //        recycler.setHasFixedSize(true);
 
-        // use a linear layout manager since the cards are vertically scrollable
+        // use a linear highlight_remove manager since the cards are vertically scrollable
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recycler.setLayoutManager(layoutManager);
