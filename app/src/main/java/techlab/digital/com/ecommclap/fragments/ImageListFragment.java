@@ -71,6 +71,7 @@ import techlab.digital.com.ecommclap.model.fetchSubProducts.ProductListingsModeR
 import techlab.digital.com.ecommclap.network.ApiClient;
 import techlab.digital.com.ecommclap.network.ApiInterface;
 import techlab.digital.com.ecommclap.utility.CheckInternet;
+import techlab.digital.com.ecommclap.utility.SessionManager;
 
 
 public class ImageListFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener ,ProductListingsAdapter.OnInterfaceListener2,ProductListingsAdapter.OnAddProductButtonListener,ProductVariationsSheet.onVariationChanged {
@@ -90,7 +91,7 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
     TextView mNoResults;
     String cat_slug;
     onSubCatNotFoundCallBack catNotFoundCallBack;
-
+SessionManager sessionManager;
 
 
 
@@ -118,6 +119,7 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_all_sub_categories, container, false);
         ButterKnife.bind(this,view);
+        sessionManager= new SessionManager(getContext());
         swipeRefreshLayout = view.findViewById(R.id.swipe);
         swipeRefreshLayout.setOnRefreshListener(this);
         setupRecyclerView();
@@ -295,7 +297,7 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
         progressDialog.setCancelable(false);
         progressDialog.show();
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<ProductListingsModeResponse>> call = apiService.getProducts(str);
+        Call<List<ProductListingsModeResponse>> call = apiService.getProducts(sessionManager.getUserCity(),str);
         call.enqueue(new Callback<List<ProductListingsModeResponse>>() {
             @Override
             public void onResponse(Call<List<ProductListingsModeResponse>> call, Response<List<ProductListingsModeResponse>> response) {

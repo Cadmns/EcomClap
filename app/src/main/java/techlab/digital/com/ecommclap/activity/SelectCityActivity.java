@@ -22,7 +22,7 @@ import techlab.digital.com.ecommclap.utility.SessionManager;
 public class SelectCityActivity extends AppCompatActivity implements View.OnClickListener{
     TextView header_message,page_slogan; String city_name;
     CardView city_noida,city_delhi,city_gzb,city_gurgaon;
-    boolean noida,delhi,gzb = Boolean.FALSE;
+    boolean noida,delhi,gzb,gurugram = Boolean.FALSE;
     Button confirm_city_btn; Bundle extras;
     String path_flow;
     SessionManager sessionManager;
@@ -104,6 +104,7 @@ public class SelectCityActivity extends AppCompatActivity implements View.OnClic
                 city_noida.setBackground(highlight);
                 city_delhi.setBackground(highlight_remove);
                 city_gzb.setBackground(highlight_remove);
+                city_gurgaon.setBackground(highlight_remove);
 
                 city_name = "Noida";
 
@@ -118,6 +119,7 @@ public class SelectCityActivity extends AppCompatActivity implements View.OnClic
                 city_delhi.setBackground(highlight);
                 city_noida.setBackground(highlight_remove);
                 city_gzb.setBackground(highlight_remove);
+                city_gurgaon.setBackground(highlight_remove);
 
 
 
@@ -134,9 +136,9 @@ public class SelectCityActivity extends AppCompatActivity implements View.OnClic
                 city_gzb.setBackground(highlight);
                 city_noida.setBackground(highlight_remove);
                 city_delhi.setBackground(highlight_remove);
+                city_gurgaon.setBackground(highlight_remove);
 
-
-                city_name = "Gzb";
+                city_name = "Ghaziabad";
             }
         });
 
@@ -144,7 +146,20 @@ public class SelectCityActivity extends AppCompatActivity implements View.OnClic
         city_gurgaon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Not Available",Toast.LENGTH_SHORT).show();
+
+
+                confirm_city_btn.setVisibility(View.VISIBLE);
+                gurugram = true;
+                city_gzb.setBackground(highlight_remove);
+                city_noida.setBackground(highlight_remove);
+                city_delhi.setBackground(highlight_remove);
+                city_gurgaon.setBackground(highlight);
+
+
+                city_name = "Gurugram";
+
+
+               // Toast.makeText(getApplicationContext(),"Not Available",Toast.LENGTH_SHORT).show();
             }
         });
 

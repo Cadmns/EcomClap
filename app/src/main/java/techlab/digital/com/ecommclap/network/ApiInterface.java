@@ -67,11 +67,16 @@ public interface ApiInterface {
     Call<List<FetchSubCategory>> getSubcategories(@Query("parent") int id);
 
 
-    @GET("/ecom-urbanclap/wp-json/wc/v1/products")
+  /*  @GET("/ecom-urbanclap/wp-json/wc/v1/products")
     Call<List<ProductListingsModeResponse>> getProducts(@Query("filter[product_cat]") String categoryName);
+*/
 
 
-     @GET("/ecom-urbanclap/wp-json/wc/v2/cart/totals")
+    @GET("/ecom-urbanclap/wp-json/wc/v1/products")
+    Call<List<ProductListingsModeResponse>> getProducts(@Query("location") String location,@Query("product_category") String categoryName);
+
+
+    @GET("/ecom-urbanclap/wp-json/wc/v2/cart/totals")
      Call<CartTotalResponse> getCartTotal(@Header("Authorization")String token, @Query("id") int id);
 
 
@@ -82,8 +87,8 @@ public interface ApiInterface {
     Call<AddToCartResponse> addToCart(@Header("Authorization")String token,@Body AddToCartWithVariationReq addCartModelsReq);
 
 
- @POST("/ecom-urbanclap/wp-json/wc/v2/user_signup")
- Call<Object> submitUserDetails(@Body RegistrationReq regReq);
+     @POST("/ecom-urbanclap/wp-json/wc/v2/user_signup")
+     Call<Object> submitUserDetails(@Body RegistrationReq regReq);
 
 
     @Headers({

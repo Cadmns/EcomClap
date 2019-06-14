@@ -123,7 +123,7 @@ public class ProductListingFragment extends Fragment{
 
         progressDialog.show();
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<ProductListingsModeResponse>> call = apiService.getProducts(str);
+        Call<List<ProductListingsModeResponse>> call = apiService.getProducts(sessionManager.getUserCity(),str);
 
         call.enqueue(new Callback<List<ProductListingsModeResponse>>() {
             @Override

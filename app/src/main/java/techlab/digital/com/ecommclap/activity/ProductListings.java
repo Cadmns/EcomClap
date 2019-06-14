@@ -122,7 +122,7 @@ public class ProductListings extends AppCompatActivity implements ProductListing
         progressDialog.setCancelable(false);
         progressDialog.show();
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<ProductListingsModeResponse>> call = apiService.getProducts(str);
+        Call<List<ProductListingsModeResponse>> call = apiService.getProducts(sessionManager.getUserCity(),str);
         call.enqueue(new Callback<List<ProductListingsModeResponse>>() {
             @Override
             public void onResponse(Call<List<ProductListingsModeResponse>> call, Response<List<ProductListingsModeResponse>> response) {
