@@ -10,18 +10,25 @@ import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import techlab.digital.com.ecommclap.model.CityLocationModel.CityLocationResponse;
 import techlab.digital.com.ecommclap.model.CreateTicketModel.CreateTicketReq;
 import techlab.digital.com.ecommclap.model.GetTotalPayable;
 import techlab.digital.com.ecommclap.model.RemoveScheduleOrder;
 import techlab.digital.com.ecommclap.model.ScheduleOrderResponse.ScheduleOrdrResp;
 import techlab.digital.com.ecommclap.model.UpdateSchuledOrderQuantityModel;
+import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.NewAddTocart;
+import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.newAddToCartResponse;
 import techlab.digital.com.ecommclap.model.complaints_model.ListComplaint;
 import techlab.digital.com.ecommclap.model.complaints_model.get_complain_replies.GetChatHistory;
 import techlab.digital.com.ecommclap.model.couponModel.CouponDetailsResponse;
@@ -58,8 +65,9 @@ public interface ApiInterface {
     @DELETE("/ecom-urbanclap/wp-json/wc/v2/cart/cart-item")
     Call<ResponseBody> deleteItems(@Header("Authorization") String token,@Query("cart_item_key") String cart_item_key);
 
-    @GET("/ecom-urbanclap/wp-json/wc/v2/cart")
-    Call<Object> getCartItems(@Header("Authorization") String token,@Query("thumb") Boolean bool);
+  //  @GET("/ecom-urbanclap/wp-json/wc/v2/cart")
+     @GET("/ecom-urbanclap/wp-json/wc/v2/cart")
+    Call<ResponseBody>  getCartItems(@Header("Authorization") String token,@Query("thumb") Boolean bool);
 
 
 
@@ -76,18 +84,25 @@ public interface ApiInterface {
     Call<List<ProductListingsModeResponse>> getProducts(@Query("location") String location,@Query("product_category") String categoryName);
 
 
-    @GET("/ecom-urbanclap/wp-json/wc/v2/cart/totals")
+     @GET("/ecom-urbanclap/wp-json/wc/v2/cart/totals")
      Call<CartTotalResponse> getCartTotal(@Header("Authorization")String token, @Query("id") int id);
 
-
-     @POST("/ecom-urbanclap/wp-json/wc/v2/cart/add")
-    Call<AddToCartResponse> addToCart(@Header("Authorization")String token,@Body AddToCartReq addCartModelsReq);
-
+    @Headers("Content-Type: application/json")
     @POST("/ecom-urbanclap/wp-json/wc/v2/cart/add")
-    Call<AddToCartResponse> addToCart(@Header("Authorization")String token,@Body AddToCartWithVariationReq addCartModelsReq);
+    Call<newAddToCartResponse> addToCart(@Header("Authorization")String token,@Body NewAddTocart addCartModelsReq);
+
+    @Headers("Content-Type: application/json")
+    @POST("/ecom-urbanclap/wp-json/wc/v2/cart/add")
+    Call<newAddToCartResponse> addToCart(@Header("Authorization")String token, @Body AddToCartWithVariationReq addCartModelsReq);
+
+   /*
+   @Multipart
+    @POST("/ecom-urbanclap/wp-json/wc/v2/cart/add")
+    Call<newAddToCartResponse> addToCart(@Header("Authorization")String token, @Part("product_id") String productid, @Part("quantity") String quantity);
+*/
 
 
-     @POST("/ecom-urbanclap/wp-json/wc/v2/user_signup")
+    @POST("/ecom-urbanclap/wp-json/wc/v2/user_signup")
      Call<Object> submitUserDetails(@Body RegistrationReq regReq);
 
 
@@ -226,5 +241,9 @@ public interface ApiInterface {
     @GET("/ecom-urbanclap/wp-json/wc/v1/products")
     Call<List<ProductListingsModeResponsetTwo>> get_product_for_schedule(@Query("filter[product_cat]") String categoryName);
 
+// to fetch city location list.......
+//http://techlabdigital.co.in/ecom-urbanclap/wp-json/wc/v3/products/attributes/1/terms
+    @GET("/ecom-urbanclap/wp-json/wc/v3/products/attributes/1/terms")
+    Call<List<CityLocationResponse>> fetchCityLocation();
 
 }

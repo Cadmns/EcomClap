@@ -1,4 +1,4 @@
-package techlab.digital.com.ecommclap.adapter.new_adapter;
+package techlab.digital.com.ecommclap.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -59,6 +59,7 @@ public class NewCategoriesAdapter extends RecyclerView.Adapter<NewCategoriesAdap
 
         final CategoryRealmDb mcategory = m_List_category.get(position);
         holder.mcategory_text.setText(mcategory.getSlug());
+       //check for slug new category...........
         holder.loadNet(mcategory, position);
 
         holder.m_card_view.setOnClickListener(new View.OnClickListener() {

@@ -8,6 +8,7 @@ import android.os.SystemClock;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -32,6 +34,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import techlab.digital.com.ecommclap.R;
 import techlab.digital.com.ecommclap.adapter.ProductListingsAdapter;
+import techlab.digital.com.ecommclap.adapter.SubCategoriesAdapter;
 import techlab.digital.com.ecommclap.fragments.AddNewOrRepeatBottomSheet;
 import techlab.digital.com.ecommclap.fragments.BookServiceBottomSheet;
 import techlab.digital.com.ecommclap.fragments.ProductVariationsSheet;
@@ -39,6 +42,8 @@ import techlab.digital.com.ecommclap.fragments.UpdateQuantityOnlySheet;
 import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartReq;
 import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartResponse;
 import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartWithVariationReq;
+import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.NewAddTocart;
+import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.newAddToCartResponse;
 import techlab.digital.com.ecommclap.model.categories.subCategories.FetchSubCategory;
 import techlab.digital.com.ecommclap.model.fetchSubProducts.CustomVariations;
 import techlab.digital.com.ecommclap.model.fetchSubProducts.ProductListingsModeResponse;
@@ -63,7 +68,9 @@ public class ProductListings extends AppCompatActivity implements ProductListing
     SessionManager sessionManager;
     //variable to track event time`
     private long mLastClickTime = 0;
-    AddToCartResponse addToCartResponse;
+    //AddToCartResponse addToCartResponse;
+
+    newAddToCartResponse addToCartResponse;
     List<ProductListingsModeResponse> product_data_List;
     ProductListingsModeResponse productListingsModeResponse2 ;
 
@@ -86,7 +93,8 @@ public class ProductListings extends AppCompatActivity implements ProductListing
                         return;
                     }
                     mLastClickTime = SystemClock.elapsedRealtime();
-                    fetchproducts(category_name);
+                fetchSubCategories(product_id);
+                  //  fetchproducts(category_name);
             }else {
                 //do something, net is not connected
                 Toast.makeText(getApplicationContext(), "Connect to internet", Toast.LENGTH_SHORT).show();
@@ -115,21 +123,49 @@ public class ProductListings extends AppCompatActivity implements ProductListing
 
     ProgressDialog progressDialog;
 
+
+
     //Setting up Progress dialog for loading the content.
     private void fetchproducts(String str){
-        progressDialog = new ProgressDialog(ProductListings.this);
-        progressDialog.setMessage("Loading..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+        try {
+            progressDialog = new ProgressDialog(ProductListings.this);
+            progressDialog.setMessage("Loading..");
+            progressDialog.setCancelable(false);
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+        }
+                catch (WindowManager.BadTokenException e) {
+            //use a log message
+        }
+       /* if (progressDialog != null){
+            progressDialog.show();
+        }*/
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<List<ProductListingsModeResponse>> call = apiService.getProducts(sessionManager.getUserCity(),str);
         call.enqueue(new Callback<List<ProductListingsModeResponse>>() {
             @Override
             public void onResponse(Call<List<ProductListingsModeResponse>> call, Response<List<ProductListingsModeResponse>> response) {
-                if (progressDialog.isShowing())
-                    progressDialog.dismiss();
+
+                   /* if (progressDialog!=null)
+                    {
+                        if (progressDialog.isShowing())
+                        {
+                            progressDialog.dismiss();   //This is line 624!
+                        }
+                    }*/
+                try {
+                    if ((progressDialog != null) && progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                } catch (final IllegalArgumentException e) {
+                    // Handle or log or ignore
+                }
+
                 if(response.isSuccessful()){
-                    setAdapterViews(response.body());
+
+                        setAdapterViews(response.body());
+
+
                 }else{
                     Log.e("Error","");
                 }
@@ -137,17 +173,73 @@ public class ProductListings extends AppCompatActivity implements ProductListing
             @Override
             public void onFailure(Call<List<ProductListingsModeResponse>> call, Throwable t) {
                 Log.e("onFailure",t.getMessage());
-                if (progressDialog.isShowing())
-                    progressDialog.dismiss();
-
+                try {
+                    if ((progressDialog != null) && progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                } catch (final IllegalArgumentException e) {
+                    // Handle or log or ignore
+                }
             }
         });
     }
 
+
+    //fetch subcategories.....
+
+    private void fetchSubCategories(final int str){
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<List<FetchSubCategory>> call = apiService.getSubcategories(str);
+        call.enqueue(new Callback<List<FetchSubCategory>>() {
+            @Override
+            public void onResponse(Call<List<FetchSubCategory>> call, Response<List<FetchSubCategory>> response) {
+
+                if(response.isSuccessful()){
+                    if(response.body().isEmpty())
+                    {
+                        fetchproducts(category_name);
+                    }
+                    else {
+                        createAdapter(response.body());
+                    }
+                }else{
+                    Log.e("Error","");
+                  //  mNoResults.setVisibility(View.VISIBLE);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<FetchSubCategory>> call, Throwable t) {
+                Log.e("onFailure",t.getMessage());
+
+
+            }
+        });
+    }
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerView.Adapter subCatAdapter;
+    //set subcatogories adapter.....
+    private void createAdapter(List<FetchSubCategory> body){
+
+       /* if(body.isEmpty())
+        {
+            fetchproducts(ImageListFragment.this.getArguments().getString("cat_slug"));
+
+        }*/
+        recyclerView= findViewById(R.id.recyclerview);
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager recylerViewLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(recylerViewLayoutManager);
+        // recyclerView.setHasFixedSize(true);
+        subCatAdapter = new SubCategoriesAdapter(ProductListings.this, body);
+        recyclerView.setAdapter(subCatAdapter);
+        /*mEtaContainer.setVisibility(View.VISIBLE);
+        mCategoryEta.setText(ProductListings.this.getArguments().getString("eta"));*/
+
+    }
     ProductListingsAdapter mAdapter;
     private void setAdapterViews(List<ProductListingsModeResponse> datumList){
         product_data_List = datumList;
-        mAdapter = new ProductListingsAdapter(getApplicationContext(), datumList);
+        mAdapter = new ProductListingsAdapter(ProductListings.this, datumList);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(mAdapter);
@@ -276,23 +368,46 @@ public class ProductListings extends AppCompatActivity implements ProductListing
 
     /*network calling to add to cart to server and app ass well*/
     private void addtoCartProduct(final ProductListingsModeResponse product_data_holder,String selected_variation,String selected_quantity){
-        Call<AddToCartResponse> call = null;
+        Call<newAddToCartResponse> call = null;
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        if (product_data_holder.getType().equals("variable")) {
+        //AddToCartReq addToCartReq;= new AddToCartReq(String.valueOf(product_data_holder.getId()),selected_quantity);
+
+        NewAddTocart addToCartReq = new NewAddTocart();
+        addToCartReq.setProductId(String.valueOf(product_data_holder.getId()));
+        addToCartReq.setQuantity(selected_quantity);
+        Log.e("pdh.getId()else", String.valueOf(product_data_holder.getId()));
+        Log.e("id",addToCartReq.getProductId());
+        Log.e("quantity",addToCartReq.getQuantity());
+        Log.e("object",addToCartReq.toString());
+        call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartReq);
+
+       /* if (product_data_holder.getType().equals("variable")) {
+            Log.e("pdh.getId()variabve", String.valueOf(product_data_holder.getId()));
+            Log.e("token++",sessionManager.getKeySession().trim());
             AddToCartWithVariationReq addToCartWithReq = new AddToCartWithVariationReq(String.valueOf(product_data_holder.getId()),selected_variation,selected_quantity);
+            Log.e("id variation",addToCartWithReq.getProduct_id());
+            Log.e("quantity variation",addToCartWithReq.getQuantity());
+            Log.e("object variation",addToCartWithReq.toString());
             call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartWithReq);
-        }
-        else{
-            AddToCartReq addToCartReq = new AddToCartReq(String.valueOf(product_data_holder.getId()),selected_quantity);
+        }*/
+     /*   else{
+             addToCartReq = new AddToCartReq(String.valueOf(product_data_holder.getId()),selected_quantity);
+            Log.e("pdh.getId()else", String.valueOf(product_data_holder.getId()));
+            Log.e("id",addToCartReq.getProduct_id());
+            Log.e("quantity",addToCartReq.getQuantity());
+            Log.e("object",addToCartReq.toString());
             call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartReq);
         }
-        call.enqueue(new Callback<AddToCartResponse>() {
+
+        */
+        call.enqueue(new Callback<newAddToCartResponse>() {
             @Override
-            public void onResponse(Call<AddToCartResponse> call, Response<AddToCartResponse> response) {
+            public void onResponse(Call<newAddToCartResponse> call, Response<newAddToCartResponse> response) {
                 if(response.isSuccessful()){
+                    Log.e("response on add", String.valueOf(response.body()));
                     Toast.makeText(getApplicationContext(), "Added to cart success", Toast.LENGTH_SHORT).show();
                     Log.e("response boody cp ", String.valueOf(response.body().getKey()));
-                    addToCartResponse = new AddToCartResponse();
+                    addToCartResponse = new newAddToCartResponse();
                     product_data_holder.setmRefrenceKey(response.body().getKey());
                 }else{
                     Log.e("Error","");
@@ -300,7 +415,7 @@ public class ProductListings extends AppCompatActivity implements ProductListing
             }
 
             @Override
-            public void onFailure(Call<AddToCartResponse> call, Throwable t) {
+            public void onFailure(Call<newAddToCartResponse> call, Throwable t) {
                 Log.e("onFailure",t.getMessage());
             }
         });

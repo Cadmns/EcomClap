@@ -77,8 +77,6 @@ public class ComplainListAdapter extends RecyclerView.Adapter<ComplainListAdapte
         return   m_complain_list.size();
     }
 
-
-
     class ViewAdapter extends RecyclerView.ViewHolder{
         TextView _id,_date,_complain_title,_state,_type;
         Button _status;

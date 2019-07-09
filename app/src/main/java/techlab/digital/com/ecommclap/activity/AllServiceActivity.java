@@ -37,6 +37,8 @@ import techlab.digital.com.ecommclap.fragments.UpdateQuantityOnlySheet;
 import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartReq;
 import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartResponse;
 import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartWithVariationReq;
+import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.NewAddTocart;
+import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.newAddToCartResponse;
 import techlab.digital.com.ecommclap.model.categories.subCategories.mainCategories.MainCategory;
 import techlab.digital.com.ecommclap.model.fetchSubProducts.CustomVariations;
 import techlab.digital.com.ecommclap.model.fetchSubProducts.ProductListingsModeResponse;
@@ -222,20 +224,29 @@ public class AllServiceActivity extends AppCompatActivity implements ImageListFr
 
     /*network calling to add to cart to server and app ass well*/
     private void addtoCartProduct(final ProductListingsModeResponse product_data_holder){
-        Call<AddToCartResponse> call = null;
+        Call<newAddToCartResponse> call = null;
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        if (product_data_holder.getType().equals("variable")) {
+        NewAddTocart addToCartReq = new NewAddTocart();
+        addToCartReq.setProductId(String.valueOf(product_data_holder.getId()));
+        addToCartReq.setProductId(String.valueOf(p_quantity));
+        Log.e("pdh.getId()elsea", String.valueOf(product_data_holder.getId()));
+        Log.e("id",addToCartReq.getProductId());
+        Log.e("quantity",addToCartReq.getQuantity());
+        Log.e("object",addToCartReq.toString());
+        call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartReq);
+      /*  if (product_data_holder.getType().equals("variable")) {
             AddToCartWithVariationReq addToCartWithReq = new AddToCartWithVariationReq(String.valueOf(product_data_holder.getId()),p_variation,String.valueOf(p_quantity));
             call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartWithReq);
         }
         else{
             AddToCartReq addToCartReq = new AddToCartReq(String.valueOf(product_data_holder.getId()),String.valueOf(p_quantity));
             call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartReq);
-        }
-        call.enqueue(new Callback<AddToCartResponse>() {
+        }*/
+        call.enqueue(new Callback<newAddToCartResponse>() {
             @Override
-            public void onResponse(Call<AddToCartResponse> call, Response<AddToCartResponse> response) {
+            public void onResponse(Call<newAddToCartResponse> call, Response<newAddToCartResponse> response) {
                 if(response.isSuccessful()){
+
                     Toast.makeText(getApplicationContext(), "Added to cart success", Toast.LENGTH_SHORT).show();
                     Log.e("response boody cp ", String.valueOf(response.body().getKey()));
                     product_data_holder.setmRefrenceKey(response.body().getKey());
@@ -244,7 +255,7 @@ public class AllServiceActivity extends AppCompatActivity implements ImageListFr
                 }
             }
             @Override
-            public void onFailure(Call<AddToCartResponse> call, Throwable t) {
+            public void onFailure(Call<newAddToCartResponse> call, Throwable t) {
                 Log.e("onFailure",t.getMessage());
             }
         });

@@ -54,7 +54,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import techlab.digital.com.ecommclap.R;
-import techlab.digital.com.ecommclap.adapter.new_adapter.NewCategoriesAdapter;
+
 import techlab.digital.com.ecommclap.app.Prefs;
 import techlab.digital.com.ecommclap.app.SingletonImagesList;
 import techlab.digital.com.ecommclap.fragments.MainMenuFragment;
@@ -132,10 +132,7 @@ public class NewCategoryActivity extends AppCompatActivity{
             // do something, net is not connected
             Toast.makeText(getApplicationContext(), "Connect to internet", Toast.LENGTH_SHORT).show();
         }
-
-
     }
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 

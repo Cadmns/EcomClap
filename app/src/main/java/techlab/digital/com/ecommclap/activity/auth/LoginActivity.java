@@ -167,6 +167,7 @@ public class LoginActivity extends AppCompatActivity {
                     initSnackBar("Login Successfull");
 
                     if (response.body() != null) {
+                        Log.e("token===",response.body().getToken());
                         session.createLoginSession(response.body().getUserDisplayName(),response.body().getUserEmail(),response.body().getUser_id(),response.body().getToken());
                        /* Intent intent = new Intent(getApplicationContext(), NewCategoryActivity.class);
                         startActivity(intent);*/

@@ -32,6 +32,7 @@ import techlab.digital.com.ecommclap.adapter.ProductListingsAdapter;
 import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartReq;
 import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartResponse;
 import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.AddToCartWithVariationReq;
+import techlab.digital.com.ecommclap.model.cartModel.uploadDataCartModel.newAddToCartResponse;
 import techlab.digital.com.ecommclap.model.fetchSubProducts.CustomVariations;
 import techlab.digital.com.ecommclap.model.fetchSubProducts.ProductListingsModeResponse;
 import techlab.digital.com.ecommclap.model.fetchSubProducts.ProductVariationContainer;
@@ -59,7 +60,8 @@ public class ProductListingFragment extends Fragment{
     // variable to track event time`
     private long mLastClickTime = 0;
 
-    AddToCartResponse addToCartResponse;
+  //  AddToCartResponse addToCartResponse;
+    newAddToCartResponse addToCartResponse;
 
     List<ProductListingsModeResponse> product_data_List;
 

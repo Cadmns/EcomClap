@@ -31,7 +31,6 @@ import techlab.digital.com.ecommclap.model.categories.subCategories.Image;
 import techlab.digital.com.ecommclap.utility.CheckInternet;
 
 public class SubCategoriesAdapter extends RecyclerView.Adapter<SubCategoriesAdapter.MyViewHolder> {
-
     private Context mContext;
     private List<FetchSubCategory> subCategories;
     RelativeLayout mrelativeLayout;
@@ -41,12 +40,10 @@ public class SubCategoriesAdapter extends RecyclerView.Adapter<SubCategoriesAdap
         this.mContext=activity;
         this.subCategories=body;
     }
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView thumbnail;
         public TextView mTitle;
         EditText mNoofItems;
-
         ImageView frameLayout;
         MyViewHolder(View view) {
             super(view);
@@ -94,11 +91,9 @@ public class SubCategoriesAdapter extends RecyclerView.Adapter<SubCategoriesAdap
                     }
                     mLastClickTime = SystemClock.elapsedRealtime();
                     Intent intent = new Intent(mContext, ProductListings.class);
-
                     Bundle bundle = new Bundle();
                     bundle.putInt("id", subCategory.getId());
                     bundle.putString("category_name",subCategory.getName());
-
                     intent.putExtras(bundle);
 
                     mContext.startActivity(intent);

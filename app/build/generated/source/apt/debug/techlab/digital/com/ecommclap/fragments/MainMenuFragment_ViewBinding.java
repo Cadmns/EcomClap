@@ -19,21 +19,21 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
 
   private View view2131296320;
 
-  private View view2131296465;
+  private View view2131296468;
 
-  private View view2131296542;
+  private View view2131296545;
 
-  private View view2131296452;
+  private View view2131296455;
 
-  private View view2131296445;
+  private View view2131296448;
 
   private View view2131296330;
 
-  private View view2131296712;
+  private View view2131296715;
 
-  private View view2131296765;
+  private View view2131296768;
 
-  private View view2131296434;
+  private View view2131296437;
 
   @UiThread
   public MainMenuFragment_ViewBinding(final MainMenuFragment target, View source) {
@@ -52,7 +52,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.home_service, "field 'mHomeService' and method 'homeService'");
     target.mHomeService = Utils.castView(view, R.id.home_service, "field 'mHomeService'", CardView.class);
-    view2131296465 = view;
+    view2131296468 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +61,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.medical_health, "field 'mMedical_health' and method 'medicalhealth'");
     target.mMedical_health = Utils.castView(view, R.id.medical_health, "field 'mMedical_health'", CardView.class);
-    view2131296542 = view;
+    view2131296545 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -70,7 +70,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.fruit_vegetables, "field 'mFruits_vegetables' and method 'fruitVegetables'");
     target.mFruits_vegetables = Utils.castView(view, R.id.fruit_vegetables, "field 'mFruits_vegetables'", CardView.class);
-    view2131296452 = view;
+    view2131296455 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -79,7 +79,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.food, "field 'mFood' and method 'food'");
     target.mFood = Utils.castView(view, R.id.food, "field 'mFood'", CardView.class);
-    view2131296445 = view;
+    view2131296448 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -97,7 +97,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.sports_goods, "field 'mSportsGoods' and method 'sportsgoods'");
     target.mSportsGoods = Utils.castView(view, R.id.sports_goods, "field 'mSportsGoods'", CardView.class);
-    view2131296712 = view;
+    view2131296715 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -106,7 +106,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.tutors, "field 'mTutors' and method 'tutors'");
     target.mTutors = Utils.castView(view, R.id.tutors, "field 'mTutors'", CardView.class);
-    view2131296765 = view;
+    view2131296768 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -115,7 +115,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.exploreMore, "field 'mExpolre_more' and method 'exporeMore'");
     target.mExpolre_more = Utils.castView(view, R.id.exploreMore, "field 'mExpolre_more'", CardView.class);
-    view2131296434 = view;
+    view2131296437 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -146,21 +146,21 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
 
     view2131296320.setOnClickListener(null);
     view2131296320 = null;
-    view2131296465.setOnClickListener(null);
-    view2131296465 = null;
-    view2131296542.setOnClickListener(null);
-    view2131296542 = null;
-    view2131296452.setOnClickListener(null);
-    view2131296452 = null;
-    view2131296445.setOnClickListener(null);
-    view2131296445 = null;
+    view2131296468.setOnClickListener(null);
+    view2131296468 = null;
+    view2131296545.setOnClickListener(null);
+    view2131296545 = null;
+    view2131296455.setOnClickListener(null);
+    view2131296455 = null;
+    view2131296448.setOnClickListener(null);
+    view2131296448 = null;
     view2131296330.setOnClickListener(null);
     view2131296330 = null;
-    view2131296712.setOnClickListener(null);
-    view2131296712 = null;
-    view2131296765.setOnClickListener(null);
-    view2131296765 = null;
-    view2131296434.setOnClickListener(null);
-    view2131296434 = null;
+    view2131296715.setOnClickListener(null);
+    view2131296715 = null;
+    view2131296768.setOnClickListener(null);
+    view2131296768 = null;
+    view2131296437.setOnClickListener(null);
+    view2131296437 = null;
   }
 }

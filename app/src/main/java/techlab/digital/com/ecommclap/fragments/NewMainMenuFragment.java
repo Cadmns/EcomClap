@@ -44,7 +44,8 @@ import techlab.digital.com.ecommclap.R;
 import techlab.digital.com.ecommclap.activity.AllServiceActivity;
 import techlab.digital.com.ecommclap.activity.ScheduledParentsProductsActivity;
 import techlab.digital.com.ecommclap.activity.schedule_products.FetchSchedulableSubCategory;
-import techlab.digital.com.ecommclap.adapter.new_adapter.NewCategoriesAdapter;
+
+import techlab.digital.com.ecommclap.adapter.NewCategoriesAdapter;
 import techlab.digital.com.ecommclap.app.Prefs;
 import techlab.digital.com.ecommclap.app.SingletonImagesList;
 import techlab.digital.com.ecommclap.model.fetch_category.Category;
@@ -58,7 +59,7 @@ import techlab.digital.com.ecommclap.utility.CheckInternet;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener,NewCategoriesAdapter.OnInterfaceListener {
+public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, NewCategoriesAdapter.OnInterfaceListener {
     View view;
     Realm mRealm;
     RecyclerView mRecyclerView;

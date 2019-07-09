@@ -39,6 +39,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -91,7 +92,7 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
     TextView mNoResults;
     String cat_slug;
     onSubCatNotFoundCallBack catNotFoundCallBack;
-SessionManager sessionManager;
+     SessionManager sessionManager;
 
 
 
@@ -125,7 +126,6 @@ SessionManager sessionManager;
         setupRecyclerView();
         return view;
     }
-
 
 
     private void setupRecyclerView() {
@@ -202,6 +202,12 @@ SessionManager sessionManager;
 
 
     private void createAdapter(List<FetchSubCategory> body){
+
+       /* if(body.isEmpty())
+        {
+            fetchproducts(ImageListFragment.this.getArguments().getString("cat_slug"));
+
+        }*/
         recyclerView= view.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager recylerViewLayoutManager = new LinearLayoutManager(getContext());
@@ -267,42 +273,45 @@ SessionManager sessionManager;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     ProgressDialog progressDialog;
     // Setting up Progress dialog for loading the content.
     private void fetchproducts(String str){
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Loading..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+     try {
+         progressDialog = new ProgressDialog(getActivity());
+         progressDialog.setMessage("Loading..");
+         progressDialog.setCancelable(false);
+         progressDialog.setIndeterminate(false);
+         progressDialog.show();
+     }
+     catch (NullPointerException e)
+     {
+     }
+            catch (WindowManager.BadTokenException e) {
+            //use a log message
+        }
+
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<List<ProductListingsModeResponse>> call = apiService.getProducts(sessionManager.getUserCity(),str);
         call.enqueue(new Callback<List<ProductListingsModeResponse>>() {
             @Override
             public void onResponse(Call<List<ProductListingsModeResponse>> call, Response<List<ProductListingsModeResponse>> response) {
-                if (progressDialog.isShowing())
-                    progressDialog.dismiss();
+/*
+                    if (progressDialog!=null)
+                    {
+                        if (progressDialog.isShowing())
+                        {
+                            progressDialog.dismiss();   //This is line 624!
+                        }
+                    }*/
+                try {
+                    if ((progressDialog != null) && progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                } catch (final IllegalArgumentException e) {
+                    // Handle or log or ignore
+                }
+
+
                 if(response.isSuccessful()){
                     setAdapterViews(response.body());
                 }else{
@@ -312,8 +321,13 @@ SessionManager sessionManager;
             @Override
             public void onFailure(Call<List<ProductListingsModeResponse>> call, Throwable t) {
                 Log.e("onFailure",t.getMessage());
-                if (progressDialog.isShowing())
-                    progressDialog.dismiss();
+                try {
+                    if ((progressDialog != null) && progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                } catch (final IllegalArgumentException e) {
+                    // Handle or log or ignore
+                }
 
             }
         });
@@ -321,18 +335,24 @@ SessionManager sessionManager;
 
     ProductListingsAdapter mAdapter2;
     private void setAdapterViews(List<ProductListingsModeResponse> datumList){
-        recyclerView2= view.findViewById(R.id.recyclerview2);
-        recyclerView2.setVisibility(View.VISIBLE);
-        mAdapter2 = new ProductListingsAdapter(getContext(), datumList);
-        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        recyclerView2.setLayoutManager(layoutManager);
-        recyclerView2.setAdapter(mAdapter2);
-        catNotFoundCallBack.on_product_found(mAdapter2);
-        mAdapter2.mCallback = (ProductListingsAdapter.OnAddProductButtonListener)this;
-        mAdapter2.mCallback2 = (ProductListingsAdapter.OnInterfaceListener2)this;
+        try {
+            recyclerView2 = view.findViewById(R.id.recyclerview2);
+            recyclerView2.setVisibility(View.VISIBLE);
+            mAdapter2 = new ProductListingsAdapter(this.getActivity(), datumList);
+            StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+            recyclerView2.setLayoutManager(layoutManager);
+            recyclerView2.setAdapter(mAdapter2);
+            catNotFoundCallBack.on_product_found(mAdapter2);
+            mAdapter2.mCallback = (ProductListingsAdapter.OnAddProductButtonListener) this;
+            mAdapter2.mCallback2 = (ProductListingsAdapter.OnInterfaceListener2) this;
        /* mAdapter.mCallback = (ProductListingsAdapter.OnAddProductButtonListener)this;
         mAdapter.mCallback2 = (ProductListingsAdapter.OnInterfaceListener2)this;
         mAdapter.mCallback3 = (ProductListingsAdapter.OnServiceBooked)this;*/
+        }
+        catch (NullPointerException e)
+        {
+
+        }
     }
 
 

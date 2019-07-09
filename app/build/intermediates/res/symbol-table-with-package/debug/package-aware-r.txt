@@ -1115,6 +1115,7 @@ drawable button_bg
 drawable calendar_bg_selector
 drawable cardviewborderradius
 drawable circular_layout
+drawable circular_view
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1151,6 +1152,8 @@ drawable highlight
 drawable highlight_remove
 drawable ic_about_extra_1
 drawable ic_account_circle_black_24dp
+drawable ic_applogo
+drawable ic_applogo2
 drawable ic_breakfast
 drawable ic_burger
 drawable ic_carmt
@@ -1344,6 +1347,9 @@ id change_password_btn
 id checkbox
 id checkout_layout
 id chronometer
+id cityName_cv
+id cityname_tv
+id cityrecycleView
 id clip_horizontal
 id clip_vertical
 id close_button
@@ -1864,6 +1870,7 @@ layout activity_welcome
 layout add_or_repeat_sheet
 layout add_referral_fragment
 layout checkout_bottom_sheet
+layout citylocation_list
 layout complain_details_sheet
 layout complain_succes_dialog
 layout complaints_list

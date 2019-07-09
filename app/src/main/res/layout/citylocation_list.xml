@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content">
+    <android.support.v7.widget.CardView
+        android:id="@+id/cityName_cv"
+        android:layout_width="100dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="8dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center"
+        android:layout_marginLeft="@dimen/margin_override_one"
+        android:layout_marginRight="@dimen/margin_override_one"
+        android:clickable="true"
+        card_view:cardBackgroundColor="#595960"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_override_two"
+            android:layout_marginTop="@dimen/margin_override_two"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/cityname_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="Noida"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_two"
+
+                />
+
+
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Noida"
+                android:visibility="gone"
+                android:layout_gravity="fill"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_two" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

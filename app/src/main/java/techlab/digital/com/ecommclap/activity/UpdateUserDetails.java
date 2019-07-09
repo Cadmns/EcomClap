@@ -182,6 +182,7 @@ public class UpdateUserDetails extends AppCompatActivity {
         progressDialog.setMessage("Loading..");
         progressDialog.setCancelable(false);
         progressDialog.show();
+        Log.e("sessionToken",sessionManager.getKeySession());
         final UserDetailsResponse userDetailsResponse = new UserDetailsResponse();
 
 

@@ -11,14 +11,15 @@
     <application
         android:name=".app.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_applogo2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_applogo2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
-        tools:targetApi="m">
+        tools:targetApi="m"
+        tools:replace="android:icon">
         <activity android:name=".activity.schedule_products.FetchSchedulableSubCategory"></activity>
         <activity android:name=".activity.schedule_products.ScheduledCartActivity" />
         <activity android:name=".activity.schedule_products.SchedulableItemsActivity" />

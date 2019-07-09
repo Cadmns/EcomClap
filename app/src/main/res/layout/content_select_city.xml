@@ -35,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/left_right_padding" />
 
+
         <TextView
             android:id="@+id/page_slogan"
             android:layout_width="wrap_content"
@@ -63,15 +64,22 @@
 
         <LinearLayout
             android:id="@+id/linear_top"
-            android:layout_width="match_parent"
             android:layout_below="@+id/spacer2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:weightSum="3">
+            android:orientation="horizontal">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/cityrecycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
+
             <android.support.v7.widget.CardView
                 android:id="@+id/noida"
                 android:layout_width="0dp"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/spacer2"
                 android:layout_marginBottom="20dp"
@@ -122,6 +130,7 @@
             <android.support.v7.widget.CardView
             android:id="@+id/delhi"
             android:layout_width="0dp"
+                android:visibility="gone"
             android:layout_height="wrap_content"
             android:layout_below="@id/spacer2"
             android:layout_marginBottom="20dp"
@@ -168,10 +177,10 @@
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
-
             <android.support.v7.widget.CardView
                 android:id="@+id/Gzb"
                 android:layout_width="0dp"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/spacer2"
                 android:layout_marginBottom="20dp"
@@ -223,11 +232,12 @@
 
         <LinearLayout
             android:id="@+id/linear_bottom"
-            android:layout_width="match_parent"
             android:layout_below="@+id/caution"
+            android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="3">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/gurugram"
@@ -236,7 +246,7 @@
                 android:layout_below="@id/spacer2"
                 android:layout_marginBottom="20dp"
                 android:padding="3dp"
-                android:gravity="center_vertical|center"
+                android:gravity="center_vertical|left"
                 android:layout_marginLeft="@dimen/margin_override_one"
                 android:layout_marginRight="@dimen/margin_override_one"
                 android:layout_marginTop="@dimen/margin_override_three"
@@ -317,7 +327,8 @@
         android:layout_marginRight="@dimen/margin_override_two"
         android:background="@drawable/button_bg"
         android:text="@string/letGo"
-        android:textColor="#000000"
-        android:textStyle="bold" />
+        android:textColor="#EBE9E9"
+        android:textStyle="bold"
+        tools:ignore="UnknownId" />
 
 </RelativeLayout>

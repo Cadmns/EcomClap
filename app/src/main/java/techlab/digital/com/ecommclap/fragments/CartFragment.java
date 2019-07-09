@@ -205,27 +205,27 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
         progressDialog.setMessage("Loading..");
         progressDialog.setCancelable(false);
         progressDialog.show();
+        Log.e("sessiontoken", String.valueOf(session.getKeySession()));
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call call = apiService.getCartItems("Bearer " + session.getKeySession(),true);
+        Call<ResponseBody> call = apiService.getCartItems("Bearer " + session.getKeySession(),true);
 
-        call.enqueue(new Callback() {
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call call, Response response) {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
                 if (progressDialog.isShowing())
                     progressDialog.dismiss();
 
+                Log.e("response0", String.valueOf(response.body()));
                 if(response.isSuccessful()) {
+                    Log.e("response1", String.valueOf(response.body().toString()));
                     if (response.body().equals("Cart is empty!")) {
-
+                        Log.e("response2", String.valueOf(response.body()));
                         layoutCartNoItems.setVisibility(View.VISIBLE);
                         layoutCartPayments.setVisibility(View.GONE);
                     }
-
                     if (new Gson().toJson(response.body()).contains("key")) {
-
-
-
+                        Log.e("response3", String.valueOf(response.body()));
                         layoutCartLoginNeeded.setVisibility(View.GONE);
                         layoutCartItems.setVisibility(View.VISIBLE);
                         layoutCartPayments.setVisibility(View.VISIBLE);
@@ -237,6 +237,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
                             layoutCartPayments.setVisibility(View.VISIBLE);
                         try {
                             JSONObject jsonObject = new JSONObject(new Gson().toJson(response.body()));
+                            Log.e("response4", String.valueOf(response.body()));
                             Iterator<?> keys = jsonObject.keys();
                             List<FetchCartResponse> mFinalCartList = new ArrayList<>();
                             while (keys.hasNext()) {
@@ -246,7 +247,6 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
                                     JSONObject value = jsonObject.getJSONObject(key);
                                     FetchCartResponse projectsList = JsonUtils.getModelFromJson(value.toString());
                                     mFinalCartList.add(projectsList);
-
                                 }
                             }
                             setAdapter(mFinalCartList);
@@ -273,7 +273,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
             }
 
             @Override
-            public void onFailure(Call  call, Throwable t) {
+            public void onFailure(Call<ResponseBody>  call, Throwable t) {
                 Log.e("onFailure",t.getLocalizedMessage());
 
                 if (progressDialog.isShowing())
@@ -311,6 +311,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
         progressDialog.setMessage("Loading..");
         progressDialog.setCancelable(false);
         progressDialog.show();
+        Log.e("SeesiiongToken==",session.getKeySession());
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ResponseBody> call = apiService.deleteItems("Bearer " + session.getKeySession(),key);
 
