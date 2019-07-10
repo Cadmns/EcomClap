@@ -42,6 +42,8 @@ public class SessionManager {
     public static final String KEY_IS_NUMBER_VERIFIED = "number_verified";
     public static final String KEY_USER_NUMBER= "number";
     public static final String KEY_SELECT_CITY= "city";
+    public static final String KEY_SELECT_CITY_DESCRPTION= "description";
+
     public void setFirstTimeLaunch(boolean isFirstTime) {
         editor.putBoolean(IS_FIRST_TIME_LAUNCH, isFirstTime);
         editor.commit();
@@ -86,6 +88,16 @@ public class SessionManager {
     public void setUserCity(String userCity){
         editor.putString(KEY_SELECT_CITY,userCity);
         editor.commit();
+    }
+
+
+    public void setKeySelectCityDescrption(String desc) {
+        editor.putString(KEY_SELECT_CITY_DESCRPTION,desc);
+        editor.commit();
+    }
+
+    public String getKeySelectCityDescrption() {
+        return pref.getString(KEY_SELECT_CITY_DESCRPTION, " ");
     }
 
     public void setUserNumber(String number){

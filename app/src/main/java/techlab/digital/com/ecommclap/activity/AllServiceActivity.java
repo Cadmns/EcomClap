@@ -1,5 +1,6 @@
 package techlab.digital.com.ecommclap.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.design.widget.TabLayout;
@@ -122,16 +123,26 @@ public class AllServiceActivity extends AppCompatActivity implements ImageListFr
     private void setupViewPager(ViewPager viewPager) {
         if (mCategoriesDbList != null && mCategoriesDbList.size() > 0) {
             Adapter adapter = new Adapter(getSupportFragmentManager());
-            for (CategoryRealmDb categories : mCategoriesDbList) {
-                ImageListFragment fragment = new ImageListFragment();
-                Bundle bundle = new Bundle();
-                bundle.putInt("type", categories.getId());
-                bundle.putString("eta", categories.getDescription());
-                bundle.putString("cat_slug",categories.getSlug());
+            String location_desc = sessionManager.getKeySelectCityDescrption();
 
-                Log.e("cat_slug",categories.getSlug());
-                fragment.setArguments(bundle);
-                adapter.addFragment(fragment, categories.getSlug());
+            String[] data_array = location_desc.split("\\,");
+
+            for (CategoryRealmDb categories : mCategoriesDbList) {
+
+                for(int z=0;z<data_array.length;z++){
+                    if(categories.getSlug().equals(data_array[z])){
+                        ImageListFragment fragment = new ImageListFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("type", categories.getId());
+                        bundle.putString("eta", categories.getDescription());
+                        bundle.putString("cat_slug",categories.getSlug());
+
+                        Log.e("cat_slug",categories.getSlug());
+                        fragment.setArguments(bundle);
+                        adapter.addFragment(fragment, categories.getSlug());
+                    }
+                }
+
             }
             viewPager.setOffscreenPageLimit(3);
             viewPager.setAdapter(adapter);
@@ -228,7 +239,7 @@ public class AllServiceActivity extends AppCompatActivity implements ImageListFr
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         NewAddTocart addToCartReq = new NewAddTocart();
         addToCartReq.setProductId(String.valueOf(product_data_holder.getId()));
-        addToCartReq.setProductId(String.valueOf(p_quantity));
+        addToCartReq.setQuantity(String.valueOf(p_quantity));
         Log.e("pdh.getId()elsea", String.valueOf(product_data_holder.getId()));
         Log.e("id",addToCartReq.getProductId());
         Log.e("quantity",addToCartReq.getQuantity());
@@ -243,12 +254,13 @@ public class AllServiceActivity extends AppCompatActivity implements ImageListFr
             call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartReq);
         }*/
         call.enqueue(new Callback<newAddToCartResponse>() {
+            @SuppressLint("LongLogTag")
             @Override
             public void onResponse(Call<newAddToCartResponse> call, Response<newAddToCartResponse> response) {
                 if(response.isSuccessful()){
 
                     Toast.makeText(getApplicationContext(), "Added to cart success", Toast.LENGTH_SHORT).show();
-                    Log.e("response boody cp ", String.valueOf(response.body().getKey()));
+                    Log.e("````````response boody cp ", String.valueOf(response.body().getKey()+"data want to print "+response.raw().request().headers().get("Cookie")));
                     product_data_holder.setmRefrenceKey(response.body().getKey());
                 }else{
                     Log.e("Error","");

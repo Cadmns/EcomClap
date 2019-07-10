@@ -48,7 +48,7 @@ public class CityLocationAdapter extends RecyclerView.Adapter<CityLocationAdapte
                // cityName_cardv.setBackground(highlight);
                 row_index=position;
                 notifyDataSetChanged();
-                mCallback.onCityLocationClick(lineItem.get(position).getName(),v,position);
+                mCallback.onCityLocationClick(lineItem.get(position).getName(),lineItem.get(position).getDescription(),v,position);
             }
         });
         if(row_index==position){
@@ -84,7 +84,7 @@ public class CityLocationAdapter extends RecyclerView.Adapter<CityLocationAdapte
 
     public interface OnInterfaceListener {
 
-        void onCityLocationClick(String cityname, View v,int position);
+        void onCityLocationClick(String cityname,String location_description, View v,int position);
 
     }
 }

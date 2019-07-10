@@ -1,6 +1,7 @@
 package techlab.digital.com.ecommclap.services.services;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
@@ -17,23 +18,75 @@ import io.realm.RealmResults;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import techlab.digital.com.ecommclap.activity.SelectCityActivity;
 import techlab.digital.com.ecommclap.app.Prefs;
+import techlab.digital.com.ecommclap.model.CityLocationModel.CityLocationResponse;
 import techlab.digital.com.ecommclap.model.fetch_category.Category;
 import techlab.digital.com.ecommclap.model.realmDbModel.CategoryRealmDb;
 import techlab.digital.com.ecommclap.network.ApiClient;
 import techlab.digital.com.ecommclap.network.ApiInterface;
+import techlab.digital.com.ecommclap.utility.SessionManager;
 
 @SuppressLint("Registered")
 public class FetchCategoryServiceOne extends Service {
     Realm mRealm;
-
+SessionManager sessionManager;
     @Override
     public void onCreate() {
         mRealm = Realm.getDefaultInstance();
         //*********fetching category from server and updating to realm database******************//
+        sessionManager = new SessionManager(getApplicationContext());
+        fetch_user_location();
         fetchCategoriesItems_and_Update();
 
+
     }
+    private void fetch_user_location() {
+
+
+
+            ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+            Call<List<CityLocationResponse>> call = apiService.fetchCityLocation();
+            call.enqueue(new Callback<List<CityLocationResponse>>() {
+                @Override
+                public void onResponse(Call<List<CityLocationResponse>> call, Response<List<CityLocationResponse>> response) {
+                    if(response.isSuccessful()){
+                        // setAdapterViews(response.body());
+                        if (!response.body().isEmpty()) {
+                            Log.e("Calling new service", String.valueOf(response.body()));
+                            update_location(response.body());
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(),"Not Avai    lable",Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Log.e("Error","");
+                    }
+                }
+                @Override
+                public void onFailure(Call<List<CityLocationResponse>> call, Throwable t) {
+                    Log.e("onFailure",t.getMessage());
+
+                }
+            });
+
+    }
+
+    private void update_location(List<CityLocationResponse> body) {
+        for(int i=0;i<body.size();i++)
+        {
+            if(body.get(i).getName().equals(sessionManager.getUserCity()))
+            {
+                sessionManager.setUserCity(body.get(i).getName());
+                sessionManager.setKeySelectCityDescrption(body.get(i).getDescription());
+
+            }
+        }
+
+    }
+
+
 
     @Nullable
     @Override

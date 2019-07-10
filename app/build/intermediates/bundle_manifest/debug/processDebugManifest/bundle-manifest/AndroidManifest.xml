@@ -84,6 +84,7 @@
 
         <service
             android:name="techlab.digital.com.ecommclap.services.services.FetchCategoryServiceOne"
+            android:enabled="true"
             android:icon="@drawable/ic_mphone"
             android:label="fetch_category" >
             <intent-filter>

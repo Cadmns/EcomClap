@@ -307,21 +307,28 @@ public class WelcomeActivity extends AppCompatActivity  {
         for(int i = 0; i< body.size(); i++){
             CategoryRealmDb category = new CategoryRealmDb();
 
-            category.setDescription( body.get(i).getDescription());
-            category.setSlug(body.get(i).getSlug());
-            category.setName(body.get(i).getName());
-            category.setId(body.get(i).getId());
-            try {
-                if (body.get(i).getImage().getSrc().equals("")) {
+            if(category.getSlug().equals("fruits-vegetables") ||category.getSlug().equals("beauty-spa") ||category.getSlug().equals("breakfast-need") ) {
 
-                } else {
-                    category.setImage(body.get(i).getImage().getSrc());
+                category.setDescription( body.get(i).getDescription());
+                category.setSlug(body.get(i).getSlug());
+                category.setName(body.get(i).getName());
+                category.setId(body.get(i).getId());
+                try {
+                    if (body.get(i).getImage().getSrc().equals("")) {
+
+                    } else {
+                        category.setImage(body.get(i).getImage().getSrc());
+                    }
+                }catch (NullPointerException e)
+                {
+                    e.printStackTrace();
                 }
-            }catch (NullPointerException e)
-            {
-                e.printStackTrace();
+                category_list.add(category);
             }
-            category_list.add(category);
+
+
+
+
 
         }
         for (CategoryRealmDb b : category_list) {

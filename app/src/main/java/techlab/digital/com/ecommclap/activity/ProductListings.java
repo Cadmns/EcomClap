@@ -1,5 +1,6 @@
 package techlab.digital.com.ecommclap.activity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -401,12 +402,17 @@ public class ProductListings extends AppCompatActivity implements ProductListing
 
         */
         call.enqueue(new Callback<newAddToCartResponse>() {
+            @SuppressLint("LongLogTag")
             @Override
             public void onResponse(Call<newAddToCartResponse> call, Response<newAddToCartResponse> response) {
                 if(response.isSuccessful()){
                     Log.e("response on add", String.valueOf(response.body()));
                     Toast.makeText(getApplicationContext(), "Added to cart success", Toast.LENGTH_SHORT).show();
-                    Log.e("response boody cp ", String.valueOf(response.body().getKey()));
+                    Log.e("response boody cp 2222222222", String.valueOf(response.body().getKey())+"data want to print "+response.raw().request().headers().get("Cookie"));
+
+                    Log.e("==Cookie==1===", "==="+response.raw().headers().get("Set-Cookie") );
+                    Log.e("==Cookie==2==", "==="+response.headers().get("Cookie"));
+                    Log.e("==Content-Type====", "==="+response.headers().get("Content-Type"));
                     addToCartResponse = new newAddToCartResponse();
                     product_data_holder.setmRefrenceKey(response.body().getKey());
                 }else{

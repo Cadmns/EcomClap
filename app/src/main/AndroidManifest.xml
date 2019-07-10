@@ -70,6 +70,7 @@
         <service
             android:name=".services.services.FetchCategoryServiceOne"
             android:icon="@drawable/ic_mphone"
+            android:enabled="true"
             android:label="fetch_category">
             <intent-filter>
                 <action android:name="com.mysite.appname.MyStaticString.PLAY_FINISHED" />

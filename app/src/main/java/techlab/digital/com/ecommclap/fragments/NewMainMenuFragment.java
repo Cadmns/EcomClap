@@ -55,6 +55,7 @@ import techlab.digital.com.ecommclap.network.ApiClient;
 import techlab.digital.com.ecommclap.network.ApiInterface;
 import techlab.digital.com.ecommclap.services.services.FetchCategoryServiceOne;
 import techlab.digital.com.ecommclap.utility.CheckInternet;
+import techlab.digital.com.ecommclap.utility.SessionManager;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,6 +77,7 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
     @BindView(R.id.mshimmer_view_container)
     ShimmerFrameLayout mShimmerViewContainer;
     List<CategoryRealmDb> list;
+    List<CategoryRealmDb> listclone = new ArrayList<>();
     ViewFlipper viewFlipper;
     String[] code;
     List<ImageSliderResponse> bannerModelList;
@@ -86,9 +88,25 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
     CardView schdeule_banner;
     @BindView(R.id.sports_banner)
     CardView sports_banner;
-
+    SessionManager sessionManager;
     public NewMainMenuFragment() {
         // Required empty public constructor
+    }
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.e("this is on attach","hurrrrrah");
+
+        ///getActivity().startService(new Intent(getActivity(), FetchCategoryServiceOne.class));
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.e("this is on Dettach","purrrrrah");
+    ///    getActivity().startService(new Intent(getActivity(), FetchCategoryServiceOne.class));
     }
 
     public static NewMainMenuFragment newInstance() {
@@ -103,40 +121,38 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
         view = inflater.inflate(R.layout.fragment_new_category, container, false);
         ButterKnife.bind(this, view);
 
-
+        sessionManager = new SessionManager(getContext());
 
         initViews();
 
 
-        schdeule_banner.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        try {
+            schdeule_banner.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), FetchSchedulableSubCategory.class);
+                    startActivity(intent);
+                }
+            });
 
 
-
-
-
-                Intent intent = new Intent(getActivity(), FetchSchedulableSubCategory.class);
-                startActivity(intent);
-            }
-        });
-
-
-        sports_banner.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CategoryRealmDb categoryRealmDb = list.get(7);
-                Bundle bundle = new Bundle();
-                Intent intent = new Intent(getContext(), AllServiceActivity.class);
-                bundle.putInt("object", categoryRealmDb.getId());
-                bundle.putInt("view_pager", 7);
-                intent.putExtras(bundle);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        });
-
-
+            sports_banner.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CategoryRealmDb categoryRealmDb = list.get(7);
+                    Bundle bundle = new Bundle();
+                    Intent intent = new Intent(getContext(), AllServiceActivity.class);
+                    bundle.putInt("object", categoryRealmDb.getId());
+                    bundle.putInt("view_pager", 7);
+                    intent.putExtras(bundle);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+            });
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
 
         return view;
     }
@@ -158,6 +174,9 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
     private void fetchLocalCategoriescache() {
 
         list = new ArrayList(mRealm.where(CategoryRealmDb.class).findAll());
+
+
+
         setAdapter(list);
         if (CheckInternet.isNetwork(getContext())) {
             ImageSlider();
@@ -184,6 +203,7 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
         filter = new IntentFilter();
         filter.addAction("com.hello.action");
         updateUIReciver = new BroadcastReceiver() {
+            @SuppressLint("LongLogTag")
             @Override
             public void onReceive(Context context, Intent intent) {
                 if (mSwipeRefreshLayout.isRefreshing())
@@ -193,7 +213,46 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
                 mRealm = Realm.getDefaultInstance();
                 ArrayList<CategoryRealmDb> list = new ArrayList(mRealm.where(CategoryRealmDb.class).findAll());
 
-                updateRecyclerView(list);
+
+
+                Log.e("size of listlistlist all", String.valueOf(list.size()));
+
+                String location_desc = sessionManager.getKeySelectCityDescrption();
+
+                String[] data_array = location_desc.split("\\,");
+
+
+
+                for(int i=0;i<list.size();i++)
+                {
+                    for(int j=0;j<data_array.length;j++)
+                    {
+                        Log.e("dataarrry",data_array[j]);
+                        if(list.get(i).getSlug().equals(data_array[j]))
+                        {
+                            if(!listclone.contains(list.get(i))){
+                                listclone.add(list.get(i));
+                            }
+                            Log.e("Added item", String.valueOf(list.get(i)));
+                            break;
+                        }
+
+                    }
+
+
+                  /*  if(list.get(i).getSlug().equals("fruits-vegetables") || list.get(i).getSlug().equals("beauty-spa") ||list.get(i).getSlug().equals("breakfast-need") ){
+                        listclone.add(list.get(i));
+                    }*/
+                }
+
+
+                updateRecyclerView(listclone);
+
+
+
+
+
+
 
 
             }
@@ -215,6 +274,11 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
     @Override
     public void onPause() {
         super.onPause();
+        if (mSwipeRefreshLayout!=null) {
+            mSwipeRefreshLayout.setRefreshing(false);
+            mSwipeRefreshLayout.destroyDrawingCache();
+            mSwipeRefreshLayout.clearAnimation();
+        }
         Objects.requireNonNull(getActivity()).unregisterReceiver(updateUIReciver);
     }
 
@@ -259,8 +323,40 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
     }
 
     private void setAdapter(List<CategoryRealmDb> mFinalList) {
+
+        Log.e("size of db all", String.valueOf(mFinalList.size()));
+
+        String location_desc = sessionManager.getKeySelectCityDescrption();
+
+        String[] data_array = location_desc.split("\\,");
+
+
+
+        for(int i=0;i<mFinalList.size();i++)
+        {
+            for(int j=0;j<data_array.length;j++)
+            {
+                Log.e("dataarrry",data_array[j]);
+                if(mFinalList.get(i).getSlug().equals(data_array[j]))
+                {
+                    if(!listclone.contains(mFinalList.get(i)))
+                     listclone.add(mFinalList.get(i));
+
+                    Log.e("Added item", String.valueOf(mFinalList.get(i)));
+                    break;
+                }
+
+            }
+
+           /* if(list.get(i).getSlug().equals("fruits-vegetables") || list.get(i).getSlug().equals("beauty-spa") ||list.get(i).getSlug().equals("breakfast-need") ){
+                listclone.add(list.get(i));
+            }*/
+        }
+
+
+
         mRecyclerView.setHasFixedSize(true);
-        list = mFinalList;
+        list =listclone;
         mLayoutManager = new GridLayoutManager(getContext(), 3);
         //mLayoutManager = new LinearLayoutManager(getApplicationContext());
         ((GridLayoutManager) mLayoutManager).setOrientation(LinearLayout.VERTICAL);
@@ -377,12 +473,13 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
     }
 
 
+
     @Override
     public void onRefresh() {
         mSwipeRefreshLayout.post(new Runnable() {
                                      @Override
                                      public void run() {
-
+                                         ImageSlider();
                                          if (CheckInternet.isNetwork(getContext())) {
                                              mSwipeRefreshLayout.setRefreshing(true);
 

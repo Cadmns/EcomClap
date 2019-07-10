@@ -37,7 +37,7 @@ import techlab.digital.com.ecommclap.utility.SessionManager;
 
 public class SelectCityActivity extends AppCompatActivity implements View.OnClickListener,CityLocationAdapter.OnInterfaceListener{
     TextView header_message,page_slogan;
-    String city_name;
+    String city_name,city_desc;
    // CardView city_noida,city_delhi,city_gzb,city_gurgaon;
     boolean noida,delhi,gzb,gurugram = Boolean.FALSE;
     Button confirm_city_btn; Bundle extras;
@@ -200,9 +200,10 @@ private void newInit()
     public void onClick(View v) {
         if (v == confirm_city_btn){
             sessionManager.setUserCity(city_name);
+            sessionManager.setKeySelectCityDescrption(city_desc);
+            Log.e("froms session",sessionManager.getKeySelectCityDescrption() + "__city name___ "+sessionManager.getUserCity());
             Intent intent = new Intent(getApplicationContext(),NewCategoryActivity.class);
             startActivity(intent);
-
             }
     }
 
@@ -256,10 +257,12 @@ public  void fetchCityLocation()
 
 
     @Override
-    public void onCityLocationClick(String cityname,View v,int position) {
+    public void onCityLocationClick(String cityname,String location_description,View v,int position) {
         confirm_city_btn.setVisibility(View.VISIBLE);
         city_name=cityname;
-         Log.e("city name",cityname);
-        Log.e("city%%%name",city_name);
+        city_desc  = location_description;
+
+        Log.e("city name",cityname);
+        Log.e("city%%%desc",city_desc);
     }
 }
