@@ -1301,6 +1301,7 @@ id available_balance
 id avatar
 id balance
 id balance_container
+id bannerSlogan
 id barrier
 id beauty_spa
 id beginning
@@ -1761,6 +1762,7 @@ id useLogo
 id user_message
 id valid_till
 id variations_container
+id veg
 id vertual_cart
 id viewBottom
 id view_complain_details
@@ -1912,6 +1914,7 @@ layout my_dialog
 layout my_offers_bottom_sheet
 layout my_order_list
 layout new_category_list
+layout new_fragemt_catolist
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action

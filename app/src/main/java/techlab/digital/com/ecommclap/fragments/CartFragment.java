@@ -21,10 +21,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -207,17 +210,53 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
         progressDialog.show();
         Log.e("sessiontoken", String.valueOf(session.getKeySession()));
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseBody> call = apiService.getCartItems("Bearer " + session.getKeySession(),true);
+        Call<JsonObject> call = apiService.getCartItems("Bearer " + session.getKeySession(),true);
 
-        call.enqueue(new Callback<ResponseBody>() {
+        call.enqueue(new Callback<JsonObject>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
 
                 if (progressDialog.isShowing())
                     progressDialog.dismiss();
 
                 Log.e("response0", String.valueOf(response.body()));
                 if(response.isSuccessful()) {
+                    Log.e("response4", String.valueOf(response.body()));
+                   /* try {
+                        JSONObject jsonObject = new JSONObject();
+                       // jsonObject=response.body();
+                        Log.e("response", String.valueOf(response.body()));
+                        Iterator<?> keys = jsonObject.keys();
+                        List<FetchCartResponse> mFinalCartList = new ArrayList<>();
+                        while (keys.hasNext()) {
+                            String key = (String) keys.next();
+                            if (jsonObject.get(key) instanceof JSONObject) {
+
+                                JSONObject value = jsonObject.getJSONObject(key);
+                                FetchCartResponse projectsList = JsonUtils.getModelFromJson(value.toString());
+                                mFinalCartList.add(projectsList);
+                            }
+                        }
+                        setAdapter(mFinalCartList);
+
+                        getCartTotal();
+
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+*/
+
+                   try {
+                        //System.out.println("Rrespppppp--->"+response.body().string());
+                        System.out.println("user Info :" + response.body().getAsJsonObject());
+                        JSONObject profileFileUploadResponse = new JSONObject(String.valueOf(response.body()));
+                        Log.e("retro", "retroFileResp------------------>" + profileFileUploadResponse);
+                    }
+                     catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     Log.e("response1", String.valueOf(response.body().toString()));
                     if (response.body().equals("Cart is empty!")) {
                         Log.e("response2", String.valueOf(response.body()));
@@ -237,7 +276,9 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
                             layoutCartPayments.setVisibility(View.VISIBLE);
                         try {
                             JSONObject jsonObject = new JSONObject(new Gson().toJson(response.body()));
-                            Log.e("response4", String.valueOf(response.body()));
+                            Log.e("response5", String.valueOf(jsonObject));
+                            Log.e("response5", String.valueOf(response.body()));
+
                             Iterator<?> keys = jsonObject.keys();
                             List<FetchCartResponse> mFinalCartList = new ArrayList<>();
                             while (keys.hasNext()) {
@@ -273,7 +314,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
             }
 
             @Override
-            public void onFailure(Call<ResponseBody>  call, Throwable t) {
+            public void onFailure(Call<JsonObject>  call, Throwable t) {
                 Log.e("onFailure",t.getLocalizedMessage());
 
                 if (progressDialog.isShowing())

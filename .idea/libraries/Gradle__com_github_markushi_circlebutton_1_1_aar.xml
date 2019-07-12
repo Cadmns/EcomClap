@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.markushi:circlebutton:1.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/71d5e28cd9120870125ec06b114ca9fd/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/71d5e28cd9120870125ec06b114ca9fd/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9f1581033b244c2600147b2db2a89add/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9f1581033b244c2600147b2db2a89add/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

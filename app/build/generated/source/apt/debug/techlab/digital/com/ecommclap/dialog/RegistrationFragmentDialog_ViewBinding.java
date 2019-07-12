@@ -18,7 +18,7 @@ import techlab.digital.com.ecommclap.R;
 public class RegistrationFragmentDialog_ViewBinding implements Unbinder {
   private RegistrationFragmentDialog target;
 
-  private View view2131296336;
+  private View view2131296337;
 
   private View view2131296312;
 
@@ -35,7 +35,7 @@ public class RegistrationFragmentDialog_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.btn_signup, "field 'signUp_btn' and method 'submituserDetails'");
     target.signUp_btn = Utils.castView(view, R.id.btn_signup, "field 'signUp_btn'", Button.class);
-    view2131296336 = view;
+    view2131296337 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -89,8 +89,8 @@ public class RegistrationFragmentDialog_ViewBinding implements Unbinder {
     target.reset_referal = null;
     target.applied_referal_textview = null;
 
-    view2131296336.setOnClickListener(null);
-    view2131296336 = null;
+    view2131296337.setOnClickListener(null);
+    view2131296337 = null;
     view2131296312.setOnClickListener(null);
     view2131296312 = null;
   }

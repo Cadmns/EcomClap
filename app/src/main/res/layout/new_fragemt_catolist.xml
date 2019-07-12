@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:id="@+id/swipe"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    tools:context=".activity.NewCategoryActivity"
+    >
+
+    <android.support.design.widget.CoordinatorLayout
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+        <android.support.v4.widget.NestedScrollView
+            android:layout_below="@+id/label1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/main_screen"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/label1"
+                    android:layout_height="180dp">
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/mshimmer_view_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        shimmer:duration="1000">
+                        <!-- Adding 3 rows of placeholders -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <!--
+                                                    <include highlight_remove="@highlight_remove/placeholder_image_slider" />
+                            -->
+                            <!--  <android.support.v4.view.ViewPager
+                                  android:id="@+id/vp_slider"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="200dp"
+                                  android:layout_marginTop="30dp"
+                                  android:paddingLeft="34dp"
+                                  android:paddingRight="12dp">
+                                &lt;!&ndash;  <include highlight_remove="@highlight_remove/placeholder_image_slider" />&ndash;&gt;
+                              </android.support.v4.view.ViewPager>-->
+                        </RelativeLayout>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp">
+                        <ViewFlipper
+                            android:id="@+id/vp_slider"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            >
+                            <!--<ImageView
+                                 android:id="@+id/image"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="match_parent"
+                               />-->
+                        </ViewFlipper>
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_below="@+id/label1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <LinearLayout
+                        android:id="@+id/sliderDots"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:gravity="center_horizontal|center_vertical"
+                        android:orientation="horizontal">
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:background="@color/white"
+                        android:layout_below="@+id/sliderDots"
+                        android:id="@+id/cat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:orientation="horizontal">
+                        <android.support.v7.widget.RecyclerView
+                            android:background="@color/color_white"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:scrollbars="none"
+                            android:scrollbarStyle="insideInset"
+                            android:scrollbarFadeDuration="0"
+                            android:id="@+id/recycler_category"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                        </android.support.v7.widget.RecyclerView>
+
+
+                        <!--   <LinearLayout
+                               android:id="@+id/hii"
+                               android:padding="@dimen/padding_10"
+                               android:layout_below="@+id/recycler_category"
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content">
+                               <ImageView
+                                   android:background="@drawable/veg"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="@dimen/dimen_100dp" />
+
+
+                           </LinearLayout>
+               -->
+
+
+                    </LinearLayout>
+                    <TextView
+                        android:layout_marginBottom="@dimen/dimen_4dp"
+                        android:id="@+id/bannerSlogan"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/cat"
+                        android:text="Meat Store"
+                        android:layout_marginLeft="@dimen/dimen_20dp"
+                        android:layout_marginRight="@dimen/dimen_20dp"
+                        android:gravity="center"
+                        android:background="#FF9801"
+                        android:visibility="gone"
+                        android:textColor="#000"
+                        android:textSize="@dimen/dimen_18dp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="@dimen/dimen_15dp"
+                        android:layout_height="40dp" />
+                    <android.support.v7.widget.CardView
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        card_view:cardElevation="2dp"
+                        card_view:cardCornerRadius="5dp"
+                        android:layout_below="@+id/cat"
+                        android:layout_above="@+id/navigation"
+                        android:id="@+id/schdeule_banner"
+                        android:layout_margin="@dimen/padding_10"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+
+                        <ImageView
+                            android:id="@+id/veg"
+                            android:layout_width="match_parent"
+                            android:scaleType="fitXY"
+                            android:adjustViewBounds="true"
+                            android:visibility="gone"
+                            android:layout_height="@dimen/dimen_180dp" />
+
+
+                    </android.support.v7.widget.CardView>
+
+
+                    <android.support.v7.widget.CardView
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        card_view:cardElevation="2dp"
+                        card_view:cardCornerRadius="5dp"
+                        android:visibility="gone"
+                        android:layout_below="@+id/image_container"
+                        android:layout_above="@+id/navigation"
+                        android:id="@+id/sports_banner"
+                        android:layout_margin="@dimen/padding_10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <ImageView
+
+                            android:background="@drawable/cricket2"
+                            android:layout_width="match_parent"
+                            android:scaleType="fitXY"
+                            android:adjustViewBounds="true"
+                            android:layout_height="@dimen/dimen_180dp"/>
+
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/internetConnection"
+            android:visibility="gone">
+
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/noInternet"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:lottie_fileName="no-internet-connection.json"
+                android:layout_marginTop="45dp"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/noInternet"
+                android:text="check your internet connection !"
+                android:textColor="#848484"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

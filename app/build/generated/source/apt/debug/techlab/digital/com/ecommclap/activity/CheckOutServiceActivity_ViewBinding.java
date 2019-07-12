@@ -20,9 +20,9 @@ import techlab.digital.com.ecommclap.R;
 public class CheckOutServiceActivity_ViewBinding implements Unbinder {
   private CheckOutServiceActivity target;
 
-  private View view2131296513;
+  private View view2131296514;
 
-  private View view2131296336;
+  private View view2131296337;
 
   @UiThread
   public CheckOutServiceActivity_ViewBinding(CheckOutServiceActivity target) {
@@ -38,7 +38,7 @@ public class CheckOutServiceActivity_ViewBinding implements Unbinder {
     target.mScriollView = Utils.findRequiredViewAsType(source, R.id.scrollView, "field 'mScriollView'", ScrollView.class);
     view = Utils.findRequiredView(source, R.id.layout_action1, "field 'mEditLayout' and method 'mEditLayout'");
     target.mEditLayout = Utils.castView(view, R.id.layout_action1, "field 'mEditLayout'", LinearLayout.class);
-    view2131296513 = view;
+    view2131296514 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,7 +54,7 @@ public class CheckOutServiceActivity_ViewBinding implements Unbinder {
     target.ExpensesDetailsBtn = Utils.findRequiredViewAsType(source, R.id.btnAddExpense, "field 'ExpensesDetailsBtn'", Button.class);
     view = Utils.findRequiredView(source, R.id.btn_signup, "field 'checkout_btn' and method 'mBookService'");
     target.checkout_btn = Utils.castView(view, R.id.btn_signup, "field 'checkout_btn'", Button.class);
-    view2131296336 = view;
+    view2131296337 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -98,9 +98,9 @@ public class CheckOutServiceActivity_ViewBinding implements Unbinder {
     target.second_date = null;
     target.mdates_container = null;
 
-    view2131296513.setOnClickListener(null);
-    view2131296513 = null;
-    view2131296336.setOnClickListener(null);
-    view2131296336 = null;
+    view2131296514.setOnClickListener(null);
+    view2131296514 = null;
+    view2131296337.setOnClickListener(null);
+    view2131296337 = null;
   }
 }

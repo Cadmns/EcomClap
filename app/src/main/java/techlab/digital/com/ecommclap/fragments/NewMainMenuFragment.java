@@ -6,6 +6,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.drawable.PictureDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
@@ -20,14 +22,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.bumptech.glide.GenericRequestBuilder;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.model.StreamEncoder;
+import com.bumptech.glide.load.resource.file.FileToStreamDecoder;
+import com.caverock.androidsvg.SVG;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -42,6 +51,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import techlab.digital.com.ecommclap.R;
 import techlab.digital.com.ecommclap.activity.AllServiceActivity;
+import techlab.digital.com.ecommclap.activity.ProductListings;
 import techlab.digital.com.ecommclap.activity.ScheduledParentsProductsActivity;
 import techlab.digital.com.ecommclap.activity.schedule_products.FetchSchedulableSubCategory;
 
@@ -53,6 +63,9 @@ import techlab.digital.com.ecommclap.model.imageSlider.ImageSliderResponse;
 import techlab.digital.com.ecommclap.model.realmDbModel.CategoryRealmDb;
 import techlab.digital.com.ecommclap.network.ApiClient;
 import techlab.digital.com.ecommclap.network.ApiInterface;
+import techlab.digital.com.ecommclap.parse.SvgDecoder;
+import techlab.digital.com.ecommclap.parse.SvgDrawableTranscoder;
+import techlab.digital.com.ecommclap.parse.SvgSoftwareLayerSetter;
 import techlab.digital.com.ecommclap.services.services.FetchCategoryServiceOne;
 import techlab.digital.com.ecommclap.utility.CheckInternet;
 import techlab.digital.com.ecommclap.utility.SessionManager;
@@ -68,10 +81,10 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
     RecyclerView.LayoutManager mLayoutManager;
     @BindView(R.id.main_screen)
     RelativeLayout mainScreenLayout;
-
     @BindView(R.id.internetConnection)
     RelativeLayout internetConnection;
-
+int bannerId,position1=0;
+String bannerName;
     private long mLastClickTime = 0;
 
     @BindView(R.id.mshimmer_view_container)
@@ -84,10 +97,13 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
     BroadcastReceiver updateUIReciver;
     @BindView(R.id.swipe)
     SwipeRefreshLayout mSwipeRefreshLayout;
-    @BindView(R.id.schdeule_banner)
+  //  @BindView(R.id.schdeule_banner)
     CardView schdeule_banner;
     @BindView(R.id.sports_banner)
     CardView sports_banner;
+     TextView bannerslogen;
+   // @BindView(R.id.veg)
+    ImageView veg;
     SessionManager sessionManager;
     public NewMainMenuFragment() {
         // Required empty public constructor
@@ -118,27 +134,72 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the highlight_remove for this fragment
-        view = inflater.inflate(R.layout.fragment_new_category, container, false);
+        view = inflater.inflate(R.layout.new_fragemt_catolist, container, false);
         ButterKnife.bind(this, view);
-
+        veg=view.findViewById(R.id.veg);
+        schdeule_banner=view.findViewById(R.id.schdeule_banner);
         sessionManager = new SessionManager(getContext());
-
+        bannerslogen=view.findViewById(R.id.bannerSlogan);
         initViews();
 
+veg.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Log.e("id on click", "veg**** ");
+                Log.e("id on click", String.valueOf(bannerId));
+                Log.e("id on  && name", String.valueOf(bannerName));
+             /*   Intent intent = new Intent(getContext(), ProductListings.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", bannerId);
+                bundle.putString("category_name",bannerName);
+                intent.putExtras(bundle);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+*/
 
-        try {
-            schdeule_banner.setOnClickListener(new View.OnClickListener() {
+       // CategoryRealmDb categoryRealmDb = list.get(position1);
+        Bundle bundle = new Bundle();
+        Intent intent = new Intent(getContext(), AllServiceActivity.class);
+        bundle.putInt("object", bannerId);
+        bundle.putInt("view_pager", position1);
+        intent.putExtras(bundle);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+});
+
+           /* schdeule_banner.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), FetchSchedulableSubCategory.class);
-                    startActivity(intent);
+                    for(int i=0;i<list.size();i++) {
+                        if(list.get(i).getSlug().equals("meatbanner")) {
+
+                            CategoryRealmDb categoryRealmDb = list.get(i);
+                            Log.e("id on click", String.valueOf( categoryRealmDb.getId()));
+                            Log.e("id on  && name", String.valueOf(categoryRealmDb.getName()));
+                            Intent intent = new Intent(getContext(), ProductListings.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putInt("id", categoryRealmDb.getId());
+                            bundle.putString("category_name",categoryRealmDb.getName());
+                            intent.putExtras(bundle);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
+                    }
+
+                   *//* Intent intent = new Intent(getActivity(), FetchSchedulableSubCategory.class);
+                    startActivity(intent);*//*
                 }
-            });
+            });*/
 
 
             sports_banner.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View v)
+                {
+                    Log.e("id on click", "sport bvanner");
+
+                    /*
                     CategoryRealmDb categoryRealmDb = list.get(7);
                     Bundle bundle = new Bundle();
                     Intent intent = new Intent(getContext(), AllServiceActivity.class);
@@ -146,18 +207,19 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
                     bundle.putInt("view_pager", 7);
                     intent.putExtras(bundle);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
+                    startActivity(intent);*/
                 }
             });
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
+
 
         return view;
     }
 
-    private void initViews() {
+
+
+
+
+      private void initViews() {
         viewFlipper = (ViewFlipper) view.findViewById(R.id.vp_slider);
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mShimmerViewContainer.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
@@ -227,7 +289,48 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
                 {
                     for(int j=0;j<data_array.length;j++)
                     {
-                        Log.e("dataarrry",data_array[j]);
+
+
+                        if(list.get(i).getSlug().equals(data_array[j]))
+                        {
+                            if(list.get(i).getSlug().equals("meatbanner"))
+                            {
+                                Log.e("DESCRIPTION####",list.get(i).getDescription());
+                                Log.e("imageurl realm",list.get(i).getName());
+                                Log.e("id+4444", String.valueOf(list.get(i).getId()));
+                                bannerId=Integer.parseInt(String.valueOf(list.get(i).getId()));
+                                bannerName= String.valueOf(list.get(i).getName());
+                                position1=j;
+                                veg.setVisibility(View.VISIBLE);
+                                schdeule_banner.setVisibility(View.VISIBLE);
+                                sports_banner.setVisibility(View.VISIBLE);
+                                bannerslogen.setVisibility(View.VISIBLE);
+                                Log.e("positoin", String.valueOf(j));
+                                Log.e("positoin", String.valueOf(position1));
+                                /*Image Download */
+                                Glide.with(NewMainMenuFragment.this)
+                                        .load(list.get(i).getImage())
+                                        .centerCrop()
+                                        .diskCacheStrategy(DiskCacheStrategy.NONE)
+                                        .skipMemoryCache(true)
+                                        .dontAnimate()
+                                        .into(veg);
+                            }
+                            else{
+                                if (!listclone.contains(list.get(i)))
+                                    listclone.add(list.get(i));
+                                Log.e("Added item", String.valueOf(list.get(i)));
+                                break;
+                            }
+                   /* if(!listclone.contains(mFinalList.get(i)))
+                     listclone.add(mFinalList.get(i));
+
+                    Log.e("Added item", String.valueOf(mFinalList.get(i)));
+                    break;*/
+                        }
+
+
+                       /* Log.e("dataarrry",data_array[j]);
                         if(list.get(i).getSlug().equals(data_array[j]))
                         {
                             if(!listclone.contains(list.get(i))){
@@ -235,7 +338,7 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
                             }
                             Log.e("Added item", String.valueOf(list.get(i)));
                             break;
-                        }
+                        }*/
 
                     }
 
@@ -321,7 +424,7 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
             }
         });
     }
-
+    private GenericRequestBuilder<Uri, InputStream, SVG, PictureDrawable> requestBuilder;
     private void setAdapter(List<CategoryRealmDb> mFinalList) {
 
         Log.e("size of db all", String.valueOf(mFinalList.size()));
@@ -339,11 +442,40 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
                 Log.e("dataarrry",data_array[j]);
                 if(mFinalList.get(i).getSlug().equals(data_array[j]))
                 {
-                    if(!listclone.contains(mFinalList.get(i)))
+                    if(mFinalList.get(i).getSlug().equals("meatbanner"))
+                    {
+
+                        Log.e("DESCRIPTION####",mFinalList.get(i).getDescription());
+                        Log.e("imageurl###",mFinalList.get(i).getImage());
+                        Log.e("id+4444", String.valueOf(mFinalList.get(i).getId()));
+                        bannerId=Integer.parseInt(String.valueOf(list.get(i).getId()));
+                        bannerName= String.valueOf(list.get(i).getName());
+                        position1=j;
+                        veg.setVisibility(View.VISIBLE);
+                        schdeule_banner.setVisibility(View.VISIBLE);
+                        sports_banner.setVisibility(View.VISIBLE);
+                        bannerslogen.setVisibility(View.VISIBLE);
+                        /*Image Download */
+                        Glide.with(NewMainMenuFragment.this)
+                                .load(mFinalList.get(i).getImage())
+                                .centerCrop()
+                                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                                .skipMemoryCache(true)
+                                .dontAnimate()
+                                .into(veg);
+
+                    }
+                    else{
+                       if (!listclone.contains(mFinalList.get(i)))
+                        listclone.add(mFinalList.get(i));
+                        Log.e("Added item", String.valueOf(mFinalList.get(i)));
+                        break;
+                    }
+                   /* if(!listclone.contains(mFinalList.get(i)))
                      listclone.add(mFinalList.get(i));
 
                     Log.e("Added item", String.valueOf(mFinalList.get(i)));
-                    break;
+                    break;*/
                 }
 
             }
@@ -369,6 +501,16 @@ public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.
 
 
     }
+
+
+    /*private void loadNet(CategoryRealmDb categoryRealmDb, int position) {
+        Uri uri = Uri.parse(categoryRealmDb.getImage());
+        requestBuilder
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                // SVG cannot be serialized so it's not worth to cache it
+                .load(uri)
+                .into(sports_banner);
+    }*/
 
     public void updateRecyclerView(List<CategoryRealmDb> mUpdatedList) {
         if (mSwipeRefreshLayout.isRefreshing())

@@ -1,6 +1,7 @@
 package techlab.digital.com.ecommclap.network;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -67,7 +68,7 @@ public interface ApiInterface {
 
   //  @GET("/ecom-urbanclap/wp-json/wc/v2/cart")
      @GET("/ecom-urbanclap/wp-json/wc/v2/cart")
-    Call<ResponseBody>  getCartItems(@Header("Authorization") String token,@Query("thumb") Boolean bool);
+    Call<JsonObject>  getCartItems(@Header("Authorization") String token, @Query("thumb") Boolean bool);
 
 
 
@@ -89,7 +90,7 @@ public interface ApiInterface {
 
     @Headers("Content-Type: application/json")
     @POST("/ecom-urbanclap/wp-json/wc/v2/cart/add")
-    Call<newAddToCartResponse> addToCart(@Header("Authorization")String token,@Body NewAddTocart addCartModelsReq);
+    Call<newAddToCartResponse> addToCart(@Header("Authorization")String token,@Body AddToCartReq addCartModelsReq);
 
     @Headers("Content-Type: application/json")
     @POST("/ecom-urbanclap/wp-json/wc/v2/cart/add")

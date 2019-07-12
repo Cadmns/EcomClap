@@ -237,22 +237,23 @@ public class AllServiceActivity extends AppCompatActivity implements ImageListFr
     private void addtoCartProduct(final ProductListingsModeResponse product_data_holder){
         Call<newAddToCartResponse> call = null;
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        NewAddTocart addToCartReq = new NewAddTocart();
+      /*  NewAddTocart addToCartReq = new NewAddTocart();
         addToCartReq.setProductId(String.valueOf(product_data_holder.getId()));
         addToCartReq.setQuantity(String.valueOf(p_quantity));
         Log.e("pdh.getId()elsea", String.valueOf(product_data_holder.getId()));
         Log.e("id",addToCartReq.getProductId());
         Log.e("quantity",addToCartReq.getQuantity());
         Log.e("object",addToCartReq.toString());
-        call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartReq);
-      /*  if (product_data_holder.getType().equals("variable")) {
+        call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartReq);*/
+
+        if (product_data_holder.getType().equals("variable")) {
             AddToCartWithVariationReq addToCartWithReq = new AddToCartWithVariationReq(String.valueOf(product_data_holder.getId()),p_variation,String.valueOf(p_quantity));
             call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartWithReq);
         }
         else{
             AddToCartReq addToCartReq = new AddToCartReq(String.valueOf(product_data_holder.getId()),String.valueOf(p_quantity));
             call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartReq);
-        }*/
+        }
         call.enqueue(new Callback<newAddToCartResponse>() {
             @SuppressLint("LongLogTag")
             @Override

@@ -307,7 +307,7 @@ public class WelcomeActivity extends AppCompatActivity  {
         for(int i = 0; i< body.size(); i++){
             CategoryRealmDb category = new CategoryRealmDb();
 
-            if(category.getSlug().equals("fruits-vegetables") ||category.getSlug().equals("beauty-spa") ||category.getSlug().equals("breakfast-need") ) {
+
 
                 category.setDescription( body.get(i).getDescription());
                 category.setSlug(body.get(i).getSlug());
@@ -324,7 +324,7 @@ public class WelcomeActivity extends AppCompatActivity  {
                     e.printStackTrace();
                 }
                 category_list.add(category);
-            }
+
 
 
 

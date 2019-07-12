@@ -371,18 +371,18 @@ public class ProductListings extends AppCompatActivity implements ProductListing
     private void addtoCartProduct(final ProductListingsModeResponse product_data_holder,String selected_variation,String selected_quantity){
         Call<newAddToCartResponse> call = null;
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        //AddToCartReq addToCartReq;= new AddToCartReq(String.valueOf(product_data_holder.getId()),selected_quantity);
+        AddToCartReq addToCartReq = new AddToCartReq(String.valueOf(product_data_holder.getId()),selected_quantity);
 
-        NewAddTocart addToCartReq = new NewAddTocart();
+     /*   NewAddTocart addToCartReq = new NewAddTocart();
         addToCartReq.setProductId(String.valueOf(product_data_holder.getId()));
         addToCartReq.setQuantity(selected_quantity);
         Log.e("pdh.getId()else", String.valueOf(product_data_holder.getId()));
         Log.e("id",addToCartReq.getProductId());
         Log.e("quantity",addToCartReq.getQuantity());
         Log.e("object",addToCartReq.toString());
-        call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartReq);
+        call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartReq);*/
 
-       /* if (product_data_holder.getType().equals("variable")) {
+        if (product_data_holder.getType().equals("variable")) {
             Log.e("pdh.getId()variabve", String.valueOf(product_data_holder.getId()));
             Log.e("token++",sessionManager.getKeySession().trim());
             AddToCartWithVariationReq addToCartWithReq = new AddToCartWithVariationReq(String.valueOf(product_data_holder.getId()),selected_variation,selected_quantity);
@@ -390,8 +390,8 @@ public class ProductListings extends AppCompatActivity implements ProductListing
             Log.e("quantity variation",addToCartWithReq.getQuantity());
             Log.e("object variation",addToCartWithReq.toString());
             call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartWithReq);
-        }*/
-     /*   else{
+        }
+        else{
              addToCartReq = new AddToCartReq(String.valueOf(product_data_holder.getId()),selected_quantity);
             Log.e("pdh.getId()else", String.valueOf(product_data_holder.getId()));
             Log.e("id",addToCartReq.getProduct_id());
@@ -400,7 +400,6 @@ public class ProductListings extends AppCompatActivity implements ProductListing
             call = apiService.addToCart("Bearer " + sessionManager.getKeySession(),addToCartReq);
         }
 
-        */
         call.enqueue(new Callback<newAddToCartResponse>() {
             @SuppressLint("LongLogTag")
             @Override
