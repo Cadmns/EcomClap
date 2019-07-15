@@ -94,6 +94,7 @@
                 android:textSize="14dp"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
+                android:visibility="gone"
                 android:gravity="center"/>
         </LinearLayout>
 

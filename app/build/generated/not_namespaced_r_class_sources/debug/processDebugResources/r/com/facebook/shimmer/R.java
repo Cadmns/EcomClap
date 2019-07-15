@@ -31,14 +31,14 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int cw_0 = 0x7f09008e;
-        public static final int cw_180 = 0x7f09008f;
-        public static final int cw_270 = 0x7f090090;
-        public static final int cw_90 = 0x7f090091;
-        public static final int linear = 0x7f09010f;
-        public static final int radial = 0x7f09017b;
-        public static final int restart = 0x7f09018d;
-        public static final int reverse = 0x7f09018e;
+        public static final int cw_0 = 0x7f09008f;
+        public static final int cw_180 = 0x7f090090;
+        public static final int cw_270 = 0x7f090091;
+        public static final int cw_90 = 0x7f090092;
+        public static final int linear = 0x7f090110;
+        public static final int radial = 0x7f09017c;
+        public static final int restart = 0x7f09018e;
+        public static final int reverse = 0x7f09018f;
     }
     public static final class styleable {
         private styleable() {}

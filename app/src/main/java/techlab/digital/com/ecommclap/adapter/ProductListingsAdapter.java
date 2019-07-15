@@ -251,11 +251,16 @@ public class ProductListingsAdapter
         return datumList.size();
     }
     public void update_elegent(int p,String value, ViewHolder my_holder){
-       int positon = mholder.getAdapterPosition();
-        my_holder.elegantNumberButton.setNumber(value);
-        Log.e("updated number is ",mholder.elegantNumberButton.getNumber());
-        Log.e("Send pos and holder pos",positon+"__"+p);
-
+        try {
+            int positon = mholder.getAdapterPosition();
+            my_holder.elegantNumberButton.setNumber(value);
+            Log.e("updated number is ", mholder.elegantNumberButton.getNumber());
+            Log.e("Send pos and holder pos", positon + "__" + p);
+        }
+        catch (NullPointerException e)
+        {
+            Log.e("Null poinetr eXCEPTION", String.valueOf(e));
+        }
        /* notifyItemChanged(p);
         notifyItemInserted(p);*/
 

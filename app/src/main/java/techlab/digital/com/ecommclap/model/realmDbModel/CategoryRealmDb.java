@@ -31,6 +31,7 @@ public class CategoryRealmDb extends RealmObject {
     private String image;
 
 
+
     public int getId() {
         return id;
     }

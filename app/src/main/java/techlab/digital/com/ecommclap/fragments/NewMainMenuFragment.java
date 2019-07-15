@@ -14,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,8 +39,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,9 +59,11 @@ import techlab.digital.com.ecommclap.activity.ProductListings;
 import techlab.digital.com.ecommclap.activity.ScheduledParentsProductsActivity;
 import techlab.digital.com.ecommclap.activity.schedule_products.FetchSchedulableSubCategory;
 
+import techlab.digital.com.ecommclap.adapter.BannerAdapter;
 import techlab.digital.com.ecommclap.adapter.NewCategoriesAdapter;
 import techlab.digital.com.ecommclap.app.Prefs;
 import techlab.digital.com.ecommclap.app.SingletonImagesList;
+import techlab.digital.com.ecommclap.model.BannerModel;
 import techlab.digital.com.ecommclap.model.fetch_category.Category;
 import techlab.digital.com.ecommclap.model.imageSlider.ImageSliderResponse;
 import techlab.digital.com.ecommclap.model.realmDbModel.CategoryRealmDb;
@@ -76,8 +82,9 @@ import techlab.digital.com.ecommclap.utility.SessionManager;
 public class NewMainMenuFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, NewCategoriesAdapter.OnInterfaceListener {
     View view;
     Realm mRealm;
-    RecyclerView mRecyclerView;
+    RecyclerView mRecyclerView,bannerRecycle;
     NewCategoriesAdapter mAdapter;
+    BannerAdapter bannerAdapter;
     RecyclerView.LayoutManager mLayoutManager;
     @BindView(R.id.main_screen)
     RelativeLayout mainScreenLayout;
@@ -91,6 +98,7 @@ String bannerName;
     ShimmerFrameLayout mShimmerViewContainer;
     List<CategoryRealmDb> list;
     List<CategoryRealmDb> listclone = new ArrayList<>();
+    List<BannerModel> bannerList = new ArrayList<>();
     ViewFlipper viewFlipper;
     String[] code;
     List<ImageSliderResponse> bannerModelList;
@@ -101,10 +109,15 @@ String bannerName;
     CardView schdeule_banner;
     @BindView(R.id.sports_banner)
     CardView sports_banner;
-     TextView bannerslogen;
+
    // @BindView(R.id.veg)
     ImageView veg;
     SessionManager sessionManager;
+
+
+
+    ArrayList<BannerModel> receiptsList;
+    Set<BannerModel> set = new HashSet<BannerModel>();
     public NewMainMenuFragment() {
         // Required empty public constructor
     }
@@ -136,26 +149,30 @@ String bannerName;
         // Inflate the highlight_remove for this fragment
         view = inflater.inflate(R.layout.new_fragemt_catolist, container, false);
         ButterKnife.bind(this, view);
-        veg=view.findViewById(R.id.veg);
+
+       // veg=view.findViewById(R.id.veg);
         schdeule_banner=view.findViewById(R.id.schdeule_banner);
         sessionManager = new SessionManager(getContext());
-        bannerslogen=view.findViewById(R.id.bannerSlogan);
+
         initViews();
 
+/*
 veg.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Log.e("id on click", "veg**** ");
                 Log.e("id on click", String.valueOf(bannerId));
                 Log.e("id on  && name", String.valueOf(bannerName));
-             /*   Intent intent = new Intent(getContext(), ProductListings.class);
+             */
+/*   Intent intent = new Intent(getContext(), ProductListings.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", bannerId);
                 bundle.putString("category_name",bannerName);
                 intent.putExtras(bundle);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
-*/
+*//*
+
 
        // CategoryRealmDb categoryRealmDb = list.get(position1);
         Bundle bundle = new Bundle();
@@ -167,6 +184,7 @@ veg.setOnClickListener(new View.OnClickListener() {
         startActivity(intent);
     }
 });
+*/
 
            /* schdeule_banner.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -198,7 +216,6 @@ veg.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v)
                 {
                     Log.e("id on click", "sport bvanner");
-
                     /*
                     CategoryRealmDb categoryRealmDb = list.get(7);
                     Bundle bundle = new Bundle();
@@ -225,6 +242,7 @@ veg.setOnClickListener(new View.OnClickListener() {
         mShimmerViewContainer.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         mRealm = Realm.getDefaultInstance();
         mRecyclerView = view.findViewById(R.id.recycler_category);
+          bannerRecycle = view.findViewById(R.id.banner_slide);
         mRecyclerView.setNestedScrollingEnabled(false);
         Prefs.with(getContext()).setPreLoad(true);
         fetchLocalCategoriescache();
@@ -293,28 +311,52 @@ veg.setOnClickListener(new View.OnClickListener() {
 
                         if(list.get(i).getSlug().equals(data_array[j]))
                         {
-                            if(list.get(i).getSlug().equals("meatbanner"))
+                               if(list.get(i).getSlug().contains("banner"))
+                          //  if(Pattern.compile(Pattern.quote(list.get(i).getSlug()), Pattern.CASE_INSENSITIVE).matcher("banner").find())
                             {
                                 Log.e("DESCRIPTION####",list.get(i).getDescription());
                                 Log.e("imageurl realm",list.get(i).getName());
                                 Log.e("id+4444", String.valueOf(list.get(i).getId()));
+
                                 bannerId=Integer.parseInt(String.valueOf(list.get(i).getId()));
                                 bannerName= String.valueOf(list.get(i).getName());
                                 position1=j;
-                                veg.setVisibility(View.VISIBLE);
+
+                                BannerModel bannerModel = new BannerModel();
+                                bannerModel.setId(list.get(i).getId());
+                                bannerModel.setDescription(list.get(i).getDescription());
+                                bannerModel.setImage(list.get(i).getImage());
+                                bannerModel.setName(list.get(i).getName());
+                                bannerModel.setProduct_position(j);
+                                bannerModel.setSlug(list.get(i).getSlug());
+
+
+
+
+                                set.add(bannerModel);
+
+                                receiptsList = new ArrayList<BannerModel>(set);
                                 schdeule_banner.setVisibility(View.VISIBLE);
-                                sports_banner.setVisibility(View.VISIBLE);
-                                bannerslogen.setVisibility(View.VISIBLE);
+
+                          /*      if(!bannerList.contains(bannerModel))*/
+                              //  bannerList.add(bannerModel);
+                              /*//add banerr
+                                if(!bannerList.contains(list.get(i)))
+                                    bannerList.add(list.get(i));*/
+                             //   veg.setVisibility(View.VISIBLE);
+                              //  schdeule_banner.setVisibility(View.VISIBLE);
+                               // sports_banner.setVisibility(View.VISIBLE);
+
                                 Log.e("positoin", String.valueOf(j));
                                 Log.e("positoin", String.valueOf(position1));
                                 /*Image Download */
-                                Glide.with(NewMainMenuFragment.this)
+                               /* Glide.with(NewMainMenuFragment.this)
                                         .load(list.get(i).getImage())
                                         .centerCrop()
                                         .diskCacheStrategy(DiskCacheStrategy.NONE)
                                         .skipMemoryCache(true)
                                         .dontAnimate()
-                                        .into(veg);
+                                        .into(veg);*/
                             }
                             else{
                                 if (!listclone.contains(list.get(i)))
@@ -348,7 +390,7 @@ veg.setOnClickListener(new View.OnClickListener() {
                     }*/
                 }
 
-
+              // updatebannerList(bannerList);
                 updateRecyclerView(listclone);
 
 
@@ -442,28 +484,55 @@ veg.setOnClickListener(new View.OnClickListener() {
                 Log.e("dataarrry",data_array[j]);
                 if(mFinalList.get(i).getSlug().equals(data_array[j]))
                 {
-                    if(mFinalList.get(i).getSlug().equals("meatbanner"))
+                   if(mFinalList.get(i).getSlug().contains("banner"))
+                    //if(Pattern.compile(Pattern.quote(mFinalList.get(i).getSlug()), Pattern.CASE_INSENSITIVE).matcher("banner").find())
                     {
-
                         Log.e("DESCRIPTION####",mFinalList.get(i).getDescription());
                         Log.e("imageurl###",mFinalList.get(i).getImage());
                         Log.e("id+4444", String.valueOf(mFinalList.get(i).getId()));
                         bannerId=Integer.parseInt(String.valueOf(list.get(i).getId()));
                         bannerName= String.valueOf(list.get(i).getName());
                         position1=j;
-                        veg.setVisibility(View.VISIBLE);
+
+
+
+                        BannerModel bannerModel = new BannerModel();
+
+                        bannerModel.setId(list.get(i).getId());
+                        bannerModel.setDescription(list.get(i).getDescription());
+                        bannerModel.setImage(list.get(i).getImage());
+                        bannerModel.setName(list.get(i).getName());
+                        bannerModel.setProduct_position(j);
+                        bannerModel.setSlug(list.get(i).getSlug());
+
+
+
+                        set.add(bannerModel);
+
+                        receiptsList = new ArrayList<BannerModel>(set);
+
+                        //receiptsList.add(bannerModel);
+
+                        /*if(!bannerList.contains(bannerModel))
+                        bannerList.add(bannerModel);*/
+
+
+                        /* if (!listclone.contains(list.get(i)))
+                                    listclone.add(list.get(i));*/
+
+
                         schdeule_banner.setVisibility(View.VISIBLE);
-                        sports_banner.setVisibility(View.VISIBLE);
-                        bannerslogen.setVisibility(View.VISIBLE);
+                     //   sports_banner.setVisibility(View.VISIBLE);
+
                         /*Image Download */
-                        Glide.with(NewMainMenuFragment.this)
+                     /*   Glide.with(NewMainMenuFragment.this)
                                 .load(mFinalList.get(i).getImage())
                                 .centerCrop()
                                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                                 .skipMemoryCache(true)
                                 .dontAnimate()
                                 .into(veg);
-
+*/
                     }
                     else{
                        if (!listclone.contains(mFinalList.get(i)))
@@ -485,32 +554,33 @@ veg.setOnClickListener(new View.OnClickListener() {
             }*/
         }
 
-
+      if(receiptsList!=null) {
+            setBannerRecycle(receiptsList);
+        }
 
         mRecyclerView.setHasFixedSize(true);
-        list =listclone;
+        list = listclone;
         mLayoutManager = new GridLayoutManager(getContext(), 3);
         //mLayoutManager = new LinearLayoutManager(getApplicationContext());
         ((GridLayoutManager) mLayoutManager).setOrientation(LinearLayout.VERTICAL);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new NewCategoriesAdapter(list, getContext());
         mRecyclerView.setAdapter(mAdapter);
-
-
         mAdapter.mCallback = (NewCategoriesAdapter.OnInterfaceListener) this;
-
 
     }
 
+public void setBannerRecycle(List<BannerModel> bannerList)
+{
+    bannerRecycle.setHasFixedSize(true);
+    mLayoutManager = new LinearLayoutManager(getContext());
+    bannerRecycle.setLayoutManager(mLayoutManager);
+    bannerRecycle.setLayoutManager(mLayoutManager);
+    bannerAdapter = new BannerAdapter(bannerList, getContext());
+    bannerRecycle.setAdapter(bannerAdapter);
+   // mAdapter.mCallback = (NewCategoriesAdapter.OnInterfaceListener) this;
+}
 
-    /*private void loadNet(CategoryRealmDb categoryRealmDb, int position) {
-        Uri uri = Uri.parse(categoryRealmDb.getImage());
-        requestBuilder
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                // SVG cannot be serialized so it's not worth to cache it
-                .load(uri)
-                .into(sports_banner);
-    }*/
 
     public void updateRecyclerView(List<CategoryRealmDb> mUpdatedList) {
         if (mSwipeRefreshLayout.isRefreshing())

@@ -150,7 +150,6 @@ public class UserProfileActivity extends AppCompatActivity {
         private void initPreferences(){
             PreferenceScreen screen = getPreferenceScreen();
             final SessionManager sessionManager = new SessionManager(getActivity());
-
             Preference my_account = findPreference(getString(R.string.key_my_account));
             Preference currentCity = findPreference(getString(R.string.key_current_city));
             Preference schedule_myproduct = findPreference(getString(R.string.key_schedule_my_product));

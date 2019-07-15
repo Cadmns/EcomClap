@@ -77,6 +77,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
     String shipping_charge,product_charge;
     String total_cart_amount;
     String tag;
+    TextView payment;
     public CartFragment() {
         // Required empty public constructor
     }
@@ -88,6 +89,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
         // Inflate the highlight_remove for this fragment
         view = inflater.inflate(R.layout.fragment_cart, container, false);
         layout_view_details = view.findViewById(R.id.view_payment_total);
+
         ButterKnife.bind(this,view);
         session = new SessionManager(getContext());
         readBundle(getArguments());
@@ -145,6 +147,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
     private void setCartLayout(){
         layoutCartItems = (LinearLayout) view.findViewById(R.id.layout_items);
         layoutCartPayments = (LinearLayout)  view.findViewById(R.id.layout_payment);
+        payment=(TextView) view.findViewById(R.id.text_action_bottom2);
         layoutCartNoItems = (LinearLayout)  view.findViewById(R.id.layout_cart_empty);
         layoutCartLoginNeeded = (LinearLayout)  view.findViewById(R.id.layout_login_empty);
 
@@ -159,6 +162,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
             layoutCartLoginNeeded.setVisibility(View.VISIBLE);
             layoutCartItems.setVisibility(View.GONE);
             layoutCartPayments.setVisibility(View.GONE);
+            payment.setVisibility(View.GONE);
             layoutCartNoItems.setVisibility(View.GONE);
 
             Button bStartShopping = (Button)view.findViewById(R.id.btn_login);
@@ -262,18 +266,23 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
                         Log.e("response2", String.valueOf(response.body()));
                         layoutCartNoItems.setVisibility(View.VISIBLE);
                         layoutCartPayments.setVisibility(View.GONE);
+                        payment.setVisibility(View.GONE);
                     }
                     if (new Gson().toJson(response.body()).contains("key")) {
                         Log.e("response3", String.valueOf(response.body()));
                         layoutCartLoginNeeded.setVisibility(View.GONE);
                         layoutCartItems.setVisibility(View.VISIBLE);
                         layoutCartPayments.setVisibility(View.VISIBLE);
+                        payment.setVisibility(View.VISIBLE);
+
                         layoutCartNoItems.setVisibility(View.GONE);
 
                         if (tag.equals("product"))
                             layoutCartPayments.setVisibility(View.GONE);
+
                         else
                             layoutCartPayments.setVisibility(View.VISIBLE);
+                           payment.setVisibility(View.VISIBLE);
                         try {
                             JSONObject jsonObject = new JSONObject(new Gson().toJson(response.body()));
                             Log.e("response5", String.valueOf(jsonObject));
@@ -307,6 +316,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
                         layoutCartLoginNeeded.setVisibility(View.GONE);
                         layoutCartItems.setVisibility(View.GONE);
                         layoutCartPayments.setVisibility(View.GONE);
+                        payment.setVisibility(View.GONE);
                         layoutCartNoItems.setVisibility(View.VISIBLE);
                         Log.e("Error","");
                     }
@@ -316,7 +326,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
             @Override
             public void onFailure(Call<JsonObject>  call, Throwable t) {
                 Log.e("onFailure",t.getLocalizedMessage());
-
+                layoutCartNoItems.setVisibility(View.VISIBLE);
                 if (progressDialog.isShowing())
                     progressDialog.dismiss();
 
@@ -422,7 +432,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
     }
 
     public void removeAt() {
-        mAdapter.removeItem(layoutCartNoItems,layoutCartPayments);
+        mAdapter.removeItem(layoutCartNoItems,layoutCartPayments,payment);
 
     }
 
@@ -450,6 +460,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
                     if (response.body().getTotal().equals(0)){
                         layoutCartNoItems.setVisibility(View.VISIBLE);
                         layoutCartPayments.setVisibility(View.GONE);
+                        payment.setVisibility(View.GONE);
                     }
                     else{
                         mProceed.setVisibility(View.VISIBLE);

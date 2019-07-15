@@ -1301,7 +1301,8 @@ id available_balance
 id avatar
 id balance
 id balance_container
-id bannerSlogan
+id banner_slide
+id bannerimage
 id barrier
 id beauty_spa
 id beginning
@@ -1762,7 +1763,6 @@ id useLogo
 id user_message
 id valid_till
 id variations_container
-id veg
 id vertual_cart
 id viewBottom
 id view_complain_details
@@ -1871,6 +1871,7 @@ layout activity_view_primary_wallet
 layout activity_welcome
 layout add_or_repeat_sheet
 layout add_referral_fragment
+layout banner_list
 layout checkout_bottom_sheet
 layout citylocation_list
 layout complain_details_sheet

@@ -61,7 +61,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
 
 
 
-    public void removeItem(LinearLayout layout_cart_empty,LinearLayout layoutCartPayments) {
+    public void removeItem(LinearLayout layout_cart_empty,LinearLayout layoutCartPayments,TextView payment) {
 
       /*  try {
             mProducts.remove(position);
@@ -77,6 +77,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
 
             layout_cart_empty.setVisibility(View.VISIBLE);
             layoutCartPayments.setVisibility(View.GONE);
+            payment.setVisibility(View.GONE);
         }
 
 
