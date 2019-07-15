@@ -110,9 +110,7 @@ public class BannerAdapter  extends  RecyclerView.Adapter<BannerAdapter.ViewAdap
     }
 
     class ViewAdapter extends RecyclerView.ViewHolder {
-
         ImageView bannerimage;
-
         ViewAdapter(View itemView) {
             super(itemView);
 

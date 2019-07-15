@@ -177,12 +177,10 @@ MERGED from [com.android.support:palette-v7:25.0.1] C:\Users\Dhruv\.gradle\cache
 		ADDED from C:\Users\Dhruv\Desktop\ecommclapv2\app\src\main\AndroidManifest.xml:15:9-41
 	tools:ignore
 		ADDED from C:\Users\Dhruv\Desktop\ecommclapv2\app\src\main\AndroidManifest.xml:20:9-48
-	android:roundIcon
-		ADDED from C:\Users\Dhruv\Desktop\ecommclapv2\app\src\main\AndroidManifest.xml:16:9-50
 	tools:targetApi
 		ADDED from C:\Users\Dhruv\Desktop\ecommclapv2\app\src\main\AndroidManifest.xml:21:9-28
 	android:icon
-		ADDED from C:\Users\Dhruv\Desktop\ecommclapv2\app\src\main\AndroidManifest.xml:14:9-45
+		ADDED from C:\Users\Dhruv\Desktop\ecommclapv2\app\src\main\AndroidManifest.xml:14:9-47
 		REJECTED from [com.cepheuen.elegant-number-button:lib:1.0.2] C:\Users\Dhruv\.gradle\caches\transforms-2\files-2.1\fc002b5d6f67422962c32551e79ae725\AndroidManifest.xml:13:9-43
 	android:allowBackup
 		ADDED from C:\Users\Dhruv\Desktop\ecommclapv2\app\src\main\AndroidManifest.xml:13:9-35
