@@ -163,8 +163,18 @@ public class AllServiceActivity extends AppCompatActivity implements ImageListFr
         }
 
         public void addFragment(Fragment fragment, String title) {
-            mFragments.add(fragment);
-            mFragmentTitles.add(title);
+
+            Log.e("baneeer+++++++++++++++",title);
+
+            if(title.contains("banner")){
+                String newTitlit=title.replace("banner","");
+                mFragments.add(fragment);
+                mFragmentTitles.add(newTitlit);
+            }
+            else {
+                mFragments.add(fragment);
+                mFragmentTitles.add(title);
+            }
             notifyDataSetChanged();
 
         }

@@ -36,9 +36,9 @@ public final class R {
         public static final int cw_270 = 0x7f090091;
         public static final int cw_90 = 0x7f090092;
         public static final int linear = 0x7f090110;
-        public static final int radial = 0x7f09017c;
-        public static final int restart = 0x7f09018e;
-        public static final int reverse = 0x7f09018f;
+        public static final int radial = 0x7f09017d;
+        public static final int restart = 0x7f09018f;
+        public static final int reverse = 0x7f090190;
     }
     public static final class styleable {
         private styleable() {}

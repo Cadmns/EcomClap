@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Dhruv\\Desktop\\ecommclapv2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v17\\values-v17.xml",
+            "outputFile": "C:\\Users\\Admin\\Desktop\\ecommclapv2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v17\\values-v17.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Dhruv\\.gradle\\caches\\transforms-2\\files-2.1\\5820dfb8363fe728e50b284718eee09c\\res\\values-v17\\values-v17.xml",
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\a76f000470d9ca99279cbd4c32c8c12a\\res\\values-v17\\values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,26,29,32,35,39,42,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Dhruv\\.gradle\\caches\\transforms-2\\files-2.1\\8b0b4010a6c3972b377a7bd21473b34b\\res\\values-v17\\values-v17.xml",
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\b059192f21aaad155b05f4710d954614\\res\\values-v17\\values-v17.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -42,7 +42,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Dhruv\\.gradle\\caches\\transforms-2\\files-2.1\\435f233883e130fca1554f7629cd268a\\res\\values-v17\\values-v17.xml",
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\8955e387d9b75dbf4dfda69e8f5ca4a3\\res\\values-v17\\values-v17.xml",
                     "from": {
                         "startLines": "2,7",
                         "startColumns": "4,4",

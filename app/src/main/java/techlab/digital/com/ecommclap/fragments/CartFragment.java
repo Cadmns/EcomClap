@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -78,6 +79,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
     String total_cart_amount;
     String tag;
     TextView payment;
+    ProgressBar pgsBar;
     public CartFragment() {
         // Required empty public constructor
     }
@@ -145,6 +147,9 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
     }
 
     private void setCartLayout(){
+
+        pgsBar = view.findViewById(R.id.pBar);
+        pgsBar.setVisibility(View.VISIBLE);
         layoutCartItems = (LinearLayout) view.findViewById(R.id.layout_items);
         layoutCartPayments = (LinearLayout)  view.findViewById(R.id.layout_payment);
         payment=(TextView) view.findViewById(R.id.text_action_bottom2);
@@ -164,6 +169,8 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
             layoutCartPayments.setVisibility(View.GONE);
             payment.setVisibility(View.GONE);
             layoutCartNoItems.setVisibility(View.GONE);
+
+            mToalViewPayment.setVisibility(View.GONE);
 
             Button bStartShopping = (Button)view.findViewById(R.id.btn_login);
             bStartShopping.setOnClickListener(new View.OnClickListener() {
@@ -206,6 +213,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
 
     ProgressDialog progressDialog;
     private void fetchCartItems(){
+      //  pgsBar.setVisibility(View.VISIBLE);
         progressDialog = new ProgressDialog(getContext());
 
         // Setting up message in Progress dialog.
@@ -252,13 +260,13 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
                     }
 */
 
-                   try {
+                    try {
                         //System.out.println("Rrespppppp--->"+response.body().string());
                         System.out.println("user Info :" + response.body().getAsJsonObject());
                         JSONObject profileFileUploadResponse = new JSONObject(String.valueOf(response.body()));
                         Log.e("retro", "retroFileResp------------------>" + profileFileUploadResponse);
                     }
-                     catch (JSONException e) {
+                    catch (JSONException e) {
                         e.printStackTrace();
                     }
                     Log.e("response1", String.valueOf(response.body().toString()));
@@ -266,14 +274,16 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
                         Log.e("response2", String.valueOf(response.body()));
                         layoutCartNoItems.setVisibility(View.VISIBLE);
                         layoutCartPayments.setVisibility(View.GONE);
-                        payment.setVisibility(View.GONE);
+                         payment.setVisibility(View.GONE);
+
+                       mToalViewPayment.setVisibility(View.GONE);
                     }
                     if (new Gson().toJson(response.body()).contains("key")) {
                         Log.e("response3", String.valueOf(response.body()));
                         layoutCartLoginNeeded.setVisibility(View.GONE);
                         layoutCartItems.setVisibility(View.VISIBLE);
                         layoutCartPayments.setVisibility(View.VISIBLE);
-                        payment.setVisibility(View.VISIBLE);
+                       // payment.setVisibility(View.VISIBLE);              //comment this ............
 
                         layoutCartNoItems.setVisibility(View.GONE);
 
@@ -282,7 +292,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
 
                         else
                             layoutCartPayments.setVisibility(View.VISIBLE);
-                           payment.setVisibility(View.VISIBLE);
+                           // payment.setVisibility(View.VISIBLE);          //comment this ............
                         try {
                             JSONObject jsonObject = new JSONObject(new Gson().toJson(response.body()));
                             Log.e("response5", String.valueOf(jsonObject));
@@ -318,6 +328,8 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
                         layoutCartPayments.setVisibility(View.GONE);
                         payment.setVisibility(View.GONE);
                         layoutCartNoItems.setVisibility(View.VISIBLE);
+
+                        mToalViewPayment.setVisibility(View.GONE);
                         Log.e("Error","");
                     }
                 }
@@ -374,7 +386,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
                 if(response.isSuccessful()){
 
                     Toast.makeText(getContext(),"Remove successfull",Toast.LENGTH_SHORT).show();
-                 //removeAt();
+                    //removeAt();
                     getCartTotal();
 
 
@@ -450,6 +462,9 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
 
 
     private void getCartTotal(){
+
+        pgsBar.setVisibility(View.VISIBLE);
+
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<CartTotalResponse> call = apiService.getCartTotal("Bearer " + session.getKeySession(),session.getUserId());
 
@@ -461,10 +476,16 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
                         layoutCartNoItems.setVisibility(View.VISIBLE);
                         layoutCartPayments.setVisibility(View.GONE);
                         payment.setVisibility(View.GONE);
+
+                        mToalViewPayment.setVisibility(View.GONE);
                     }
                     else{
                         mProceed.setVisibility(View.VISIBLE);
                         mToalPayment.setText("Rs : " + response.body().getTotal());
+                        pgsBar.setVisibility(View.GONE);
+                        payment.setVisibility(View.VISIBLE);
+
+                        mToalViewPayment.setVisibility(View.VISIBLE);
                         total_cart_amount = response.body().getTotal();
                         product_charge = response.body().getSubtotal();
                         shipping_charge = response.body().getShippingTotal();
@@ -490,6 +511,12 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
     }
 
     private void updateQuantity(String key,String quantity){
+
+      //  layoutCartPayments.setVisibility(View.GONE);
+          payment.setVisibility(View.GONE);
+        mToalViewPayment.setVisibility(View.GONE);
+      //  layout_view_details.setVisibility(View.GONE);
+
         progressDialog = new ProgressDialog(getContext());
 
         // Setting up message in Progress dialog.
@@ -532,6 +559,13 @@ public class CartFragment extends Fragment implements CartAdapter.OnInterfaceLis
 
 
     private void removeItemsCart2(String key){
+
+
+        //layoutCartPayments.setVisibility(View.GONE);
+        payment.setVisibility(View.GONE);
+        mToalViewPayment.setVisibility(View.GONE);
+        //layout_view_details.setVisibility(View.GONE);
+
         progressDialog = new ProgressDialog(getContext());
         // Setting up message in Progress dialog.
         progressDialog.setMessage("Loading..");

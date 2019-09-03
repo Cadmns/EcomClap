@@ -81,7 +81,7 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:background="@drawable/rounded_button"
-                android:text="Con't find my item"
+                android:text="Can not find my item"
                 android:layout_marginRight="@dimen/dimen_10dp"
                 android:layout_marginLeft="@dimen/dimen_15dp"
                 android:textSize="@dimen/dimen_15dp" />

@@ -53,9 +53,9 @@ TextView cannot_find_item,price_are_high,too_less_info,others,titleTextView;
 LinearLayout linearLayout;
 EditText message;
     Button submitEmail,view_complain;
-SessionManager sessionManager;
-ViewFlipper viewFlipper;
-int order_id,key;
+   SessionManager sessionManager;
+  ViewFlipper viewFlipper;
+   int order_id,key;
     String title;
     Editable content;
 

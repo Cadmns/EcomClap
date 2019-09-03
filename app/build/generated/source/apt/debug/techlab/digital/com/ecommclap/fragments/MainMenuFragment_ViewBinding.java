@@ -29,9 +29,9 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
 
   private View view2131296332;
 
-  private View view2131296717;
+  private View view2131296718;
 
-  private View view2131296770;
+  private View view2131296771;
 
   private View view2131296439;
 
@@ -97,7 +97,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.sports_goods, "field 'mSportsGoods' and method 'sportsgoods'");
     target.mSportsGoods = Utils.castView(view, R.id.sports_goods, "field 'mSportsGoods'", CardView.class);
-    view2131296717 = view;
+    view2131296718 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -106,7 +106,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.tutors, "field 'mTutors' and method 'tutors'");
     target.mTutors = Utils.castView(view, R.id.tutors, "field 'mTutors'", CardView.class);
-    view2131296770 = view;
+    view2131296771 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -156,10 +156,10 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     view2131296450 = null;
     view2131296332.setOnClickListener(null);
     view2131296332 = null;
-    view2131296717.setOnClickListener(null);
-    view2131296717 = null;
-    view2131296770.setOnClickListener(null);
-    view2131296770 = null;
+    view2131296718.setOnClickListener(null);
+    view2131296718 = null;
+    view2131296771.setOnClickListener(null);
+    view2131296771 = null;
     view2131296439.setOnClickListener(null);
     view2131296439 = null;
   }

@@ -29,7 +29,7 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
 
   private View view2131296338;
 
-  private View view2131296651;
+  private View view2131296652;
 
   @UiThread
   public CheckoutProductActivity_ViewBinding(CheckoutProductActivity target) {
@@ -95,7 +95,7 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
     target.coupon_succesfully_applied = Utils.findRequiredViewAsType(source, R.id.coupon_apllied_success, "field 'coupon_succesfully_applied'", TextView.class);
     view = Utils.findRequiredView(source, R.id.remove_applied_coupon, "field 'remove_promo_code' and method 'removeAppliedPromoCode'");
     target.remove_promo_code = Utils.castView(view, R.id.remove_applied_coupon, "field 'remove_promo_code'", TextView.class);
-    view2131296651 = view;
+    view2131296652 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -141,7 +141,7 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
     view2131296545 = null;
     view2131296338.setOnClickListener(null);
     view2131296338 = null;
-    view2131296651.setOnClickListener(null);
-    view2131296651 = null;
+    view2131296652.setOnClickListener(null);
+    view2131296652 = null;
   }
 }

@@ -55,14 +55,14 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int calendar_bg_selector = 0x7f08007b;
+        public static final int calendar_bg_selector = 0x7f08007c;
     }
     public static final class id {
         private id() {}
 
         public static final int calendar_grid = 0x7f090058;
         public static final int day_view_adapter_class = 0x7f090096;
-        public static final int title = 0x7f0901f2;
+        public static final int title = 0x7f0901f3;
     }
     public static final class layout {
         private layout() {}

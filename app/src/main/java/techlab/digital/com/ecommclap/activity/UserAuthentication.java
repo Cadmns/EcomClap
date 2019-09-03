@@ -139,10 +139,7 @@ public class UserAuthentication extends AppCompatActivity implements View.OnClic
             //  }
         }else {
             //do something, net is not connected
-
-            Toast.makeText(getApplicationContext(), "Connect to internet", Toast.LENGTH_SHORT).show();
-
-        }
+            Toast.makeText(getApplicationContext(), "Connect to internet", Toast.LENGTH_SHORT).show(); }
 
         return false;
 

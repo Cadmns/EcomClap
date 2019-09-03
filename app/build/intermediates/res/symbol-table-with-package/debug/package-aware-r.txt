@@ -1106,6 +1106,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable active_dot
 drawable add_btn_radius
+drawable applogo
 drawable avd_hide_password
 drawable avd_show_password
 drawable back_arrow
@@ -1203,6 +1204,7 @@ drawable ic_wallet
 drawable ic_wallet_bg
 drawable ic_whatsapp
 drawable ic_wishlist
+drawable logoappp2
 drawable navigation_empty_icon
 drawable notification_action_background
 drawable notification_bg
@@ -1570,6 +1572,7 @@ id one
 id orderTitle
 id order_id
 id others
+id pBar
 id packed
 id page_slogan
 id paid_status
