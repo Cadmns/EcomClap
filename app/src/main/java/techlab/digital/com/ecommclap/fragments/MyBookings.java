@@ -225,7 +225,7 @@ public class MyBookings extends Fragment implements SwipeRefreshLayout.OnRefresh
     }
 
     private void setAdapter(ArrayList<HistoryResponse> mFinalList) {
-
+Log.e("list++++", String.valueOf(mFinalList));
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -233,6 +233,15 @@ public class MyBookings extends Fragment implements SwipeRefreshLayout.OnRefresh
 
         mRecyclerView.setAdapter(mAdapter);
 
-        mAdapter.notifyDataSetChanged();
+        //mAdapter.notifyDataSetChanged();
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (progressDialog!=null && progressDialog.isShowing()){
+            progressDialog.dismiss();
+        }
     }
 }

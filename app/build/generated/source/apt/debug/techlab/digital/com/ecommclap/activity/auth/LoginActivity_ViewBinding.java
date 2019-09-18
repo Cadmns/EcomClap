@@ -20,9 +20,9 @@ public class LoginActivity_ViewBinding implements Unbinder {
 
   private View view2131296334;
 
-  private View view2131296534;
+  private View view2131296537;
 
-  private View view2131296452;
+  private View view2131296453;
 
   @UiThread
   public LoginActivity_ViewBinding(LoginActivity target) {
@@ -45,7 +45,7 @@ public class LoginActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.link_signup, "field 'mSignUp' and method 'newSignUp'");
     target.mSignUp = Utils.castView(view, R.id.link_signup, "field 'mSignUp'", TextView.class);
-    view2131296534 = view;
+    view2131296537 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -57,7 +57,7 @@ public class LoginActivity_ViewBinding implements Unbinder {
     target.mToolBar = Utils.findRequiredViewAsType(source, R.id.toolbar, "field 'mToolBar'", Toolbar.class);
     view = Utils.findRequiredView(source, R.id.forgotPassword, "field 'mForgotPassword' and method 'forgotPassword'");
     target.mForgotPassword = Utils.castView(view, R.id.forgotPassword, "field 'mForgotPassword'", TextView.class);
-    view2131296452 = view;
+    view2131296453 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -82,9 +82,9 @@ public class LoginActivity_ViewBinding implements Unbinder {
 
     view2131296334.setOnClickListener(null);
     view2131296334 = null;
-    view2131296534.setOnClickListener(null);
-    view2131296534 = null;
-    view2131296452.setOnClickListener(null);
-    view2131296452 = null;
+    view2131296537.setOnClickListener(null);
+    view2131296537 = null;
+    view2131296453.setOnClickListener(null);
+    view2131296453 = null;
   }
 }

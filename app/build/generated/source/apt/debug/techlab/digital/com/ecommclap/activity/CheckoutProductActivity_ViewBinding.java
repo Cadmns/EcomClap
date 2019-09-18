@@ -21,15 +21,15 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
 
   private View view2131296311;
 
-  private View view2131296515;
+  private View view2131296518;
 
   private View view2131296333;
 
-  private View view2131296545;
+  private View view2131296547;
 
   private View view2131296338;
 
-  private View view2131296652;
+  private View view2131296658;
 
   @UiThread
   public CheckoutProductActivity_ViewBinding(CheckoutProductActivity target) {
@@ -53,7 +53,7 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
     target.mScriollView = Utils.findRequiredViewAsType(source, R.id.scrollView, "field 'mScriollView'", NestedScrollView.class);
     view = Utils.findRequiredView(source, R.id.layout_action1, "field 'mEditLayout' and method 'mEditLayout'");
     target.mEditLayout = Utils.castView(view, R.id.layout_action1, "field 'mEditLayout'", LinearLayout.class);
-    view2131296515 = view;
+    view2131296518 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -75,7 +75,7 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
     target.order_money_layout = Utils.findRequiredViewAsType(source, R.id.balance_container, "field 'order_money_layout'", LinearLayout.class);
     view = Utils.findRequiredView(source, R.id.mcheckBox, "field 'reward_checkbox' and method 'mRewardCheckBoxClicked'");
     target.reward_checkbox = Utils.castView(view, R.id.mcheckBox, "field 'reward_checkbox'", CheckBox.class);
-    view2131296545 = view;
+    view2131296547 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -95,7 +95,7 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
     target.coupon_succesfully_applied = Utils.findRequiredViewAsType(source, R.id.coupon_apllied_success, "field 'coupon_succesfully_applied'", TextView.class);
     view = Utils.findRequiredView(source, R.id.remove_applied_coupon, "field 'remove_promo_code' and method 'removeAppliedPromoCode'");
     target.remove_promo_code = Utils.castView(view, R.id.remove_applied_coupon, "field 'remove_promo_code'", TextView.class);
-    view2131296652 = view;
+    view2131296658 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -133,15 +133,15 @@ public class CheckoutProductActivity_ViewBinding implements Unbinder {
 
     view2131296311.setOnClickListener(null);
     view2131296311 = null;
-    view2131296515.setOnClickListener(null);
-    view2131296515 = null;
+    view2131296518.setOnClickListener(null);
+    view2131296518 = null;
     view2131296333.setOnClickListener(null);
     view2131296333 = null;
-    view2131296545.setOnClickListener(null);
-    view2131296545 = null;
+    view2131296547.setOnClickListener(null);
+    view2131296547 = null;
     view2131296338.setOnClickListener(null);
     view2131296338 = null;
-    view2131296652.setOnClickListener(null);
-    view2131296652 = null;
+    view2131296658.setOnClickListener(null);
+    view2131296658 = null;
   }
 }

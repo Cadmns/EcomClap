@@ -10,7 +10,8 @@ public interface Api {
 
     //this is the URL of the paytm folder that we added in the server
     //make sure you are using your ip else it will not work
-    String BASE_URL = "http://techlabdigital.co.in/demo/paytm_app/";
+   //String BASE_URL = "http://techlabdigital.co.in/demo/paytm_app/";
+    String BASE_URL = "http://cadmns.com/ecom-urbanclap_paytm/paytm_app/";
 
     @FormUrlEncoded
     @POST("generateChecksum.php")

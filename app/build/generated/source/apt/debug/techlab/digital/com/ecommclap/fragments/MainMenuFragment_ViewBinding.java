@@ -19,19 +19,19 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
 
   private View view2131296322;
 
-  private View view2131296470;
+  private View view2131296472;
 
-  private View view2131296547;
+  private View view2131296549;
 
-  private View view2131296457;
+  private View view2131296458;
 
-  private View view2131296450;
+  private View view2131296451;
 
   private View view2131296332;
 
-  private View view2131296718;
+  private View view2131296726;
 
-  private View view2131296771;
+  private View view2131296783;
 
   private View view2131296439;
 
@@ -52,7 +52,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.home_service, "field 'mHomeService' and method 'homeService'");
     target.mHomeService = Utils.castView(view, R.id.home_service, "field 'mHomeService'", CardView.class);
-    view2131296470 = view;
+    view2131296472 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +61,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.medical_health, "field 'mMedical_health' and method 'medicalhealth'");
     target.mMedical_health = Utils.castView(view, R.id.medical_health, "field 'mMedical_health'", CardView.class);
-    view2131296547 = view;
+    view2131296549 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -70,7 +70,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.fruit_vegetables, "field 'mFruits_vegetables' and method 'fruitVegetables'");
     target.mFruits_vegetables = Utils.castView(view, R.id.fruit_vegetables, "field 'mFruits_vegetables'", CardView.class);
-    view2131296457 = view;
+    view2131296458 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -79,7 +79,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.food, "field 'mFood' and method 'food'");
     target.mFood = Utils.castView(view, R.id.food, "field 'mFood'", CardView.class);
-    view2131296450 = view;
+    view2131296451 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -97,7 +97,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.sports_goods, "field 'mSportsGoods' and method 'sportsgoods'");
     target.mSportsGoods = Utils.castView(view, R.id.sports_goods, "field 'mSportsGoods'", CardView.class);
-    view2131296718 = view;
+    view2131296726 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -106,7 +106,7 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.tutors, "field 'mTutors' and method 'tutors'");
     target.mTutors = Utils.castView(view, R.id.tutors, "field 'mTutors'", CardView.class);
-    view2131296771 = view;
+    view2131296783 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -146,20 +146,20 @@ public class MainMenuFragment_ViewBinding implements Unbinder {
 
     view2131296322.setOnClickListener(null);
     view2131296322 = null;
-    view2131296470.setOnClickListener(null);
-    view2131296470 = null;
-    view2131296547.setOnClickListener(null);
-    view2131296547 = null;
-    view2131296457.setOnClickListener(null);
-    view2131296457 = null;
-    view2131296450.setOnClickListener(null);
-    view2131296450 = null;
+    view2131296472.setOnClickListener(null);
+    view2131296472 = null;
+    view2131296549.setOnClickListener(null);
+    view2131296549 = null;
+    view2131296458.setOnClickListener(null);
+    view2131296458 = null;
+    view2131296451.setOnClickListener(null);
+    view2131296451 = null;
     view2131296332.setOnClickListener(null);
     view2131296332 = null;
-    view2131296718.setOnClickListener(null);
-    view2131296718 = null;
-    view2131296771.setOnClickListener(null);
-    view2131296771 = null;
+    view2131296726.setOnClickListener(null);
+    view2131296726 = null;
+    view2131296783.setOnClickListener(null);
+    view2131296783 = null;
     view2131296439.setOnClickListener(null);
     view2131296439 = null;
   }

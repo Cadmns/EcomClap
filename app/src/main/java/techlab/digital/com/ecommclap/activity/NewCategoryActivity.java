@@ -94,17 +94,12 @@ public class NewCategoryActivity extends AppCompatActivity{
         }
         ButterKnife.bind(this);
         initViews();
-        requestOtpReadpermission();
+      //  requestOtpReadpermission();
 
 
     }
 
-    private void requestOtpReadpermission(){
 
-        if (ContextCompat.checkSelfPermission(NewCategoryActivity.this, Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(NewCategoryActivity.this, new String[]{Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS}, 101);
-        }
-    }
 
     private void initViews(){
 
@@ -112,9 +107,8 @@ public class NewCategoryActivity extends AppCompatActivity{
         setSupportActionBar(mToolBar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         loadFragment(NewMainMenuFragment.newInstance());
-
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        BottomNavigationViewHelper.disableShiftMode(navigation);
+//        BottomNavigationViewHelper.disableShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         toolbar_title.setText(R.string.app_name);
 

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Admin\\Desktop\\ecommclapv2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v9\\values-v9.xml",
+            "outputFile": "C:\\Users\\Admin\\Desktop\\new eco clap\\ecommclapv2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v9\\values-v9.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\3af3db0f65b46cf87deb2441025a6557\\res\\values-v9\\values-v9.xml",
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\android-times-square-1.6.5.aar\\9465d6b4d168d14724c69d75388e077e\\res\\values-v9\\values-v9.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "4",

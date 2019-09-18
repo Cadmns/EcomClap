@@ -73,7 +73,9 @@ public class PaytmGatweyActivity extends AppCompatActivity implements PaytmPayme
     private void generateCheckSum() {
 
         //getting the tax amount first.
-        String txnAmount = collectingMoney;
+       String txnAmount = collectingMoney;
+       // String txnAmount = "1";
+
 
         //creating a retrofit object.
         Retrofit retrofit = new Retrofit.Builder()
@@ -127,10 +129,10 @@ public class PaytmGatweyActivity extends AppCompatActivity implements PaytmPayme
     private void initializePaytmPayment(String checksumHash, Paytm paytm) {
 
         //getting paytm service
-        PaytmPGService Service = PaytmPGService.getStagingService();
+        //PaytmPGService Service = PaytmPGService.getStagingService();
 
         //use this when using for production
-        //PaytmPGService Service = PaytmPGService.getProductionService();
+        PaytmPGService Service = PaytmPGService.getProductionService();
 
         //creating a hashmap and adding all the values required
         Map<String, String> paramMap = new HashMap<>();
@@ -162,9 +164,8 @@ public class PaytmGatweyActivity extends AppCompatActivity implements PaytmPayme
 
         Toast.makeText(this, "success", Toast.LENGTH_LONG).show();
 
-
         String txid = bundle.getString("ORDERID");
-
+         Log.e("txid++++++++++++=",txid+"   hasOrderId    "+bundle.toString());
         if (!hasOrderId){
             Intent returnIntent = new Intent();
             returnIntent.putExtra("result",temp_id);

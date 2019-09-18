@@ -514,11 +514,8 @@ public class CheckoutProductActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Connect to internet", Toast.LENGTH_SHORT).show();
 
         }
-
         return false;
-
     }
-
     @OnClick(R.id.btn_signup)
     public void mBookProduct(View view){
         if (mBtn_flag){

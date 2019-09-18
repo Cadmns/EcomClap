@@ -31,6 +31,7 @@ public class OrdersListAdapter extends RecyclerView.Adapter<OrdersListAdapter.Vi
         super();
         this.context = mActivity;
         this.displayItems = ordersModelArrayList;
+        Log.e("listsize+++", String.valueOf(ordersModelArrayList.size()));
 
     }
 

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.paytm.intentupi:paytmintentupi-1.1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/paytmintentupi-1.1.2.aar/2a36fdd05a0b89b2dd932c880e94d2bb/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/paytmintentupi-1.1.2.aar/2a36fdd05a0b89b2dd932c880e94d2bb/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.paytm.intentupi/paytmintentupi/1.1.2/60d92903dd6ab2bb6088472eed929c43bb86fc98/paytmintentupi-1.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

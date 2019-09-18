@@ -20,7 +20,7 @@ import techlab.digital.com.ecommclap.R;
 public class CheckOutServiceActivity_ViewBinding implements Unbinder {
   private CheckOutServiceActivity target;
 
-  private View view2131296515;
+  private View view2131296518;
 
   private View view2131296338;
 
@@ -38,7 +38,7 @@ public class CheckOutServiceActivity_ViewBinding implements Unbinder {
     target.mScriollView = Utils.findRequiredViewAsType(source, R.id.scrollView, "field 'mScriollView'", ScrollView.class);
     view = Utils.findRequiredView(source, R.id.layout_action1, "field 'mEditLayout' and method 'mEditLayout'");
     target.mEditLayout = Utils.castView(view, R.id.layout_action1, "field 'mEditLayout'", LinearLayout.class);
-    view2131296515 = view;
+    view2131296518 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -98,8 +98,8 @@ public class CheckOutServiceActivity_ViewBinding implements Unbinder {
     target.second_date = null;
     target.mdates_container = null;
 
-    view2131296515.setOnClickListener(null);
-    view2131296515 = null;
+    view2131296518.setOnClickListener(null);
+    view2131296518 = null;
     view2131296338.setOnClickListener(null);
     view2131296338 = null;
   }
